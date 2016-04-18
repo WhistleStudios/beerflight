@@ -1,0 +1,39 @@
+#fixed-beerflight-container {
+  position:fixed;
+  bottom:0;
+  right:0;
+  width:100%;
+  z-index: 9999;
+  background: #eeeeee; /* Old browsers */
+  background: -webkit-linear-gradient(#eeeeee 0%, #cccccc 100%);
+  background: -o-linear-gradient(#eeeeee 0%, #cccccc 100%);
+  background: linear-gradient(#eeeeee 0%, #cccccc 100%);   
+}
+#fixed-beerflight {
+  padding: 5px 0;
+  overflow: auto; 
+}
+#fixed-beerflight .group { 
+  float: left; 
+  padding-left: 15px;
+}
+#fixed-beerflight h1 {
+  color: #000;
+  margin: 0 0 5px;
+  font: bold 14px sans-serif;
+  border-bottom: solid 1px #ccc;
+}
+#fixed-beerflight button,
+#fixed-beerflight button:hover,
+#fixed-beerflight button:focus,
+#fixed-beerflight button:active {
+  margin: 0 2px;
+  padding: 5px;
+  border: solid 1px #000;
+  color: #000;
+  font: normal 12px sans-serif;
+  box-shadow: none;
+  outline: none!;
+  border-radius: 4px;
+  background: #d1d1d1;
+}
