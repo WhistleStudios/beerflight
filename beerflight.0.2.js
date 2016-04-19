@@ -161,6 +161,9 @@ var cb = function(){
         if(btn.hasAttribute('data-callback')) {
           btnElem.callback = btn.getAttribute('data-callback');
         }        
+        if(btn.hasAttribute('data-targetId')) {
+          btnElem.targetId = btn.getAttribute('data-targetId');
+        }      
         btnElem.label = btn.textContent;
         buttons.push(btnElem);
       }
