@@ -1,0 +1,125 @@
+/* BASE LAYOUT STYLES */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  background: darkgray;
+  color: white;
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+}
+
+body > h1 { /* heading outside of demo content */
+  text-align: center;
+  color: yellow;
+}
+
+main { /* container for example layout */
+  position: relative;
+  width: 56em;
+  height: 30em;
+  background: white;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+.content {
+  background: #CCCCCC;
+}
+
+#header, #main-content {
+  margin: 1em 1em 2em 19em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#header h2, #main-content h2 {
+  font-size: 200%;
+}
+
+#header {
+  background: #FF9999;
+  height: 8em;
+}
+
+#header h2 {
+  /* */
+}
+
+#main-content {
+  height: 18em;
+}
+
+#sidebar {
+  width: 16em;
+  height: 28em;
+  position: absolute;
+  top: 2em;
+  left: 2em;
+
+}
+
+#bell {
+  position: absolute;
+  right: 1.6em;
+  top: 1.6em;
+  font-size: 160%;
+}
+
+.notification-card {
+  position: absolute; /* normally would be fixed, if the main div filled the screen */
+  box-sizing: border-box;
+  bottom: 0.6em;
+  right: 0.6em;
+  height: 8em;
+  width: 16em;
+  color: #CCCCCC;
+  padding: 1em;
+  background-color: white;
+  border: 1px solid #CCCCCC;
+
+  -webkit-transition: opacity 2s ease-in;
+  -moz-transition: opacity 2s ease-in;
+  -ms-transition: opacity 2s ease-in;
+  -o-transition: opacity 2s ease-in;
+  transition: opacity 2s ease-in;
+}
+
+.notification-card {
+  padding: 0.4em 5em 0.4em 0.4em;
+}
+
+.notification-card * {
+  margin: 0;
+  font-size: 110%;
+}
+
+.notification-card h3 {
+  font-weight: bold;
+}
+
+/* end of BASE LAYOUT STYLES */
+
+.blue-version-element { /* hides the .blue-version-element stuff by default (ie when red is in vogue) */
+  display: none;
+}
+
+#header.try-blue {
+  background: #99CCFF; /* a blue */
+}
+
+.try-blue .blue-version-element {
+  display: block; /* show blue-version specific elements when red is away */
+}
+
+.try-blue .red-version-element { /* hides .red-version specific elements when trying blue */
+  display: none;
+}
+
+.notification-card {
+  display: none;
+}
+
+.try-notification .notification-card {
+  display: block;
+}
