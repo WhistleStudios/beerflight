@@ -11,14 +11,19 @@
 
     <h1>Introducing Beer Flight</h1>
 
-    <main>
+    <main id="demo">
 
       <div id="header">
         <h2 class="red-version-element">Version A</h2>
         <h2 class="blue-version-element">Version B</h2>
-        <!-- <h2 class="notifications">Notifications</h2> -->
-        <i class="fa fa-bell-o" aria-hidden="true" id="bell"></i>
-        <!-- <svg class="sans-notification-version-element" id="notification-bell" data-name="Beer Flight Notification Bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1{fill:#ccc;}</style></defs><title>Beerflight-Notification</title><path class="cls-1" d="M1219,898a5.13,5.13,0,0,1-10,0h10Zm10.66-3.75C1219,887,1227,870,1214,870h0c-13,0-5,17-15.66,24.25a0.89,0.89,0,0,0-.34.75,1,1,0,0,0,1,1h30a1,1,0,0,0,1-1A0.89,0.89,0,0,0,1229.66,894.25Z" transform="translate(-1198 -870)"/><text x="-1198" y="-870"/></svg> -->
+        <!-- <h2 class="notifications-element">Notifications</h2> -->
+
+        <div id="notification-icon">
+          <i class="fa fa-bell-o" aria-hidden="true" id="bell"></i>
+          <!-- <svg class="sans-notification-version-element" id="notification-bell" data-name="Beer Flight Notification Bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1{fill:#ccc;}</style></defs><title>Beerflight-Notification</title><path class="cls-1" d="M1219,898a5.13,5.13,0,0,1-10,0h10Zm10.66-3.75C1219,887,1227,870,1214,870h0c-13,0-5,17-15.66,24.25a0.89,0.89,0,0,0-.34.75,1,1,0,0,0,1,1h30a1,1,0,0,0,1-1A0.89,0.89,0,0,0,1229.66,894.25Z" transform="translate(-1198 -870)"/><text x="-1198" y="-870"/></svg> -->
+          <div class="notification-bubble notification-version-element">1</div>
+        </div>
+
       </div>
 
       <div id="main-content" class="content"></div>
@@ -27,7 +32,7 @@
 
       <div id="notifications">
 
-        <div class="notification-card with-notification-version-element">
+        <div class="notification-card notification-version-element">
           <h3>Notification</h3>
           <p>Demonstrated with a timed fade-in.</p>
         </div>
@@ -36,10 +41,9 @@
 
     </main>
 
-    <div data-beerflight="Demo" style="display:none;">
-      <button data-beer="toggleRedBlue" data-toggleClass="try-blue" data-targetId="header">Toggle between red and blue</button>
-      <button data-beer="toggleNotification" data-toggleClass="try-notification" data-targetId="notifications">Toggle notification</button>
-      <button data-toggleDisplay="true" data-targetClass="notification-versions"></button>
+    <div data-beerflight="Demo" style="display: none;">
+      <button data-beer="toggleRedBlue" data-toggleClass="try-blue" data-targetId="header">Try red and blue</button>
+      <button data-beer="toggleNotification" data-toggleClass="try-notification" data-targetId="demo">Demo a notification</button>
     </div>
 
   </body>

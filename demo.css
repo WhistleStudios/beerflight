@@ -19,7 +19,7 @@ main { /* container for example layout */
   height: 30em;
   background: white;
   padding: 1em;
-  margin: 0 auto;
+  margin: 0 auto 3em;
 }
 
 .content {
@@ -59,13 +59,6 @@ main { /* container for example layout */
 
 }
 
-#bell {
-  position: absolute;
-  right: 1.6em;
-  top: 1.6em;
-  font-size: 160%;
-}
-
 .notification-card {
   position: absolute; /* normally would be fixed, if the main div filled the screen */
   box-sizing: border-box;
@@ -78,15 +71,41 @@ main { /* container for example layout */
   background-color: white;
   border: 1px solid #CCCCCC;
 
-  -webkit-transition: opacity 2s ease-in;
-  -moz-transition: opacity 2s ease-in;
-  -ms-transition: opacity 2s ease-in;
-  -o-transition: opacity 2s ease-in;
-  transition: opacity 2s ease-in;
+}
+
+#notification-icon {
+    position: absolute;
+    /*border: 1px solid blue; */
+    top: 2.4em;
+    right: 2.4em;
+}
+
+#bell {
+  /*position: absolute;
+  right: 1.6em;
+  top: 1.6em;*/
+  font-size: 160%;
+}
+
+.notification-bubble {
+    position:absolute;    /* This breaks the div from the normal HTML document. */
+    top: -2px;
+    right:-2px;
+    padding:1px 2px 1px 2px;
+    background-color:red;
+    color:white;
+    font-weight:bold;
+    font-size:0.55em;
+
+    border-radius:30px;
+    box-shadow:1px 1px 1px gray;
 }
 
 .notification-card {
   padding: 0.4em 5em 0.4em 0.4em;
+  -webkit-box-shadow: 5px 5px 50px 4px rgba(204,204,204,1);
+  -moz-box-shadow: 5px 5px 50px 4px rgba(204,204,204,1);
+  box-shadow: 5px 5px 50px 4px rgba(204,204,204,1);
 }
 
 .notification-card * {
@@ -100,26 +119,28 @@ main { /* container for example layout */
 
 /* end of BASE LAYOUT STYLES */
 
-.blue-version-element { /* hides the .blue-version-element stuff by default (ie when red is in vogue) */
+
+/* STYLES for BEER FLIGHT samples */
+
+/* hide non-default versions - blue and notification */
+.blue-version-element, .notification-version-element { /* hides the .blue- and .notfications-version stuff by default */
   display: none;
 }
 
+/* blue version */
 #header.try-blue {
   background: #99CCFF; /* a blue */
 }
 
 .try-blue .blue-version-element {
-  display: block; /* show blue-version specific elements when red is away */
+  display: block; /* show blue-version specific elements when red is no longer in vogue */
 }
 
 .try-blue .red-version-element { /* hides .red-version specific elements when trying blue */
   display: none;
 }
 
-.notification-card {
-  display: none;
-}
-
-.try-notification .notification-card {
+/* notification version */
+.try-notification .notification-version-element {
   display: block;
 }
