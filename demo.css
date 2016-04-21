@@ -5,7 +5,7 @@
 body {
   background: white;
   color: white;
-  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
 body > h1 { /* heading outside of demo content */
@@ -159,4 +159,16 @@ main { /* container for example layout */
 /* notification version */
 .try-notification .notification-version-element {
   display: block;
+}
+
+#header.notification-version-element {
+  background: white;
+  color: #CCCCCC;
+  justify-content: flex-start;
+}
+
+#header.notification-version-element h2 {
+  display: block;
+  font-weight: normal;
+  font-family: 'Arial Narrow', 'Open Sans', Helvetica, Arial, sans-serif
 }
