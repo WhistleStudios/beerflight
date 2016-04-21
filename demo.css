@@ -89,14 +89,14 @@ main { /* container for example layout */
 
 }
 
-#notification-icon {
+#notification-icon-area {
     position: absolute;
     /*border: 1px solid blue; */
     top: 2.4em;
     right: 2.4em;
 }
 
-#bell {
+#notification-bell-icon {
   /*position: absolute;
   right: 1.6em;
   top: 1.6em;*/
@@ -119,9 +119,9 @@ main { /* container for example layout */
 
 .notification-card {
   padding: 0.4em 5em 0.4em 0.4em;
-  -webkit-box-shadow: 5px 5px 50px 4px rgba(204,204,204,1);
-  -moz-box-shadow: 5px 5px 50px 4px rgba(204,204,204,1);
-  box-shadow: 5px 5px 50px 4px rgba(204,204,204,1);
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(204,204,204,0.25);
+  -moz-box-shadow: 5px 5px 10px 0px rgba(204,204,204,0.25);
+  box-shadow: 5px 5px 10px 0px rgba(204,204,204,0.25);
 }
 
 .notification-card * {
@@ -170,5 +170,5 @@ main { /* container for example layout */
 #header.notification-version-element h2 {
   display: block;
   font-weight: normal;
-  font-family: 'Arial Narrow', 'Open Sans', Helvetica, Arial, sans-serif
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif
 }
