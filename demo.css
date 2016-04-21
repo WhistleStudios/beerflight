@@ -3,7 +3,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
-  background: darkgray;
+  background: white;
   color: white;
   font-family: Open Sans, Helvetica, Arial, sans-serif;
 }
@@ -11,15 +11,21 @@ body {
 body > h1 { /* heading outside of demo content */
   text-align: center;
   color: yellow;
+  display: none;
 }
 
 main { /* container for example layout */
   position: relative;
-  width: 56em;
-  height: 30em;
+/*   width: 56em;
+  height: 30em; */
+/*   width: 90vw;
+  height: 48vw; */
+  width: 80vw;
+  height: 43vw;
   background: white;
-  padding: 1em;
-  margin: 0 auto 3em;
+/*   padding: 1em; */
+  padding: 1%;
+  margin: 1% auto 3em; /* margin-bottom for beerflight paddle */
 }
 
 .content {
@@ -27,7 +33,9 @@ main { /* container for example layout */
 }
 
 #header, #main-content {
-  margin: 1em 1em 2em 19em;
+/*   margin: 1em 1em 2em 19em; */
+  margin: 2% 2% 3% 39%;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,7 +47,8 @@ main { /* container for example layout */
 
 #header {
   background: #FF9999;
-  height: 8em;
+/*   height: 8em; */
+  height: 31%;
 }
 
 #header h2 {
@@ -47,24 +56,31 @@ main { /* container for example layout */
 }
 
 #main-content {
-  height: 18em;
+/*   height: 18em; */
+  height: 56%;
 }
 
 #sidebar {
-  width: 16em;
-  height: 28em;
+/*   width: 16em; */
+  width: 33%;
+/*   height: 28em; */
+  height: 88%;
   position: absolute;
-  top: 2em;
-  left: 2em;
+/*   top: 2em; */
+  top: 6%;
+/*   left: 2em; */
+  left: 3%;
 
 }
 
 .notification-card {
   position: absolute; /* normally would be fixed, if the main div filled the screen */
   box-sizing: border-box;
-  bottom: 0.6em;
-  right: 0.6em;
+/*   bottom: 0.6em; */
+  bottom: 1%;
+/*   right: 0.6em; */
   height: 8em;
+  right: 1%;
   width: 16em;
   color: #CCCCCC;
   padding: 1em;
@@ -88,24 +104,17 @@ main { /* container for example layout */
 }
 
 .notification-bubble {
-  position:absolute;
-  top: -2px;
-  right:-2px;
-  padding:1px 2px 1px 2px;
-  background-color:red;
-  color:white;
-  font-weight:bold;
-  font-size:0.55em;
+    position:absolute;    /* This breaks the div from the normal HTML document. */
+    top: -2px;
+    right:-2px;
+    padding:1px 2px 1px 2px;
+    background-color:red;
+    color:white;
+    font-weight:bold;
+    font-size:0.55em;
 
-  border-radius:30px;
-  box-shadow:1px 1px 1px gray;
-
-  -webkit-animation-delay: 0.5s;
-  animation-delay: 0.5s;
-  -webkit-animation-duration: 0.5s;
-  animation-duration: 0.5s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+    border-radius:30px;
+    box-shadow:1px 1px 1px gray;
 }
 
 .notification-card {
@@ -113,13 +122,6 @@ main { /* container for example layout */
   -webkit-box-shadow: 5px 5px 50px 4px rgba(204,204,204,1);
   -moz-box-shadow: 5px 5px 50px 4px rgba(204,204,204,1);
   box-shadow: 5px 5px 50px 4px rgba(204,204,204,1);
-
-  -webkit-animation-delay: 0.5s;
-  animation-delay: 0.5s;
-  -webkit-animation-duration: 0.5s;
-  animation-duration: 0.5s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
 }
 
 .notification-card * {
@@ -139,13 +141,6 @@ main { /* container for example layout */
 /* hide non-default versions - blue and notification */
 .blue-version-element, .notification-version-element { /* hides the .blue- and .notfications-version stuff by default */
   display: none;
-
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
 }
 
 /* blue version */
@@ -164,36 +159,4 @@ main { /* container for example layout */
 /* notification version */
 .try-notification .notification-version-element {
   display: block;
-
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-
-
-
-
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-.fadeIn {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
 }
