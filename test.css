@@ -7,7 +7,6 @@ body {
 }
 
 
-
 #beerflight-paddle button {
   background-color: white;
   color: black;
@@ -36,7 +35,7 @@ body {
   padding: 5px 0;
   overflow: hidden;
 }
-#fixed-beerflight .group { 
+#fixed-beerflight .group {
   float: right;
   padding-left: 15px;
 }
