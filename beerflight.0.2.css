@@ -69,6 +69,14 @@
   border-radius: 24px;
   background: rgba(0,0,0,0.5);
 }
+#fixed-beerflight button::-moz-focus-inner,
+#fixed-beerflight button:hover::-moz-focus-inner,
+#fixed-beerflight button:focus::-moz-focus-inner,
+#fixed-beerflight button:active::-moz-focus-inner,
+#beerflight-button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
 #fixed-beerflight button:hover,
 #beerflight-button:hover {
   background: rgba(0,0,0,0.45);
