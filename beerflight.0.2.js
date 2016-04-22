@@ -65,7 +65,7 @@ BEERFLIGHT = {
     wrapper.innerHTML= this.markedStuff;
     var mark= wrapper.firstChild;
     document.body.appendChild(mark);
-  },  
+  },
   doNothing: function() {
     /* nada */
   },
@@ -101,7 +101,7 @@ BEERFLIGHT = {
         }
         else {
           whatElements[i].style.display = 'none';
-        }        
+        }
       }
     }
   },
@@ -125,21 +125,21 @@ var cb = function(){
 
 
     var l = document.createElement('link'); l.rel = 'stylesheet';
-    l.href = 'http://projects.whistlestudios.com/beerflight/beerflight.0.2.css';
-    var h = document.getElementsByTagName('title')[0]; 
+    l.href = 'beerflight.0.2.css';
+    var h = document.getElementsByTagName('title')[0];
     h.parentNode.insertBefore(l, h);
 
     if(document.getElementById("fixed-beerflight-container")) {
       var fcc = document.getElementById("fixed-beerflight-container").offsetHeight;
       var css = document.createElement("style");
-      css.type = "text/css"; 
+      css.type = "text/css";
       css.innerHTML = "body { padding-bottom: "+fcc+"px; height:auto; }";
-      document.body.appendChild(css);    
+      document.body.appendChild(css);
     }
 
-
     for (var i = 0; i < a.length; i++) {
-      var heading = a[i].getAttribute('data-beerflight');
+      // var heading = a[i].getAttribute('data-beerflight');
+      var heading = a[i].dataset.beerflight;
       var button_defs = a[i].children;
       var buttons = [];
       for (var b = 0; b < button_defs.length; b++) {
@@ -152,18 +152,18 @@ var cb = function(){
           btnElem.toggleDisplay = true;
           btnElem.targetClass = btn.getAttribute('data-toggleDisplay');
         }
-        if(btn.hasAttribute('data-targetClass')) {
-          btnElem.targetClass = btn.getAttribute('data-targetClass');
-        }
+        // if(btn.hasAttribute('data-targetClass')) {
+        //   btnElem.targetClass = btn.getAttribute('data-targetClass');
+        // }
         if(btn.hasAttribute('data-toggleClass')) {
           btnElem.toggleClass = btn.getAttribute('data-toggleClass');
         }
         if(btn.hasAttribute('data-callback')) {
           btnElem.callback = btn.getAttribute('data-callback');
-        }        
+        }
         if(btn.hasAttribute('data-targetId')) {
           btnElem.targetId = btn.getAttribute('data-targetId');
-        }      
+        }
         btnElem.label = btn.textContent;
         buttons.push(btnElem);
       }
@@ -171,6 +171,29 @@ var cb = function(){
       a[i].remove();
     }
     bf.display();
+
+    var fixedBeerFlight = document.getElementById('fixed-beerflight');
+    fixedBeerFlight.style.display = 'none';
+
+    var beerFlightButton = document.createElement('button');
+    beerFlightButton.setAttribute('id', 'beerflight-button');
+    beerFlightButton.classList.add('beerflight-paddle-not-served')
+    beerFlightButton.innerHTML = '+';
+
+    beerFlightButton.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      beerFlightButton.classList.toggle('beerflight-paddle-not-served');
+      if (fixedBeerFlight.style.display == 'none') {
+        fixedBeerFlight.style.display = '';
+        beerFlightButton.innerHTML = '&times;';
+      } else {
+        fixedBeerFlight.style.display = 'none';
+        beerFlightButton.innerHTML = '+';
+      }
+    });
+
+    document.getElementById('fixed-beerflight-container').appendChild(beerFlightButton);
 
 };
 var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
