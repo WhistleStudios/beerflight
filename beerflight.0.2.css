@@ -18,6 +18,21 @@
   /* this is where whistle logo goes */
   background-image: url("whistle.svg");
   background-position: center;
+/*
+  -webkit-animation: logofader 5s infinite;
+  -moz-animation:    logofader 5s infinite;
+  -o-animation:      logofader 5s infinite;
+  animation:         logofader 5s infinite;
+  */
+}
+
+#beerflight-button.beerflight-paddle-not-served span {
+  visibility: hidden;
+}
+
+#beerflight-button:hover span {
+  color: white;
+  visibility: visible;
 }
 
 #beerflight-button {
@@ -73,10 +88,10 @@
 #beerflight-button {
   -webkit-animation-name: bounceInRight;
   animation-name: bounceInRight;
-  -webkit-animation-delay: 0.5s;
-  animation-delay: 0.5s;
-  -webkit-animation-duration: 0.5s;
-  animation-duration: 0.5s;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
@@ -177,3 +192,24 @@
     transform: translate3d(2000px, 0, 0);
   }
 }
+/*
+@-webkit-keyframes logofader {
+  0%   { opacity: 0;}
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-moz-keyframes logofader {
+  0%   { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@-o-keyframes logofader {
+  0%   { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes logofader {
+  0%   { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}*/

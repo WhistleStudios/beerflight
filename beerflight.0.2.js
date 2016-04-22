@@ -178,7 +178,7 @@ var cb = function(){
     var beerFlightButton = document.createElement('button');
     beerFlightButton.setAttribute('id', 'beerflight-button');
     beerFlightButton.classList.add('beerflight-paddle-not-served')
-    beerFlightButton.innerHTML = '+';
+    beerFlightButton.innerHTML = '<span>+</span>';
 
     beerFlightButton.addEventListener('click', function(e) {
       e.preventDefault();
@@ -186,10 +186,10 @@ var cb = function(){
       beerFlightButton.classList.toggle('beerflight-paddle-not-served');
       if (fixedBeerFlight.style.display == 'none') {
         fixedBeerFlight.style.display = '';
-        beerFlightButton.innerHTML = '&times;';
+        beerFlightButton.innerHTML = '<span>&times</span>';
       } else {
         fixedBeerFlight.style.display = 'none';
-        beerFlightButton.innerHTML = '+';
+        beerFlightButton.innerHTML = '<span>+</span>';
       }
     });
 
