@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Beer Flight</title>
+    <link rel="stylesheet" type="text/css" href="css_hotswapper.css" />
+    <link rel="stylesheet" type="text/css" data-beerflight-taster-href="taster1.css" data-beerflight-taster-label="taster1" />
+    <link rel="stylesheet" type="text/css" data-beerflight-taster-href="taster2.css" data-beerflight-taster-label="taster2" />
+    <script data-beerflight-toggler data-beerflight-taster-label="toggle blue class" data-beerflight-toggle-class="blue" data-beerflight-target="#toggle-me"></script>
+  </head>
+    <body>
+      <h1 id="base">base.css</h1>
+      <h1 id="taster1">taster1</h1>
+      <h1 id="taster2">taster2</h1>
+      <h1 id="toggle-me">this can be toggled blue</h1>
+      <div id="beerflight-paddle">
+        <div id="fixed-beerflight">
+          <div class="group" id="add-buttons-here"></div>
+        </div>
+      </div>
+      <script src="css_hotswapper.js"></script>
+    </body>
+</html>

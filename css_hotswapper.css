@@ -6,6 +6,10 @@ body {
   content: ' enabled.';
 }
 
+.blue {
+  background: blue;
+}
+
 
 #beerflight-paddle button {
   background-color: white;

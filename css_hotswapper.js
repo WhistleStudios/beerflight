@@ -2,7 +2,9 @@ var beerFlight = {
 
   debugMode: true,
 
-  tasters: document.querySelectorAll('[data-beerflight-taster-href]'),
+  tasters: document.querySelectorAll('[data-beerflight-taster-href]'), // optional/sample stylesheets to hotswap in
+
+  togglers: document.querySelectorAll('[data-beerflight-toggler]'), // toggle scripts
 
   toggleTaster: function(index) {
 
@@ -10,8 +12,8 @@ var beerFlight = {
     // then remove that href attribute to disabled it.
     if (this.tasters[index].hasAttribute('href')) {
       this.tasters[index].removeAttribute('href');
-    } else { // otherwise enable it by giving it the href attribute
-      this.tasters[index].setAttribute('href', this.tasters[index].getAttribute('data-beerflight-taster-href'));
+    } else { // otherwise enable it by giving it an href attribute
+      this.tasters[index].setAttribute('href', this.tasters[index].dataset.beerflightTasterHref);
     }
 
   },
@@ -35,7 +37,8 @@ var beerFlight = {
       button.setAttribute('value', i);
 
       // put the stylesheet's label on the button
-      var label = this.tasters[i].getAttribute('data-beerflight-taster-label')
+      // var label = this.tasters[i].getAttribute('data-beerflight-taster-label');
+      var label = this.tasters[i].dataset.beerflightTasterLabel;
       button.innerHTML = label;
 
       // atttach click listener to toggle the corresponding stylesheet
@@ -54,9 +57,35 @@ var beerFlight = {
 
     }
 
+    for (var j = 0; j < this.togglers.length; j++) {
+
+      var button = document.createElement('button');
+
+      button.innerHTML = this.togglers[j].dataset.beerflightTasterLabel;
+
+      var target = this.togglers[j].dataset.beerflightTarget;
+      var toggleClass = this.togglers[j].dataset.beerflightToggleClass;
+
+      var bf = this;
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('hey:', toggleClass, target);
+        var targets = document.querySelectorAll(target);
+        for (var k = 0; k < targets.length; k++) {
+          targets[k].classList.toggle(toggleClass);
+        }
+      });
+
+      document.getElementById('add-buttons-here').appendChild(button);
+
+      if (this.debugMode) {
+        console.log('Taster loaded:', this.togglers[j].dataset.beerflightTasterLabel);
+      }
+
+    }
+
   },
 
-
-}
+};
 
 beerFlight.init();
