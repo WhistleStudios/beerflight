@@ -24,6 +24,27 @@ var beerFlight = {
     // those would mess things up and require some better logic to handle to properly accommodate them
     // apparently stylesheets are grouped by web browsers depending on their title or lackthereof
 
+    // create the Beer Flight paddle
+    var paddle = document.createElement('div');
+    paddle.setAttribute('id', 'beerflight-paddle');
+
+
+    // <div id="beerflight-paddle">
+    //   <div id="fixed-beerflight">
+    //     <div class="group" id="add-buttons-here"></div>
+    //   </div>
+    // </div>
+
+    var fixedBeerFlight = document.createElement('div');
+    fixedBeerFlight.setAttribute('id', 'fixed-beerflight');
+    var group = document.createElement('div');
+    group.setAttribute('id', 'add-buttons-here');
+    group.classList.add('group');
+    fixedBeerFlight.appendChild(group);
+
+    paddle.appendChild(fixedBeerFlight);
+    document.body.appendChild(paddle);
+
     if (this.debugMode) {
       console.log('BeerFlight is served. (DebugMode is enabled.)');
     }
