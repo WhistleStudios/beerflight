@@ -109,4 +109,9 @@ var beerFlight = {
 
 };
 
-beerFlight.init();
+// beerFlight.init();
+
+// Wait until the DOM is fully realized before manipulation
+document.addEventListener('DOMContentLoaded', function() {
+  beerFlight.init();
+});
