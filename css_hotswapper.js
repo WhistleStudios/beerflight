@@ -35,6 +35,7 @@ var beerFlight = {
     //   </div>
     // </div>
 
+    // generate above beer paddle HTML elements
     var fixedBeerFlight = document.createElement('div');
     fixedBeerFlight.setAttribute('id', 'fixed-beerflight');
     var group = document.createElement('div');
@@ -43,7 +44,7 @@ var beerFlight = {
     fixedBeerFlight.appendChild(group);
 
     paddle.appendChild(fixedBeerFlight);
-    document.body.appendChild(paddle);
+    document.body.appendChild(paddle); // attach paddle to DOM
 
     if (this.debugMode) {
       console.log('BeerFlight is served. (DebugMode is enabled.)');
@@ -78,6 +79,9 @@ var beerFlight = {
 
     }
 
+    // process all the Beer Flight togglers
+    // FIXME there's gotta a more modular or streamlined
+
     for (var j = 0; j < this.togglers.length; j++) {
 
       var button = document.createElement('button');
@@ -90,8 +94,11 @@ var beerFlight = {
       var bf = this;
       button.addEventListener('click', function(e) {
         e.preventDefault();
-        console.log('hey:', toggleClass, target);
+
+        // find all the elements that match the given selector
         var targets = document.querySelectorAll(target);
+
+        // toggle the target class for each element
         for (var k = 0; k < targets.length; k++) {
           targets[k].classList.toggle(toggleClass);
         }
@@ -108,8 +115,6 @@ var beerFlight = {
   },
 
 };
-
-// beerFlight.init();
 
 // Wait until the DOM is fully realized before manipulation
 document.addEventListener('DOMContentLoaded', function() {
