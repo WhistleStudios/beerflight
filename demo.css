@@ -70,7 +70,6 @@ main { /* container for example layout */
   top: 6%;
 /*   left: 2em; */
   left: 3%;
-
 }
 
 .notification-card {
@@ -89,11 +88,22 @@ main { /* container for example layout */
 
 }
 
+.notification-card .close-button {
+  /*color: red;*/
+  position: absolute;
+  top: 0.1em;
+  right: 0.5em;
+}
+
 #notification-icon-area {
     position: absolute;
     /*border: 1px solid blue; */
     top: 2.4em;
     right: 2.4em;
+}
+
+#notification-bell-area svg {
+  color:red;
 }
 
 #notification-bell-icon {
