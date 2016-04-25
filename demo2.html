@@ -3,6 +3,9 @@
   <head>
     <title>Beer Flight demo</title>
     <link rel="stylesheet" href="demo.css">
+    <script data-beerflight-taster-label="Notification (before)"></script>
+    <script data-beerflight-taster-label="Notification (after)" data-beerflight-toggle-target="#demo" data-beerflight-toggle-class="try-notification"></script>
+    <script src="beerflight.0.3.js"></script>
   </head>
 
   <body>
@@ -50,11 +53,5 @@
 
     </main>
 
-    <div data-beerflight="Demo" style="display: none;">
-      <!-- <button data-beer="toggleRedBlue" data-toggleClass="try-blue" data-targetId="header">Try red and blue</button> -->
-      <button data-beer="toggleNotification" data-toggleClass="try-notification" data-targetId="demo">Demo a notification</button>
-    </div>
-
-  <script src="beerflight.0.2.js"></script>
   </body>
 </html>
