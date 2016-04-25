@@ -1,0 +1,26 @@
+body {
+  background: linear-gradient( -90deg, #F4A019, #D84200 );
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 200%;
+  color: #6D3400;
+}
+h1::before {
+  content: url("beerflight.svg");
+}
+
+p {
+  color: white;
+}
+
+.try-lighter {
+  /*background: linear-gradient( -90deg, #f6b44a, #ff560c );*/
+  /*background: yellow;*/
+}
+
+.try-darker {
+  background: linear-gradient( -90deg, #d0840a, #9d3000 );
+  /*backgorund: brown;*/
+}
