@@ -2,6 +2,10 @@ var beerFlight = {
 
   debugMode: true,
 
+  cssClasses: {
+    activeTaster: 'beerflight-active-taster',
+  },
+
   currentTasterIndex: undefined,
 
   tasters: undefined,
@@ -27,11 +31,13 @@ var beerFlight = {
 
     // undo what the current selected taster has done to the DOM
     this.toggleTaster(this.currentTasterIndex);
+    document.querySelectorAll('#add-buttons-here button')[this.currentTasterIndex].classList.toggle(this.cssClasses.activeTaster);
 
     this.toggleTaster(index);
 
     // record this taster as currently on tap
     this.currentTasterIndex = index;
+    document.querySelectorAll('#add-buttons-here button')[index].classList.toggle(this.cssClasses.activeTaster);
     if (this.debugMode) console.log('Sipping', this.tasters[index].dataset.beerflightTasterLabel, '(' + index + ')' );
 
   },
@@ -134,6 +140,8 @@ var beerFlight = {
       if (this.debugMode) console.log(label, 'added to paddle.');
 
     }
+
+    document.querySelectorAll('#add-buttons-here button')[this.currentTasterIndex].classList.toggle(this.cssClasses.activeTaster);
 
   },
 

@@ -85,6 +85,12 @@
   background: rgba(0,0,0,0.45);
   cursor: pointer;
 }
+#fixed-beerflight button.beerflight-active-taster {
+  border: 2px solid rgba(0,0,0,0.5);
+  background: none;
+  color: rgba(0,0,0,0.5);
+  cursor: default;
+}
 #fixed-beerflight .group {
   -webkit-animation-name: bounceInRight;
   animation-name: bounceInRight;
