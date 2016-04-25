@@ -2,30 +2,41 @@ var beerFlight = {
 
   debugMode: true,
 
-  currentTaster: undefined,
+  currentTasterIndex: undefined,
 
-  // stylesheets to hotswap
-  // tasters: document.querySelectorAll('[data-beerflight-taster-href]'), // optional/sample stylesheets to hotswap in
+  tasters: undefined,
 
-  // togglers: document.querySelectorAll('[data-beerflight-toggler]'), // toggle scripts
+  toggleTaster: function(index) {
 
-  // toggleTaster: function(index) {
-  //
-  //   // if a taster/stylesheet is already enabled (by having a valid href attribute)
-  //   // then remove that href attribute to disabled it.
-  //   if (this.tasters[index].hasAttribute('href')) {
-  //     this.tasters[index].removeAttribute('href');
-  //   } else { // otherwise enable it by giving it an href attribute
-  //     this.tasters[index].setAttribute('href', this.tasters[index].dataset.beerflightTasterHref);
-  //   }
-  //
-  // },
+    var toggleTarget = this.tasters[index].dataset.beerflightToggleTarget;
+    var toggleClass = this.tasters[index].dataset.beerflightToggleClass;
+    var displayTarget = this.tasters[index].dataset.beerflightDisplayTarget;
+    var displayClass = this.tasters[index].dataset.beerflightDisplayToggle;
+
+    // find all the elements that match the given selector
+    var targets = document.querySelectorAll(toggleTarget);
+
+    // toggle the target class for each element
+    for (var i = 0; i < targets.length; i++) {
+      targets[i].classList.toggle(toggleClass);
+    }
+
+  },
+
+  switchToTaster: function(index) {
+
+    // undo what the current selected taster has done to the DOM
+    this.toggleTaster(this.currentTasterIndex);
+
+    this.toggleTaster(index);
+
+    // record this taster as currently on tap
+    this.currentTasterIndex = index;
+    if (this.debugMode) console.log('Sipping', this.tasters[index].dataset.beerflightTasterLabel, '(' + index + ')' );
+
+  },
 
   init: function() {
-
-    // TODO check for titles on the stylesheet link elements and alternate stylesheets
-    // those would mess things up and require some better logic to handle to properly accommodate them
-    // apparently stylesheets are grouped by web browsers depending on their title or lackthereof
 
     // create the Beer Flight paddle
     var paddle = document.createElement('div');
@@ -77,116 +88,50 @@ var beerFlight = {
       console.log('Beer Flight paddle is ready (and debugMode is enabled).');
     }
 
-    // make stylesheet switchers
-    // for (var i = 0; i < this.tasters.length; i++) {
-    //
-    //   // set up a button for the taster
-    //   var button = document.createElement('button');
-    //
-    //   // set the button's value to the index of its corresponding stylesheet
-    //   button.setAttribute('value', i);
-    //
-    //   // put the stylesheet's label on the button
-    //   // var label = this.tasters[i].getAttribute('data-beerflight-taster-label');
-    //   var label = this.tasters[i].dataset.beerflightTasterLabel;
-    //   button.innerHTML = label;
-    //
-    //   // atttach click listener to toggle the corresponding stylesheet
-    //   var bf = this; // self trick, ie hooking a reference to the beerflight object
-    //   button.addEventListener('click', function(e) {
-    //     e.preventDefault();
-    //     this.classList.toggle('beerflight-button-toggled');
-    //     bf.toggleTaster(parseInt(this.value));
-    //   });
-    //   // document.getElementById('beerflight-paddle').appendChild(button);
-    //   document.getElementById('add-buttons-here').appendChild(button);
-    //
-    //   if (this.debugMode) {
-    //     console.log('Taster loaded:', label);
-    //   }
-    //
-    // }
-
-    // process all the Beer Flight togglers
-    // FIXME there's gotta a more modular or streamlined
-
-    // for (var j = 0; j < this.togglers.length; j++) {
-    //
-    //   var button = document.createElement('button');
-    //
-    //   button.innerHTML = this.togglers[j].dataset.beerflightTasterLabel;
-    //
-    //   var target = this.togglers[j].dataset.beerflightTarget;
-    //   var toggleClass = this.togglers[j].dataset.beerflightToggleClass;
-    //
-    //   var bf = this;
-    //   button.addEventListener('click', function(e) {
-    //     e.preventDefault();
-    //
-    //     // find all the elements that match the given selector
-    //     var targets = document.querySelectorAll(target);
-    //
-    //     // toggle the target class for each element
-    //     for (var k = 0; k < targets.length; k++) {
-    //       targets[k].classList.toggle(toggleClass);
-    //     }
-    //   });
-    //
-    //   document.getElementById('add-buttons-here').appendChild(button);
-    //
-    //   if (this.debugMode) {
-    //     console.log('Taster loaded:', this.togglers[j].dataset.beerflightTasterLabel);
-    //   }
-    //
-    // }
-
     // insert beerflight css
     var beerflightStyleLink = document.createElement('link');
     beerflightStyleLink.rel = 'stylesheet';
     beerflightStyleLink.href = 'beerflight.0.3.css'; // FIXME must use CDN
     document.getElementsByTagName('head')[0].appendChild(beerflightStyleLink);
 
-    var tasters = document.querySelectorAll('[data-beerflight-taster-label]');
+    // set the data-bf-taster-label designated script tags to beerFlight object
+    this.tasters = document.querySelectorAll('[data-beerflight-taster-label]');
 
-    if (tasters) {
-      this.currentTaster = 0;
-      if (this.debugMode) console.log('Default taster set.');
+    // default unless otherwise specified with data-bf-taster-default (see below)
+    this.currentTasterIndex = 0;
+
+    if (this.debugMode) {
+      console.log('Default taster set to 0.', this.tasters.length, 'tasters found.');
     }
 
-    for (var i = 0; i < tasters.length; i++) {
+    for (var i = 0; i < this.tasters.length; i++) {
+
+      // set default taster as specified by user with data-bf-taster-default
+      if (this.tasters[i].dataset.beerflightTasterDefault === '') {
+        this.currentTasterIndex = i;
+        if (this.debugMode) console.log('Default taster set to', i);
+      }
+
       var button = document.createElement('button');
       button.setAttribute('type', 'button');
       button.setAttribute('value', i);
-      button.innerHTML = tasters[i].dataset.beerflightTasterLabel;
-
-      var toggleTarget = tasters[i].dataset.beerflightToggleTarget;
-      var toggleClass = tasters[i].dataset.beerflightToggleClass;
-      var displayTarget = tasters[i].dataset.beerflightDisplayTarget;
-      var displayClass = tasters[i].dataset.beerflightDisplayToggle;
+      var label = this.tasters[i].dataset.beerflightTasterLabel;
+      button.innerHTML = label;
 
       var bf = this;
       button.addEventListener('click', function(e) {
         e.preventDefault();
 
-        if (bf.debugMode) console.log('index of taster clicked:', this.value);
-
-        if (bf.currentTaster == this.value) {
-          // do nothing
+        if (bf.currentTasterIndex == parseInt(this.value)) {
+          if (bf.debugMode) console.log('Already sipping this one (' + this.value + ').');
         } else {
-
-          bf.currentTaster = this.value;
-
-          // find all the elements that match the given selector
-          var targets = document.querySelectorAll(toggleTarget);
-
-          // toggle the target class for each element
-          for (var i = 0; i < targets.length; i++) {
-            targets[i].classList.toggle(toggleClass);
-          }
+          bf.switchToTaster(parseInt(this.value));
         }
       });
 
       document.getElementById('add-buttons-here').appendChild(button);
+
+      if (this.debugMode) console.log(label, 'added to paddle.');
 
     }
 

@@ -2,10 +2,11 @@
 <html>
   <head>
     <title>Introducing Beer Flight</title>
-    <link rel="stylesheet" href="intro.css">
-    <script data-beerflight-taster-label="light tasting"></script>
-    <!-- <script data-beerflight-taster-label="medium tasting"></script> -->
-    <script data-beerflight-taster-label="dark tasting" data-beerflight-toggle-target="body" data-beerflight-toggle-class="try-darker"></script>
+    <link rel="stylesheet" href="intro.css" />
+    <script data-beerflight-taster-label="light" data-beerflight-toggle-target="main" data-beerflight-toggle-class="try-lighter"></script>
+    <script data-beerflight-taster-label="medium" data-beerflight-taster-default></script>
+    <script data-beerflight-taster-label="dark" data-beerflight-toggle-target="main" data-beerflight-toggle-class="try-darker"></script>
+    <script data-beerflight-taster-label="darkest" data-beerflight-toggle-target="main" data-beerflight-toggle-class="try-darkest"></script>
     <script src="beerflight.0.3.js"></script>
   </head>
 
@@ -16,6 +17,25 @@
       <h1>Beer Flight</h1>
 
       <p>Introducing a new way to quickly present web design prototypes</p>
+
+      <pre>
+        .try-lighter { /* light tasting */
+          background: linear-gradient( -45deg, #f6b44a, #ff560c );
+          /*background: yellow;*/
+        }
+
+        /* medium tasting (default):
+        background: linear-gradient( -90deg, #F4A019, #D84200 ); */
+
+        .try-darker { /* dark tasting */
+          background: linear-gradient( -135deg, #d0840a, #9d3000 );
+          /*background: brown;*/
+        }
+
+        .try-darkest { /* darkest tasting */
+          background: #511900;
+        }
+      </pre>
 
     </main>
 

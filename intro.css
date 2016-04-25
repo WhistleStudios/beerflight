@@ -1,6 +1,15 @@
-body {
-  background: linear-gradient( -90deg, #F4A019, #D84200 );
+html, body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  background: linear-gradient( -90deg, #F4A019, #D84200 );
+  /*background: tan;*/
+  padding: 1em;
+  height: 100vh;
+  width: 100vw;
 }
 
 h1 {
@@ -9,18 +18,26 @@ h1 {
 }
 h1::before {
   content: url("beerflight.svg");
+  padding-right: 0.6em;
 }
 
 p {
   color: white;
 }
 
-.try-lighter {
-  /*background: linear-gradient( -90deg, #f6b44a, #ff560c );*/
+.try-lighter { /* light tasting */
+  background: linear-gradient( -80deg, #f7be62, #F4A019 );
   /*background: yellow;*/
 }
 
-.try-darker {
-  background: linear-gradient( -90deg, #d0840a, #9d3000 );
-  /*backgorund: brown;*/
+/* medium tasting (default):
+background: linear-gradient( -90deg, #F4A019, #D84200 ); */
+
+.try-darker { /* dark tasting */
+  background: linear-gradient( -100deg, #d0840a, #9d3000 );
+  /*background: brown;*/
+}
+
+.try-darkest { /* darkest tasting */
+  background: #511900;
 }
