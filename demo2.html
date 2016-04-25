@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Beer Flight demo</title>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  </head>
+
+  <body>
+
+    <h1>Introducing Beer Flight</h1>
+
+    <main id="demo">
+
+      <div id="header" class="notification-version-element">
+        <h2 class="notification-version-element">Notifications</h2>
+
+        <div id="notification-icon-area">
+          <!-- <i class="fa fa-bell-o" aria-hidden="true" id="notification-bell-icon"></i> -->
+            <!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In  -->
+            <svg version="1.1"
+            	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+            	 x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+            <style type="text/css">
+            	.st0{fill:#CCCCCC;}
+            </style>
+            <defs>
+            </defs>
+            <path class="st0" d="M21,28c-0.7,2.3-2.7,4-5,4c-2.3,0-4.3-1.7-5-4H21z M31.7,24.2C21,17,29,0,16,0l0,0l0,0C3,0,11,17,0.3,24.2
+            	C0.1,24.4,0,24.7,0,25c0,0.1,0,0.2,0.1,0.4C0.2,25.7,0.6,26,1,26h15h15c0.4,0,0.8-0.3,0.9-0.6c0-0.1,0.1-0.2,0.1-0.4
+            	C32,24.7,31.9,24.4,31.7,24.2z"/>
+            </svg>
+          <div class="notification-bubble notification-version-element">1</div>
+        </div>
+
+      </div>
+
+      <div id="main-content" class="content"></div>
+
+      <div id="sidebar" class="content"></div>
+
+      <div id="notifications">
+
+        <div class="notification-card notification-version-element">
+          <h3>Notification</h3>
+          <p>Demonstrated with a timed fade-in.</p>
+          <span class="close-button">&times;</span>
+        </div>
+
+      </div>
+
+    </main>
+
+    <div data-beerflight="Demo" style="display: none;">
+      <!-- <button data-beer="toggleRedBlue" data-toggleClass="try-blue" data-targetId="header">Try red and blue</button> -->
+      <button data-beer="toggleNotification" data-toggleClass="try-notification" data-targetId="demo">Demo a notification</button>
+    </div>
+
+  <script src="beerflight.0.2.js"></script>
+  </body>
+</html>

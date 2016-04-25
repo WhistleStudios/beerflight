@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Beer Flight demo</title>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  </head>
+
+  <body>
+
+    <h1>Introducing Beer Flight</h1>
+
+    <main id="demo">
+
+      <div id="header">
+        <h2 class="red-version-element">Version A</h2>
+        <h2 class="blue-version-element">Version B</h2>
+      </div>
+
+      <div id="main-content" class="content"></div>
+
+      <div id="sidebar" class="content"></div>
+
+    </main>
+
+    <div data-beerflight="Demo" style="display: none;">
+      <button data-beer="toggleRedBlue" data-toggleClass="try-blue" data-targetId="header">Try red and blue</button>
+    </div>
+
+  <script src="beerflight.0.2.js"></script>
+  </body>
+</html>
