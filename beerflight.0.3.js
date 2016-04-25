@@ -148,6 +148,11 @@ var beerFlight = {
 
     var tasters = document.querySelectorAll('[data-beerflight-taster-label]');
 
+    if (tasters) {
+      this.currentTaster = 0;
+      if (this.debugMode) console.log('Default taster set.');
+    }
+
     for (var i = 0; i < tasters.length; i++) {
       var button = document.createElement('button');
       button.setAttribute('type', 'button');
