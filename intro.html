@@ -9,101 +9,84 @@
 
   <body class="language-markup">
 
-    <main id="main" class="site-main" role="main">
-      <article class="page type-page status-publish has-post-thumbnail hentry">
-        <header class="main entry-header has-background">
+    <header>
+      <h1 class="entry-title">Beer Flight</h1>
+      <h2 class="subtitle">A drop-in tool for quickly presenting web design prototypes</h2>
+    </header>
 
-          <span class="span-overlay">
-            <h1 class="entry-title">Beer Flight</h1>
-            <hr class="short" />
-            <span class="meta">A drop-in tool for quickly presenting web design prototypes</span>
-            <span class="overlay"></span>
-          </span>
-        </header>
+    <main>
 
-        <div class="body-wrap">
-          <div class="entry-content">
+      <p>Beer Flight is a script that generates an interactive sampler paddle for showing off custom design variations. Add some markup to describe each variation (what we're calling a taster) and the script does all the work. Click on a taster to have its styles applied live to the page.</p>
 
-            <p>Beer Flight is a script that generates an interactive sampler paddle for showing off custom design variations. Add some markup to describe each variation (what we're calling a taster) and the script does all the work. Click on a taster to have its styles applied live to the page.</p>
+      <p>As long as you don't spill anything, you won't get your hands any wetter than basic HTML and CSS selectors.</p>
 
-            <p>As long as you don't spill anything, you won't get your hands any wetter than basic HTML and CSS selectors.</p>
+      <div>
+        <h2>Quick Start</h2>
+        <ol>
+          <li>Identify the HTML elements and CSS styles you want to present, such as toggling a <code>try-blue</code>code> class or displaying a <code>notification</code> class.</li>
+          <li>Describe each sample for your Beer Flight paddle by adding a <code>button</code>code> in your design's HTML. It'll look like this: <code>&lt;button data-beerflight-taster-label="More Blue" data-beerflight-toggle-target="#container" data-beerflight-toggle-class="try-blue"&gt;&lt;/button&gt;</code></li>
+          <li>Include the Beer Flight JavaScript file in your HTML document: <code>&lt;script src="/path/to/beerflight.js"&gt;&lt;/script&gt;</code></li>
+        </ol>
+        <p>Pour and serve by letting Beer Flight automatically generate a menu on the page.</p>
+      </div>
 
-            <h2>Quick Start</h2>
+      <div>
+        <h2>Examples</h2>
+        <p>Say you have an assortment of coloring and style options, and you want a sampler paddle that will let you browse the page with each one applied on demand. You'll put a series of HTML buttons like this at the end of your HTML document (just inside the the <code>body</code>, i.e. just before the <code>&lt;/body&gt;</code> tag but before the Beer Flight <code>script</code> tag.) and it'll look like this:</p>
+        <pre><code>
+          &lt;button data-beerflight-taster-label="Pilsener" data-beerflight-toggle-target="#beer-main" data-beerflight-toggle-class="try-pilsener"&gt;&lt;/button&gt;
+          &lt;button data-beerflight-taster-label="Saison" data-beerflight-taster-default&gt;&lt;/button&gt;
+          &lt;button data-beerflight-taster-label="Stout" data-beerflight-toggle-target="#beer-main" data-beerflight-toggle-class="try-stout"&gt;&lt;/button&gt;
+        </code></pre>
+        <p>Or this:</p>
+        <pre><code>
+          &lt;button data-beerflight-taster-label="bitter brew"&gt;&lt;/button&gt;
+          &lt;button data-beerflight-taster-label="less hops please" data-beerflight-toggle-target=".extra-hops" data-beerflight-toggle-display&lt;&gt;/script&gt;
+        </code></pre>
+        <p>Each <code>button</code> describes a "taster" and tells Beer Flight how to implement the taster when the button is pressed.</p>
+      </div>
 
-            <ol>
-              <li>Identify the HTML elements and CSS styles you want to present, such as toggling a <code>try-blue</code>code> class or displaying a <code>notification</code> class.</li>
+      <div>
+        <h2>Describe each taster in the Beer Flight with <code>data-beerflight</code> attributes</h2>
 
-              <li>Describe each sample for your Beer Flight paddle by adding a <code>button</code>code> in your design's HTML. It'll look like this: <code>&lt;button data-beerflight-taster-label="More Blue" data-beerflight-toggle-target="#container" data-beerflight-toggle-class="try-blue"&gt;&lt;/button&gt;</code></li>
-
-              <li>Include the Beer Flight JavaScript file in your HTML document: <code>&lt;script src="/path/to/beerflight.js"&gt;&lt;/script&gt;</code></li>
-            </ol>
-
-            <p>Pour and serve by letting Beer Flight automatically generate a menu on the page.</p>
-
-            <h2>Examples</h2>
-
-            <p>Say you have an assortment of coloring and style options, and you want a sampler paddle that will let you browse the page with each one applied on demand. You'll put a series of HTML buttons like this at the end of your HTML document (just inside the the <code>body</code>, i.e. just before the <code>&lt;/body&gt;</code> tag but before the Beer Flight <code>script</code> tag.) and it'll look like this:</p>
-
-            <pre><code>
-              &lt;button data-beerflight-taster-label="Pilsener" data-beerflight-toggle-target="#beer-main" data-beerflight-toggle-class="try-pilsener"&gt;&lt;/button&gt;
-              &lt;button data-beerflight-taster-label="Pale Ale" data-beerflight-taster-default&gt;&lt;/button&gt;
-              &lt;button data-beerflight-taster-label="Saison" data-beerflight-toggle-target="#beer-main" data-beerflight-toggle-class="try-saison"&gt;&lt;/button&gt;
-              &lt;button data-beerflight-taster-label="Lager" data-beerflight-toggle-target="#beer-main" data-beerflight-toggle-class="try-lager"&gt;&lt;/button&gt;
-              &lt;button data-beerflight-taster-label="Stout" data-beerflight-toggle-target="#beer-main" data-beerflight-toggle-class="try-stout"&gt;&lt;/button&gt;
-            </code></pre></p>
-
-            <p>Or this:</p>
-
-            <pre><code>
-              &lt;button data-beerflight-taster-label="bitter brew"&gt;&lt;/button&gt;
-              &lt;button data-beerflight-taster-label="less hops please" data-beerflight-toggle-target=".extra-hops" data-beerflight-toggle-display&lt;&gt;/script&gt;
-            </code></pre>
-
-            <p>Each <code>button</code> describes a "taster" and tells Beer Flight how to implement the taster when the button is pressed.</p>
-
-            <h2>Describe each taster in the Beer Flight with <code>data-beerflight</code> attributes</h2>
-
-            <div>
-              <h3>data-beerflight-taster-label</h3>
-              <p>Used to specify the name to appear on the paddle</p>
-              <p>Example: <code>data-beerflight-taster-label="layout with larger sidebar"</code></p>
-            </div>
-
-            <div>
-              <h3>data-beerflight-taster-default</h3>
-              <p>Used to indicate a default taster that should be enabled on page load. If not specified, the first taster is treated as the default.</p>
-              <p>Example: <code>&lt;button data-beerflight-taster-label="default taster" data-beerflight-taster-default&gt;&lt;/button&gt;</code></p>
-            </div>
-
-            <div>
-              <h3>data-beerflight-toggle-target</h3>
-              <p>Used to designate target elements for the style changes. Any valid CSS selectors should work here, such as <code>.try-alpha-version</code> (classes), <code>#main-content</code> (IDs), <code>div</code> (html elements), and <code>#main-content h2</code> (specific child elements).</p>
-              <p>Example: <code>&lt;button [...] data-beerflight-toggle-target="#main-content h2" [...]&gt;&lt;/button&gt;</code></p>
-            </div>
-
-            <div>
-              <h3>data-beerflight-toggle-class</h3>
-              <p>Used to toggle a given class on target elements (indicated by the <code>data-beerflight-toggle-target</code> attribute). Don't precede the class name with a period (as is done with selectors).</p>
-              <p>Example: <code>&lt;button [...] data-beerflight-toggle-target="#main-content h2" data-beerflight-toggle-class="extra-fancy"&gt;&lt;/button&gt;</code></p>
-            </div>
-
-
-            <div>
-              <h3>data-beerflight-toggle-display</h3>
-              <p>Used toggle the CSS display attribute of target elements (indicated by the <code>data-beerflight-toggle-target</code> attribute). This attribute does not have a value.</p>
-              <p>Example: <code>&lt;button [...] data-beerflight-toggle-target=".extra-fancy-stuff" data-beerflight-toggle-display&gt;&lt;/button&gt;</code></p>
-            </div>
-
-            <footer class="entry-footer"></footer>
-          </div>
+        <div>
+          <h3>data-beerflight-taster-label</h3>
+          <p>Used to specify the name to appear on the paddle</p>
+          <p>Example: <code>data-beerflight-taster-label="layout with larger sidebar"</code></p>
         </div>
-      </article>
+
+        <div>
+          <h3>data-beerflight-taster-default</h3>
+          <p>Used to indicate a default taster that should be enabled on page load. If not specified, the first taster is treated as the default.</p>
+          <p>Example: <code>&lt;button data-beerflight-taster-label="default taster" data-beerflight-taster-default&gt;&lt;/button&gt;</code></p>
+        </div>
+
+        <div>
+          <h3>data-beerflight-toggle-target</h3>
+          <p>Used to designate target elements for the style changes. Any valid CSS selectors should work here, such as <code>.try-alpha-version</code> (classes), <code>#main-content</code> (IDs), <code>div</code> (html elements), and <code>#main-content h2</code> (specific child elements).</p>
+          <p>Example: <code>&lt;button [...] data-beerflight-toggle-target="#main-content h2" [...]&gt;&lt;/button&gt;</code></p>
+        </div>
+
+        <div>
+          <h3>data-beerflight-toggle-class</h3>
+          <p>Used to toggle a given class on target elements (indicated by the <code>data-beerflight-toggle-target</code> attribute). Don't precede the class name with a period (as is done with selectors).</p>
+          <p>Example: <code>&lt;button [...] data-beerflight-toggle-target="#main-content h2" data-beerflight-toggle-class="extra-fancy"&gt;&lt;/button&gt;</code></p>
+        </div>
+
+        <div>
+          <h3>data-beerflight-toggle-display</h3>
+          <p>Used toggle the CSS display attribute of target elements (indicated by the <code>data-beerflight-toggle-target</code> attribute). This attribute does not have a value.</p>
+          <p>Example: <code>&lt;button [...] data-beerflight-toggle-target=".extra-fancy-stuff" data-beerflight-toggle-display&gt;&lt;/button&gt;</code></p>
+        </div>
+      </div>
 
     </main>
 
-    <button data-beerflight-taster-label="light" data-beerflight-toggle-target="main" data-beerflight-toggle-class="try-lighter"></button>
-    <button data-beerflight-taster-label="medium" data-beerflight-taster-default></button>
-    <button data-beerflight-taster-label="dark" data-beerflight-toggle-target="main" data-beerflight-toggle-class="try-darker"></button>
+    <footer></footer>
+
+    <button data-beerflight-taster-label="Pilsener" data-beerflight-toggle-target="header" data-beerflight-toggle-class="try-lighter"></button>
+    <button data-beerflight-taster-label="Saison" data-beerflight-taster-default></button>
+    <button data-beerflight-taster-label="Porter" data-beerflight-toggle-target="header" data-beerflight-toggle-class="try-darker"></button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
     <script src="beerflight.0.3.js"></script>
 
