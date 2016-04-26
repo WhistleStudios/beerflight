@@ -12,17 +12,25 @@ var beerFlight = {
 
   toggleTaster: function(index) {
 
+    // find all the elements that match the given taster's selector
     var toggleTarget = this.tasters[index].dataset.beerflightToggleTarget;
+    var toggleTargets = document.querySelectorAll(toggleTarget);
+
     var toggleClass = this.tasters[index].dataset.beerflightToggleClass;
-    var displayTarget = this.tasters[index].dataset.beerflightDisplayTarget;
-    var displayClass = this.tasters[index].dataset.beerflightDisplayToggle;
 
-    // find all the elements that match the given selector
-    var targets = document.querySelectorAll(toggleTarget);
+    // toggle the specified class for each element
+    for (var i = 0; i < toggleTargets.length; i++) {
+      toggleTargets[i].classList.toggle(toggleClass);
+    }
 
-    // toggle the target class for each element
-    for (var i = 0; i < targets.length; i++) {
-      targets[i].classList.toggle(toggleClass);
+    // toggle the display of target elements if requested
+    // if taster script has bf-toggle-display attriubte with value of empty string
+    if (this.tasters[index].dataset.beerflightToggleDisplay === '') {
+      for (var i = 0; i < toggleTargets.length; i++) {
+        if (toggleTargets[i].style.display === '')
+          toggleTargets[i].style.display = 'none';
+        else toggleTargets[i].style.display = '';
+      }
     }
 
   },
