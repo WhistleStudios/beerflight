@@ -2,18 +2,22 @@ var beerFlight = {
 
   debugMode: true,
 
-  cssClasses: {
+  // for keeping track of CSS classes, so they can be easiliy changed in the future
+  cssClasses: { // FIXME this is not utilized much yet
     activeTaster: 'beerflight-active-taster',
   },
 
-  currentTasterIndex: undefined,
+  // zero-indexed integer representing the current taster selected and displaying
+  currentTasterIndex: undefined, // set on init
 
-  tasters: undefined,
+  // DOM elements the user has added to activate and configure Beer Flight
+  tasters: undefined, // set on init with document.querySelectorAll
 
-  toggleTaster: function(index) {
+  toggleTaster: function(index) { // toggle on or off the given taster by index number
 
-    // find all the elements that match the given taster's selector
+    // get the given taster's toggle target (selector) from the data attribute
     var toggleTarget = this.tasters[index].dataset.beerflightToggleTarget;
+    // find all the elements that match the given taster's selector
     var toggleTargets = document.querySelectorAll(toggleTarget);
 
     var toggleClass = this.tasters[index].dataset.beerflightToggleClass;
@@ -35,21 +39,27 @@ var beerFlight = {
 
   },
 
+  // approximates radio button-esque functionality by toggling and styling
   switchToTaster: function(index) {
 
     // undo what the current selected taster has done to the DOM
     this.toggleTaster(this.currentTasterIndex);
+    // unpress the currently selected taster's button with CSS
     document.querySelectorAll('#add-buttons-here button')[this.currentTasterIndex].classList.toggle(this.cssClasses.activeTaster);
-
+    // toggle on the new taster's styles
     this.toggleTaster(index);
-
-    // record this taster as currently on tap
+    // set new taster as current taster
     this.currentTasterIndex = index;
+    // depress this new taster button with CSS
     document.querySelectorAll('#add-buttons-here button')[index].classList.toggle(this.cssClasses.activeTaster);
-    if (this.debugMode) console.log('Sipping', this.tasters[index].dataset.beerflightTasterLabel, '(' + index + ')' );
+
+    if (this.debugMode)
+      console.log('Sipping', this.tasters[index].dataset.beerflightTasterLabel, '(' + index + ')' );
 
   },
 
+  // initializes Beer Flight by reading document for Beer Flight configuration
+  // markup (data attributes)
   init: function() {
 
     // create the Beer Flight paddle
