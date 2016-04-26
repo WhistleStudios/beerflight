@@ -230,3 +230,7 @@
   50% { opacity: 1; }
   100% { opacity: 0; }
 }*/
+
+[data-beerflight-taster-label] {
+  display: none;
+}
