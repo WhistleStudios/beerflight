@@ -37,7 +37,3 @@ background: linear-gradient( -90deg, #F4A019, #D84200 ); */
   background: linear-gradient( -100deg, #d0840a, #9d3000 );
   /*background: brown;*/
 }
-
-.try-darkest { /* darkest tasting */
-  background: #511900;
-}
