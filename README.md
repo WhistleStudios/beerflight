@@ -2,70 +2,67 @@
 
 ## A drop-in tool for quickly presenting web design prototypes
 
-Beer Flight is a script that generates an interactive sampler paddle for showing off custom design variations. Add some markup to describe each variation (what we're calling a taster) and the script does all the work. Click on a taster to have its styles applied live to the page.
+Beer Flight is a script that generates an interactive sampler paddle for showing off custom design variations. Add some markup to describe design tasters, and Beer Flight crafts a menu for demonstrating changes live on the page.
 
-As long as you don’t spill anything, you won’t get your hands any wetter than basic HTML and CSS selectors.
+As long as you don't spill anything, you won't get your hands any wetter than basic HTML and CSS selectors.
 
 ## Quick Start
 
-1. Include the Beer Flight JavaScript file in your HTML document: `<script src=”/path/to/beerflight.js”></script>`
+1. Include the Beer Flight script in your HTML document: `<script src="/path/to/beerflight.js"></script>`
 
-2. Identify the HTML elements and CSS styles you want to present, such as toggling a `try-blue` class or displaying a `notification` class.
+2. Add a Beer Flight `button` elements (just before the script) to describe each taster. Use the Beer Flight taster attribute to give each taster a label. Use other other Beer Flight attributes to specify how a taster changes the page.
 
-3. Describe each sample for your Beer Flight paddle by adding a `button` in your design's HTML. It'll look like this: `<button beerflight-taster-label="More Blue" beerflight-toggle-target="#container" beerflight-toggle-class="try-blue"></button>`
+If you want to add a class (`orange`) to a target element (`#beer-container`), the button markup looks like this:
 
+```html
+<button beerflight-taster="Belgian Ale"></button>
+<button beerflight-taster="With Orange"
+  beerflight-toggle-target="#beer-container"
+  beerflight-toggle-class=".orange">
+</button>
+```
 
-Pour and serve by letting Beer Flight automatically generate a menu on the page
+Pour and serve by letting Beer Flight automatically generate your flight paddle and present your brews in style.
 
 ## Examples
 
-Say you have an assortment of coloring and style options, and you want a sampler paddle that will let you browse the page with each one applied on demand. You'll put a series of HTML buttons like this at the end of your HTML document (just inside the the `body`, i.e. just before the `</body>` tag but before the Beer Flight `script` tag.) and it'll look like this:
+Put your own CSS classes on the paddle. If you'd like to swap classes for `.bolder` and `.italicized` in and out, you'll do something like this:
 
 ```html
-<button beerflight-taster-label="Pilsener" beerflight-toggle-target="#beer-main" beerflight-toggle-class="try-pilsener"></button>
-<button beerflight-taster-label="Pale Ale" beerflight-taster-default></button>
-<button beerflight-taster-label="Saison" beerflight-toggle-target="#beer-main" beerflight-toggle-class="try-saison"></button>
-<button beerflight-taster-label="Lager" beerflight-toggle-target="#beer-main" beerflight-toggle-class="try-lager"></button>
-<button beerflight-taster-label="Stout" beerflight-toggle-target="#beer-main" beerflight-toggle-class="try-stout"></button>
+<button beerflight-taster="Option A (default)"></button>
+<button beerflight-taster="Option B (bolder H1s)"
+  beerflight-toggle-target="h1"
+  beerflight-toggle-class=".bolder"></button>
+<button beerflight-taster="Option C (italicized H2s)"
+  beerflight-toggle-target="h2"
+  beerflight-toggle-class=".italicized"></button>
 ```
 
-Or this:
+Show or hide elements as you please. Show off a design with or without a notification or modal window:
 
 ```html
 <button beerflight-taster-label="bitter brew"></button>
-<button beerflight-taster-label="less hops please" beerflight-toggle-target=".extra-hops" beerflight-toggle-display></script>
+<button beerflight-taster-label="Hops Notification"
+  beerflight-toggle-target=".hops-info"
+  beerflight-toggle-display></button>
 ```
 
-Each `button` describes a "taster" and tells Beer Flight how to implement the taster when the button is pressed.
+## Customize your taster buttons
 
-## Describe each taster in the Beer Flight with `beerflight` attributes
+Every Beer Flight button needs a `beerflight-taster` attribute. The value is rendered on the label in the sampler paddle. `beerflight-taster="Version Alpha"`
 
-### `beerflight-taster-label`
+The first Beer Flight button designates the page styles to show up by default. Add the `beerflight-default` attribute to explicitly declare any taster as the initial default. (This attribute doesn't take a value.)
 
-- Used to specify the name to appear on the paddle
+```html
+<button beerflight-taster="too big"
+  beerflight-toggle-target="#bed-container"
+  beerflight-toggle-class="king-size"></button>
+<button beerflight-taster="just right" beerflight-default></button>
+<button beerflight-taster="too small"
+  beerflight-toggle-target="#bed-container"
+  beerflight-toggle-class="twin-size"></button>
+```
 
-Example: `beerflight-taster-label="layout with larger sidebar"`
+Use `beerflight-toggle-target` to specify which HTML elements should be affected by the taster. Any valid CSS selectors will work here, such as `.try-alpha-version` (classes), `#main-content` (IDs), `div` (HTML elements), and `#main-content h2` (child elements).
 
-### `beerflight-taster-default`
-
-- Used to indicate a default taster that should be enabled on page load. If not specified, the first taster is treated as the default.
-
-Example: `<button beerflight-taster-label="default taster" beerflight-taster-default></button>`
-
-### `beerflight-toggle-target`
-
-- Used to designate target elements for the style changes. Any valid CSS selectors should work here, such as `.try-alpha-version` (classes), `#main-content` (IDs), `div` (HTML elements), and `#main-content h2` (specific child elements).
-
-Example: `<button [...] beerflight-toggle-target="#main-content h2" [...]></button>`
-
-### `beerflight-toggle-class`
-
-- Used to toggle a given class on target elements (indicated by the `beerflight-toggle-target` attribute). Don't precede the class name with a period (as is done with selectors).
-
-Example: `<button [...] beerflight-toggle-target="#main-content h2" beerflight-toggle-class="extra-fancy"></button>`
-
-### `beerflight-toggle-display`
-
-- Used toggle the CSS display attribute of target elements (indicated by the `beerflight-toggle-target` attribute). This attribute does not have a value.
-
-Example: `<button [...] beerflight-toggle-target=".extra-fancy-stuff" beerflight-toggle-display></button>`
+Use `beerflight-toggle-class` to indicate a class to be toggled on or off on the target element. Use `beerflight-toggle-display` to toggle the display of the target element.
