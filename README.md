@@ -18,7 +18,7 @@ If you want to add a class (`orange`) to a target element (`#beer-container`), t
 <button beerflight-taster="Belgian Ale"></button>
 <button beerflight-taster="With Orange"
   beerflight-toggle-target="#beer-container"
-  beerflight-toggle-class=".orange">
+  beerflight-toggle-class="orange">
 </button>
 ```
 
@@ -32,18 +32,18 @@ Put your own CSS classes on the paddle. If you'd like to swap classes for `.bold
 <button beerflight-taster="Option A (default)"></button>
 <button beerflight-taster="Option B (bolder H1s)"
   beerflight-toggle-target="h1"
-  beerflight-toggle-class=".bolder"></button>
+  beerflight-toggle-class="bolder"></button>
 <button beerflight-taster="Option C (italicized H2s)"
   beerflight-toggle-target="h2"
-  beerflight-toggle-class=".italicized"></button>
+  beerflight-toggle-class="italicized"></button>
 ```
 
-Show or hide elements as you please. Show off a design with or without a notification or modal window:
+Show or hide elements as you please. Show off a design with or without a notification or modal window (`#hops-info`)with something like this:
 
 ```html
 <button beerflight-taster-label="bitter brew"></button>
 <button beerflight-taster-label="Hops Notification"
-  beerflight-toggle-target=".hops-info"
+  beerflight-toggle-target="#hops-info"
   beerflight-toggle-display></button>
 ```
 

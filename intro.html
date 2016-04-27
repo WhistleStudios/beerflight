@@ -42,7 +42,7 @@
 <pre><code class="lang-html">&lt;button beerflight-taster=&quot;Belgian Ale&quot;&gt;&lt;/button&gt;
 &lt;button beerflight-taster=&quot;With Orange&quot;
   beerflight-toggle-target=&quot;#beer-container&quot;
-  beerflight-toggle-class=&quot;.orange&quot;&gt;
+  beerflight-toggle-class=&quot;orange&quot;&gt;
 &lt;/button&gt;
 </code></pre>
 <p>Pour and serve by letting Beer Flight automatically generate your flight paddle and present your brews in style.</p>
@@ -51,15 +51,15 @@
 <pre><code class="lang-html">&lt;button beerflight-taster=&quot;Option A (default)&quot;&gt;&lt;/button&gt;
 &lt;button beerflight-taster=&quot;Option B (bolder H1s)&quot;
   beerflight-toggle-target=&quot;h1&quot;
-  beerflight-toggle-class=&quot;.bolder&quot;&gt;&lt;/button&gt;
+  beerflight-toggle-class=&quot;bolder&quot;&gt;&lt;/button&gt;
 &lt;button beerflight-taster=&quot;Option C (italicized H2s)&quot;
   beerflight-toggle-target=&quot;h2&quot;
-  beerflight-toggle-class=&quot;.italicized&quot;&gt;&lt;/button&gt;
+  beerflight-toggle-class=&quot;italicized&quot;&gt;&lt;/button&gt;
 </code></pre>
-<p>Show or hide elements as you please. Show off a design with or without a notification or modal window:</p>
+<p>Show or hide elements as you please. Show off a design with or without a notification or modal window (<code>#hops-info</code>)with something like this:</p>
 <pre><code class="lang-html">&lt;button beerflight-taster-label=&quot;bitter brew&quot;&gt;&lt;/button&gt;
 &lt;button beerflight-taster-label=&quot;Hops Notification&quot;
-  beerflight-toggle-target=&quot;.hops-info&quot;
+  beerflight-toggle-target=&quot;#hops-info&quot;
   beerflight-toggle-display&gt;&lt;/button&gt;
 </code></pre>
 <h2 id="customize-your-taster-buttons">Customize your taster buttons</h2>
@@ -74,7 +74,7 @@
   beerflight-toggle-class=&quot;twin-size&quot;&gt;&lt;/button&gt;
 </code></pre>
 <p>Use <code>beerflight-toggle-target</code> to specify which HTML elements should be affected by the taster. Any valid CSS selectors will work here, such as <code>.try-alpha-version</code> (classes), <code>#main-content</code> (IDs), <code>div</code> (HTML elements), and <code>#main-content h2</code> (child elements).</p>
-<p>Use <code>beerflight-toggle-class</code> to indicate a class to be toggled on or off on the target element. Use <code>beerflight-toggle-display</code> to toggle the display of the target element.</p>
+            <p>Use <code>beerflight-toggle-class</code> to indicate a class to be toggled on or off on the target element. Use <code>beerflight-toggle-display</code> to toggle the display of the target element.</p>
 
 
               </div><!-- /.entry-content -->
