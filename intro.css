@@ -1,4 +1,4 @@
-html, body {
+/*html, body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -17,22 +17,39 @@ header {
 
 header h1 {
   font-size: 360%;
-  color: brown;
+  color: #6D3400;
 }
 
 header h2 {
   font-size: 120%;
   font-weight: normal;
+}*/
+
+header {
+  background: linear-gradient( -90deg, #F4A019, #D84200 );
 }
 
-header h1::before {
+h1.entry-title {
+  color: #6D3400 !important;
+}
+.entry-title::before {
   content: url(beerflight.svg);
   padding-right: 0.3em;
 }
+.meta {
+  text-transform: none !important;
+  font-size: 100% !important;
+  letter-spacing: normal !important;
+  font-weight: normal !important;
+}
 
-main {
-  width: 36em;
-  margin: 2em auto;
+.bf-code {
+  font-family: monospace;
+}
+
+pre {
+  /*width: 30em;*/
+  /*margin: 1em auto;*/
 }
 
 

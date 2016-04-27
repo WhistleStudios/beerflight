@@ -53,7 +53,7 @@ Example: `<button data-beerflight-taster-label="default taster" data-beerflight-
 
 ### `data-beerflight-toggle-target`
 
-- Used to designate target elements for the style changes. Any valid CSS selectors should work here, such as `.try-alpha-version` (classes), `#main-content` (IDs), `div` (html elements), and `#main-content h2` (specific child elements).
+- Used to designate target elements for the style changes. Any valid CSS selectors should work here, such as `.try-alpha-version` (classes), `#main-content` (IDs), `div` (HTML elements), and `#main-content h2` (specific child elements).
 
 Example: `<button [...] data-beerflight-toggle-target="#main-content h2" [...]></button>`
 
