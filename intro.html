@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Introducing Beer Flight</title>
+    <title>Beer Flight - a drop-in tool for quickly presenting web design prototypes</title>
     <link rel="stylesheet" href="http://whistlestudios.com/wp-content/themes/swell/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css" />
     <link rel="stylesheet" href="intro.css" />
@@ -42,7 +42,7 @@
                     </li>
                     <li>Identify the HTML elements and CSS styles you want to present, such as toggling a <code>try-blue</code> class or displaying a <code>notification</code> class.</li>
                     <li>Describe each sample for your Beer Flight paddle by adding a <code>button</code> in your design's HTML. It'll look like this:
-                      <pre><code>&lt;button data-beerflight-taster-label="More Blue"
+                      <pre><code>&lt;button beerflight-taster-label="More Blue"
   data-beerflight-toggle-target="#container"
   data-beerflight-toggle-class="try-blue"&gt;&lt;/button&gt;</code></pre>
                     </li>
@@ -108,9 +108,9 @@
 
     <footer></footer>
 
-    <button beerflight-taster-label="Pilsener" beerflight-toggle-target="header" beerflight-toggle-class="try-lighter"></button>
-    <button beerflight-taster-label="Saison" beerflight-taster-default></button>
-    <button beerflight-taster-label="Porter" beerflight-toggle-target="header" beerflight-toggle-class="try-darker"></button>
+    <button beerflight-taster="Pilsener" beerflight-toggle-target="header" beerflight-toggle-class="try-lighter"></button>
+    <button beerflight-taster="Saison" beerflight-default></button>
+    <button beerflight-taster="Porter" beerflight-toggle-target="header" beerflight-toggle-class="try-darker"></button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
     <script src="beerflight.0.3.js"></script>
 

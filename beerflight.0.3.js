@@ -54,7 +54,7 @@ var beerFlight = {
     document.querySelectorAll('#add-buttons-here button')[index].classList.toggle(this.cssClasses.activeTaster);
 
     if (this.debugMode)
-      console.log('Sipping', this.tasters[index].dataset.beerflightTasterLabel || this.tasters[index].getAttribute('beerflight-taster-label'), '(' + index + ')' );
+      console.log('Sipping', this.tasters[index].dataset.beerflightTaster || this.tasters[index].getAttribute('beerflight-taster'), '(' + index + ')' );
 
   },
 
@@ -118,8 +118,8 @@ var beerFlight = {
     beerflightStyleLink.href = 'beerflight.0.3.css'; // FIXME must use CDN
     document.getElementsByTagName('head')[0].appendChild(beerflightStyleLink);
 
-    // set the data-bf-taster-label designated script tags to beerFlight object
-    this.tasters = document.querySelectorAll('[data-beerflight-taster-label],[beerflight-taster-label]');
+    // set the data-bf-taster label designated script tags to beerFlight object
+    this.tasters = document.querySelectorAll('[data-beerflight-taster],[beerflight-taster]');
 
     // default unless otherwise specified with data-bf-taster-default (see below)
     this.currentTasterIndex = 0;
@@ -131,7 +131,7 @@ var beerFlight = {
     for (var i = 0; i < this.tasters.length; i++) {
 
       // set default taster as specified by user with data-bf-taster-default
-      if (this.tasters[i].dataset.beerflightTasterDefault === '' || this.tasters[i].getAttribute('beerflight-taster-default')) {
+      if (this.tasters[i].dataset.beerflightDefault === '' || this.tasters[i].getAttribute('beerflight-default')) {
         this.currentTasterIndex = i;
         if (this.debugMode) console.log('Default taster set to', i);
       }
@@ -139,7 +139,7 @@ var beerFlight = {
       var button = document.createElement('button');
       button.setAttribute('type', 'button');
       button.setAttribute('value', i);
-      var label = this.tasters[i].dataset.beerflightTasterLabel || this.tasters[i].getAttribute('beerflight-taster-label');
+      var label = this.tasters[i].dataset.beerflightTaster || this.tasters[i].getAttribute('beerflight-taster');
       button.innerHTML = label;
 
       var bf = this;
