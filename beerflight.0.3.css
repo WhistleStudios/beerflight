@@ -231,6 +231,6 @@
   100% { opacity: 0; }
 }*/
 
-[data-beerflight-taster-label] {
+[data-beerflight-taster-label], [beerflight-taster-label] {
   display: none;
 }
