@@ -16,11 +16,11 @@ var beerFlight = {
   toggleTaster: function(index) { // toggle on or off the given taster by index number
 
     // get the given taster's toggle target (selector) from the data attribute
-    var toggleTarget = this.tasters[index].dataset.beerflightToggleTarget;
+    var toggleTarget = this.tasters[index].dataset.beerflightToggleTarget || this.tasters[index].getAttribute('beerflight-toggle-target');
     // find all the elements that match the given taster's selector
     var toggleTargets = document.querySelectorAll(toggleTarget);
 
-    var toggleClass = this.tasters[index].dataset.beerflightToggleClass;
+    var toggleClass = this.tasters[index].dataset.beerflightToggleClass || this.tasters[index].getAttribute('beerflight-toggle-class');
 
     // toggle the specified class for each element
     for (var i = 0; i < toggleTargets.length; i++) {
@@ -29,7 +29,7 @@ var beerFlight = {
 
     // toggle the display of target elements if requested
     // if taster script has bf-toggle-display attriubte with value of empty string
-    if (this.tasters[index].dataset.beerflightToggleDisplay === '') {
+    if (this.tasters[index].dataset.beerflightToggleDisplay === '' || this.tasters[index].getAttribute('beerflight-toggle-display')) {
       for (var i = 0; i < toggleTargets.length; i++) {
         if (toggleTargets[i].style.display === '')
           toggleTargets[i].style.display = 'none';
@@ -54,7 +54,7 @@ var beerFlight = {
     document.querySelectorAll('#add-buttons-here button')[index].classList.toggle(this.cssClasses.activeTaster);
 
     if (this.debugMode)
-      console.log('Sipping', this.tasters[index].dataset.beerflightTasterLabel, '(' + index + ')' );
+      console.log('Sipping', this.tasters[index].dataset.beerflightTasterLabel || this.tasters[index].getAttribute('beerflight-taster-label'), '(' + index + ')' );
 
   },
 
@@ -119,7 +119,7 @@ var beerFlight = {
     document.getElementsByTagName('head')[0].appendChild(beerflightStyleLink);
 
     // set the data-bf-taster-label designated script tags to beerFlight object
-    this.tasters = document.querySelectorAll('[data-beerflight-taster-label]');
+    this.tasters = document.querySelectorAll('[data-beerflight-taster-label],[beerflight-taster-label]');
 
     // default unless otherwise specified with data-bf-taster-default (see below)
     this.currentTasterIndex = 0;
@@ -131,7 +131,7 @@ var beerFlight = {
     for (var i = 0; i < this.tasters.length; i++) {
 
       // set default taster as specified by user with data-bf-taster-default
-      if (this.tasters[i].dataset.beerflightTasterDefault === '') {
+      if (this.tasters[i].dataset.beerflightTasterDefault === '' || this.tasters[i].getAttribute('beerflight-taster-default')) {
         this.currentTasterIndex = i;
         if (this.debugMode) console.log('Default taster set to', i);
       }
@@ -139,7 +139,7 @@ var beerFlight = {
       var button = document.createElement('button');
       button.setAttribute('type', 'button');
       button.setAttribute('value', i);
-      var label = this.tasters[i].dataset.beerflightTasterLabel;
+      var label = this.tasters[i].dataset.beerflightTasterLabel || this.tasters[i].getAttribute('beerflight-taster-label');
       button.innerHTML = label;
 
       var bf = this;
