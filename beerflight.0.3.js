@@ -19,14 +19,14 @@ var beerFlight = {
   // the Beer Flight elements look like this:
   // <div id="beerflight">
   //   <div id="beerflight-paddle">
-  //     <div id="beerflight-tasters"><!-- stuff --></div>
+  //     <div id="beerflight-tasters"><!-- taster buttons --></div>
   //   </div>
   // </div>
 
   elementIds: { // fka = formerly known (in legacy code) as
     paddleContainer: 'beerflight', // fka fixed-beerflight-container and beerflight-paddle
     paddle: 'beerflight-paddle', // fka fixed-beerflight
-    paddleGroup: 'beerflight-tasters' //fka .group or #add-buttons-here
+    tasterGroup: 'beerflight-tasters' //fka .group or #add-buttons-here
   },
 
   // zero-indexed integer representing the current taster selected and displaying
@@ -71,13 +71,13 @@ var beerFlight = {
     // undo what the current selected taster has done to the DOM
     this.toggleTaster(this.currentTasterIndex);
     // unpress the currently selected taster's button with CSS
-    document.querySelectorAll('#add-buttons-here button')[this.currentTasterIndex].classList.toggle(this.cssClasses.activeTaster);
+    document.querySelectorAll('#' + this.elementIds.tasterGroup + ' button')[this.currentTasterIndex].classList.toggle(this.cssClasses.activeTaster);
     // toggle on the new taster's styles
     this.toggleTaster(index);
     // set new taster as current taster
     this.currentTasterIndex = index;
     // depress this new taster button with CSS
-    document.querySelectorAll('#add-buttons-here button')[index].classList.toggle(this.cssClasses.activeTaster);
+    document.querySelectorAll('#' + this.elementIds.tasterGroup + ' button')[index].classList.toggle(this.cssClasses.activeTaster);
 
     if (this.debugMode)
       console.log('Sipping', this.tasters[index].dataset.beerflightTaster || this.tasters[index].getAttribute('beerflight-taster'), '(' + index + ')' );
@@ -101,10 +101,10 @@ var beerFlight = {
     // generate above beer paddle HTML elements
     var beerflightPaddle = document.createElement('div');
     beerflightPaddle.setAttribute('id', this.elementIds.paddle);
-    var group = document.createElement('div');
-    group.setAttribute('id', 'add-buttons-here');
-    group.classList.add('group');
-    beerflightPaddle.appendChild(group);
+    var tasterGroup = document.createElement('div');
+    tasterGroup.setAttribute('id', this.elementIds.tasterGroup);
+    tasterGroup.classList.add('group');
+    beerflightPaddle.appendChild(tasterGroup);
 
     beerflightContainer.appendChild(beerflightPaddle);
     document.body.appendChild(beerflightContainer); // attach Beer Flight to DOM
@@ -178,13 +178,13 @@ var beerFlight = {
         }
       });
 
-      document.getElementById('add-buttons-here').appendChild(button);
+      document.getElementById(this.elementIds.tasterGroup).appendChild(button);
 
       if (this.debugMode) console.log(label, 'added to paddle.');
 
     }
 
-    document.querySelectorAll('#add-buttons-here button')[this.currentTasterIndex].classList.toggle(this.cssClasses.activeTaster);
+    document.querySelectorAll('#' + this.elementIds.tasterGroup + ' button')[this.currentTasterIndex].classList.toggle(this.cssClasses.activeTaster);
 
   },
 
