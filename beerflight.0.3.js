@@ -139,13 +139,10 @@ var beerFlight = {
     document.body.appendChild(beerflightContainer); // attach Beer Flight to DOM
 
     // generate whistle logofader
-    // var beerflightPaddle = document.getElementById(this.elementsIds.paddle);
-    // beerflightPaddle.style.display = 'none';
 
     var beerFlightButton = document.createElement('button');
     beerFlightButton.setAttribute('id', this.elementIds.mainButton);
-    beerFlightButton.classList.add('beerflight-paddle-not-served');
-    beerFlightButton.innerHTML = '<span>+</span>';
+    beerFlightButton.innerHTML = '<span>&times;</span>';
 
     beerFlightButton.addEventListener('click', function(e) {
       e.preventDefault();
