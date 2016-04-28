@@ -13,7 +13,7 @@
   */
 }
 
-#beerflight-button.beerflight-paddle-not-served {
+#beerflight-coaster.beerflight-paddle-not-served {
   background: white;
   /* this is where whistle logo goes */
   background-image: url("whistle.svg") !important;
@@ -26,16 +26,16 @@
   */
 }
 
-#beerflight-button.beerflight-paddle-not-served span {
+#beerflight-coaster.beerflight-paddle-not-served span {
   visibility: hidden;
 }
 
-#beerflight-button:hover span {
+#beerflight-coaster:hover span {
   color: white;
   visibility: visible;
 }
 
-#beerflight-button {
+#beerflight-coaster {
   position: fixed;
   bottom: 5px;
   right: 0px;
@@ -61,7 +61,7 @@
 #beerflight-paddle button:hover,
 #beerflight-paddle button:focus,
 #beerflight-paddle button:active,
-#beerflight-button {
+#beerflight-coaster {
   margin: 0 2px;
   padding: 12px 16px;
   color: #fff !important;
@@ -76,12 +76,12 @@
 #beerflight-paddle button:hover::-moz-focus-inner,
 #beerflight-paddle button:focus::-moz-focus-inner,
 #beerflight-paddle button:active::-moz-focus-inner,
-#beerflight-button::-moz-focus-inner {
+#beerflight-coaster::-moz-focus-inner {
     border: 0;
     padding: 0;
 }
 #beerflight-paddle button:hover,
-#beerflight-button:hover {
+#beerflight-coaster:hover {
   background: rgba(0,0,0,0.45) !important;
   cursor: pointer;
 }
@@ -102,7 +102,7 @@
   animation-fill-mode: both;
 }
 
-#beerflight-button {
+#beerflight-coaster {
   -webkit-animation-name: bounceInRight;
   animation-name: bounceInRight;
   -webkit-animation-delay: 0.2s;

@@ -24,9 +24,10 @@ var beerFlight = {
   // </div>
 
   elementIds: { // fka = formerly known (in legacy code) as
-    paddleContainer: 'beerflight', // fka fixed-beerflight-container and beerflight-paddle
-    paddle: 'beerflight-paddle', // fka fixed-beerflight
-    tasterGroup: 'beerflight-tasters' //fka .group or #add-buttons-here
+    paddleContainer: 'beerflight', // fka #fixed-beerflight-container and #beerflight-paddle
+    paddle: 'beerflight-paddle', // fka #fixed-beerflight
+    tasterGroup: 'beerflight-tasters', // fka .group or #add-buttons-here
+    mainButton: 'beerflight-coaster', // fka #beerflight-button
   },
 
   // zero-indexed integer representing the current taster selected and displaying
@@ -34,6 +35,25 @@ var beerFlight = {
 
   // DOM elements the user has added to activate and configure Beer Flight
   tasters: undefined, // set on init with document.querySelectorAll
+
+  // HELPER FUNCTIONS
+
+  // get all the Beer Flight button elements from the page
+  getButtons: function() {
+    return document.querySelectorAll('#' + this.elementIds.tasterGroup + ' button');
+  },
+
+  // get button by its index number
+  getButton: function(index) {
+    return this.getButtons()[index];
+  },
+
+  // console.logs a message only if beerflight.debugMode == true
+  debugLog: function(msg) {
+    if (this.debugMode)
+      console.log(msg);
+  },
+
 
   toggleTaster: function(index) { // toggle on or off the given taster by index number
 
@@ -44,9 +64,7 @@ var beerFlight = {
 
     var toggleClass = this.tasters[index].dataset.beerflightClass || this.tasters[index].getAttribute('beerflight-class');
 
-    if (this.debugMode) {
-      console.log('toggleTarget:', toggleTarget, 'toggleTargets:', toggleTargets, 'toggleClass:', toggleClass);
-    }
+    this.debugLog('toggleTarget: ' + toggleTarget + 'toggleTargets:' + toggleTargets + 'toggleClass:' + toggleClass);
 
     // toggle the specified class for each element
     for (var i = 0; i < toggleTargets.length; i++) {
@@ -71,16 +89,15 @@ var beerFlight = {
     // undo what the current selected taster has done to the DOM
     this.toggleTaster(this.currentTasterIndex);
     // unpress the currently selected taster's button with CSS
-    document.querySelectorAll('#' + this.elementIds.tasterGroup + ' button')[this.currentTasterIndex].classList.toggle(this.cssClasses.activeTaster);
+    this.getButton(this.currentTasterIndex).classList.toggle(this.cssClasses.activeTaster);
     // toggle on the new taster's styles
     this.toggleTaster(index);
     // set new taster as current taster
     this.currentTasterIndex = index;
     // depress this new taster button with CSS
-    document.querySelectorAll('#' + this.elementIds.tasterGroup + ' button')[index].classList.toggle(this.cssClasses.activeTaster);
+    this.getButton(index).classList.toggle(this.cssClasses.activeTaster);
 
-    if (this.debugMode)
-      console.log('Sipping', this.tasters[index].dataset.beerflightTaster || this.tasters[index].getAttribute('beerflight-taster'), '(' + index + ')' );
+    this.debugLog('Sipping ' + this.tasters[index].dataset.beerflightTaster || this.tasters[index].getAttribute('beerflight-taster') + '(' + index + ')' );
 
   },
 
@@ -114,7 +131,7 @@ var beerFlight = {
     // beerflightPaddle.style.display = 'none';
 
     var beerFlightButton = document.createElement('button');
-    beerFlightButton.setAttribute('id', 'beerflight-button');
+    beerFlightButton.setAttribute('id', this.elementIds.mainButton);
     beerFlightButton.classList.add('beerflight-paddle-not-served');
     beerFlightButton.innerHTML = '<span>+</span>';
 
@@ -133,9 +150,7 @@ var beerFlight = {
 
     document.getElementById(this.elementIds.paddleContainer).appendChild(beerFlightButton);
 
-    if (this.debugMode) {
-      console.log('Beer Flight is served (and debugMode is enabled).');
-    }
+    this.debugLog('Beer Flight is served (and debugMode is enabled).');
 
     // insert beerflight css
     var beerflightStyleLink = document.createElement('link');
@@ -149,16 +164,14 @@ var beerFlight = {
     // default unless otherwise specified with data-bf-taster-default (see below)
     this.currentTasterIndex = 0;
 
-    if (this.debugMode) {
-      console.log('Default taster set to 0.', this.tasters.length, 'tasters found.');
-    }
+    this.debugLog('Default taster set to 0. ' + this.tasters.length + 'tasters found.');
 
     for (var i = 0; i < this.tasters.length; i++) {
 
       // set default taster as specified by user with data-bf-taster-default
       if (this.tasters[i].dataset.beerflightDefault === '' || this.tasters[i].getAttribute('beerflight-default')) {
         this.currentTasterIndex = i;
-        if (this.debugMode) console.log('Default taster set to', i);
+        this.debugLog('Default taster set to', i);
       }
 
       var button = document.createElement('button');
@@ -180,11 +193,11 @@ var beerFlight = {
 
       document.getElementById(this.elementIds.tasterGroup).appendChild(button);
 
-      if (this.debugMode) console.log(label, 'added to paddle.');
+      this.debugLog(label, 'added to paddle.');
 
     }
 
-    document.querySelectorAll('#' + this.elementIds.tasterGroup + ' button')[this.currentTasterIndex].classList.toggle(this.cssClasses.activeTaster);
+    this.getButtons()[this.currentTasterIndex].classList.toggle(this.cssClasses.activeTaster);
 
   },
 
