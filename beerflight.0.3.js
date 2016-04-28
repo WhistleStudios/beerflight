@@ -112,6 +112,12 @@ var beerFlight = {
     document.getElementsByTagName('head')[0].appendChild(beerflightStyleLink);
   },
 
+  // HARD-CODED ASSETS
+
+  svg: {
+    x: '&times;',
+    plus: '+',
+  },
 
   // initializes Beer Flight by reading document for Beer Flight configuration
   // markup (data attributes)
@@ -144,16 +150,17 @@ var beerFlight = {
     beerFlightButton.setAttribute('id', this.elementIds.mainButton);
     beerFlightButton.innerHTML = '<span>&times;</span>';
 
+    var bf = this;
     beerFlightButton.addEventListener('click', function(e) {
       e.preventDefault();
 
-      beerFlightButton.classList.toggle('beerflight-paddle-not-served');
+      // beerFlightButton.classList.toggle('beerflight-paddle-not-served');
       if (beerflightPaddle.style.display == 'none') {
         beerflightPaddle.style.display = '';
-        beerFlightButton.innerHTML = '<span>&times</span>';
+        beerFlightButton.innerHTML = '<span>' + bf.svg.x + '</span>';
       } else {
         beerflightPaddle.style.display = 'none';
-        beerFlightButton.innerHTML = '<span>+</span>';
+        beerFlightButton.innerHTML = '<span>' + bf.svg.plus + '</span>';
       }
     });
 
