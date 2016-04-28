@@ -97,9 +97,19 @@ var beerFlight = {
     // depress this new taster button with CSS
     this.getButton(index).classList.toggle(this.cssClasses.activeTaster);
 
-    this.debugLog('Sipping ' + this.tasters[index].dataset.beerflightTaster || this.tasters[index].getAttribute('beerflight-taster') + '(' + index + ')' );
+    this.debugLog('Sipping ' + (this.tasters[index].dataset.beerflightTaster || this.tasters[index].getAttribute('beerflight-taster')) + '(' + index + ')' );
 
   },
+
+  // INITIALIZATION FUNCTIONS
+
+  loadStyles: function() {
+    var beerflightStyleLink = document.createElement('link');
+    beerflightStyleLink.rel = 'stylesheet';
+    beerflightStyleLink.href = this.stylesheetHref;
+    document.getElementsByTagName('head')[0].appendChild(beerflightStyleLink);
+  },
+
 
   // initializes Beer Flight by reading document for Beer Flight configuration
   // markup (data attributes)
@@ -150,13 +160,7 @@ var beerFlight = {
 
     document.getElementById(this.elementIds.paddleContainer).appendChild(beerFlightButton);
 
-    this.debugLog('Beer Flight is served (and debugMode is enabled).');
-
-    // insert beerflight css
-    var beerflightStyleLink = document.createElement('link');
-    beerflightStyleLink.rel = 'stylesheet';
-    beerflightStyleLink.href = this.stylesheetHref;
-    document.getElementsByTagName('head')[0].appendChild(beerflightStyleLink);
+    this.loadStyles(); // insert beerflight css
 
     // set the data-bf-taster label designated script tags to beerFlight object
     this.tasters = document.querySelectorAll('[data-beerflight-taster],[beerflight-taster]');
@@ -197,7 +201,9 @@ var beerFlight = {
 
     }
 
-    this.getButtons()[this.currentTasterIndex].classList.toggle(this.cssClasses.activeTaster);
+    this.getButton(this.currentTasterIndex).classList.toggle(this.cssClasses.activeTaster);
+
+    this.debugLog('Beer Flight is served (and debugMode is enabled).');
 
   },
 
