@@ -191,7 +191,7 @@ var beerFlight = {
         e.preventDefault();
 
         if (bf.currentTasterIndex == parseInt(this.value)) {
-          if (bf.debugMode) console.log('Already sipping this one (' + this.value + ').');
+          bf.debugLog('Already sipping this one (' + this.value + ').');
         } else {
           bf.switchToTaster(parseInt(this.value));
         }
