@@ -6,15 +6,12 @@ var beerFlight = {
   debugMode: true, // FIXME set me to false before release
   // link to stylesheet used for Beer Flight elements
   stylesheetHref: 'beerflight.0.3.css', // FIXME must use CDN
-  // HTML element attribute namespace
+
+  // HTML element attribute namespace and attribute names
   attributeNamespace: 'beerflight', // not yet used TODO
-
-  // end BF CONFIG
-
-  // for keeping track of CSS classes, so they can be easiliy changed in the future
-  cssClasses: { // FIXME this is not utilized much yet
-    activeTaster: 'beerflight-active-taster',
-  },
+  // labelAttribute: 'taster',
+  // selectorAttribute: 'selector',
+  // toggleClassAttribute: 'class',
 
   // the Beer Flight elements look like this:
   // <div id="beerflight">
@@ -28,6 +25,11 @@ var beerFlight = {
     paddle: 'beerflight-paddle', // fka #fixed-beerflight
     tasterGroup: 'beerflight-tasters', // fka .group or #add-buttons-here
     mainButton: 'beerflight-coaster', // fka #beerflight-button
+  },
+
+  // for keeping track of CSS classes, so they can be easiliy changed in the future
+  cssClasses: { // FIXME this is not utilized much yet
+    activeTaster: 'beerflight-active-taster',
   },
 
   // zero-indexed integer representing the current taster selected and displaying
