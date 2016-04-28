@@ -1,6 +1,6 @@
 var beerFlight = {
 
-  debugMode: true,
+  debugMode: true, // FIXME set me to false before release
 
   // for keeping track of CSS classes, so they can be easiliy changed in the future
   cssClasses: { // FIXME this is not utilized much yet
@@ -16,11 +16,15 @@ var beerFlight = {
   toggleTaster: function(index) { // toggle on or off the given taster by index number
 
     // get the given taster's toggle target (selector) from the data attribute
-    var toggleTarget = this.tasters[index].dataset.beerflightToggleTarget || this.tasters[index].getAttribute('beerflight-toggle-target');
+    var toggleTarget = this.tasters[index].dataset.beerflightSelector || this.tasters[index].getAttribute('beerflight-selector');
     // find all the elements that match the given taster's selector
     var toggleTargets = document.querySelectorAll(toggleTarget);
 
-    var toggleClass = this.tasters[index].dataset.beerflightToggleClass || this.tasters[index].getAttribute('beerflight-toggle-class');
+    var toggleClass = this.tasters[index].dataset.beerflightClass || this.tasters[index].getAttribute('beerflight-class');
+
+    if (this.debugMode) {
+      console.log('toggleTarget:', toggleTarget, 'toggleTargets:', toggleTargets, 'toggleClass:', toggleClass);
+    }
 
     // toggle the specified class for each element
     for (var i = 0; i < toggleTargets.length; i++) {
@@ -29,13 +33,13 @@ var beerFlight = {
 
     // toggle the display of target elements if requested
     // if taster script has bf-toggle-display attriubte with value of empty string
-    if (this.tasters[index].dataset.beerflightToggleDisplay === '' || this.tasters[index].getAttribute('beerflight-toggle-display')) {
-      for (var i = 0; i < toggleTargets.length; i++) {
-        if (toggleTargets[i].style.display === '')
-          toggleTargets[i].style.display = 'none';
-        else toggleTargets[i].style.display = '';
-      }
-    }
+    // if (this.tasters[index].dataset.beerflightDisplay === '' || this.tasters[index].getAttribute('beerflight-display')) {
+    //   for (var i = 0; i < toggleTargets.length; i++) {
+    //     if (toggleTargets[i].style.display === '')
+    //       toggleTargets[i].style.display = 'none';
+    //     else toggleTargets[i].style.display = '';
+    //   }
+    // }
 
   },
 
@@ -65,7 +69,6 @@ var beerFlight = {
     // create the Beer Flight paddle
     var paddle = document.createElement('div');
     paddle.setAttribute('id', 'beerflight-paddle');
-
 
     // <div id="beerflight-paddle">
     //   <div id="fixed-beerflight">
