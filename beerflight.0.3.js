@@ -1,10 +1,32 @@
 var beerFlight = {
 
+  // BEER FLIGHT CONFIGURATION
+
+  // console.log debug messages yes or no
   debugMode: true, // FIXME set me to false before release
+  // link to stylesheet used for Beer Flight elements
+  stylesheetHref: 'beerflight.0.3.css', // FIXME must use CDN
+  // HTML element attribute namespace
+  attributeNamespace: 'beerflight', // not yet used TODO
+
+  // end BF CONFIG
 
   // for keeping track of CSS classes, so they can be easiliy changed in the future
   cssClasses: { // FIXME this is not utilized much yet
     activeTaster: 'beerflight-active-taster',
+  },
+
+  // the Beer Flight elements look like this:
+  // <div id="beerflight">
+  //   <div id="beerflight-paddle">
+  //     <div id="beerflight-tasters"><!-- stuff --></div>
+  //   </div>
+  // </div>
+
+  elementIds: { // fka = formerly known (in legacy code) as
+    paddleContainer: 'beerflight', // fka fixed-beerflight-container and beerflight-paddle
+    paddle: 'beerflight-paddle', // fka fixed-beerflight
+    paddleGroup: 'beerflight-tasters' //fka .group or #add-buttons-here
   },
 
   // zero-indexed integer representing the current taster selected and displaying
@@ -67,29 +89,29 @@ var beerFlight = {
   init: function() {
 
     // create the Beer Flight paddle
-    var paddle = document.createElement('div');
-    paddle.setAttribute('id', 'beerflight-paddle');
+    var beerflightContainer = document.createElement('div');
+    beerflightContainer.setAttribute('id', this.elementIds.paddleContainer);
 
-    // <div id="beerflight-paddle">
-    //   <div id="fixed-beerflight">
+    // <div id="beerflight"> <!-- fka as bf-paddle, fixed-bf-container -->
+    //   <div id="beerflight-paddle"> <!-- fka fixed-beerflight -->
     //     <div class="group" id="add-buttons-here"></div>
     //   </div>
     // </div>
 
     // generate above beer paddle HTML elements
-    var fixedBeerFlight = document.createElement('div');
-    fixedBeerFlight.setAttribute('id', 'fixed-beerflight');
+    var beerflightPaddle = document.createElement('div');
+    beerflightPaddle.setAttribute('id', this.elementIds.paddle);
     var group = document.createElement('div');
     group.setAttribute('id', 'add-buttons-here');
     group.classList.add('group');
-    fixedBeerFlight.appendChild(group);
+    beerflightPaddle.appendChild(group);
 
-    paddle.appendChild(fixedBeerFlight);
-    document.body.appendChild(paddle); // attach paddle to DOM
+    beerflightContainer.appendChild(beerflightPaddle);
+    document.body.appendChild(beerflightContainer); // attach Beer Flight to DOM
 
     // generate whistle logofader
-    var fixedBeerFlight = document.getElementById('fixed-beerflight');
-    fixedBeerFlight.style.display = 'none';
+    // var beerflightPaddle = document.getElementById(this.elementsIds.paddle);
+    // beerflightPaddle.style.display = 'none';
 
     var beerFlightButton = document.createElement('button');
     beerFlightButton.setAttribute('id', 'beerflight-button');
@@ -100,25 +122,25 @@ var beerFlight = {
       e.preventDefault();
 
       beerFlightButton.classList.toggle('beerflight-paddle-not-served');
-      if (fixedBeerFlight.style.display == 'none') {
-        fixedBeerFlight.style.display = '';
+      if (beerflightPaddle.style.display == 'none') {
+        beerflightPaddle.style.display = '';
         beerFlightButton.innerHTML = '<span>&times</span>';
       } else {
-        fixedBeerFlight.style.display = 'none';
+        beerflightPaddle.style.display = 'none';
         beerFlightButton.innerHTML = '<span>+</span>';
       }
     });
 
-    document.getElementById('beerflight-paddle').appendChild(beerFlightButton);
+    document.getElementById(this.elementIds.paddleContainer).appendChild(beerFlightButton);
 
     if (this.debugMode) {
-      console.log('Beer Flight paddle is ready (and debugMode is enabled).');
+      console.log('Beer Flight is served (and debugMode is enabled).');
     }
 
     // insert beerflight css
     var beerflightStyleLink = document.createElement('link');
     beerflightStyleLink.rel = 'stylesheet';
-    beerflightStyleLink.href = 'beerflight.0.3.css'; // FIXME must use CDN
+    beerflightStyleLink.href = this.stylesheetHref;
     document.getElementsByTagName('head')[0].appendChild(beerflightStyleLink);
 
     // set the data-bf-taster label designated script tags to beerFlight object
@@ -145,7 +167,7 @@ var beerFlight = {
       var label = this.tasters[i].dataset.beerflightTaster || this.tasters[i].getAttribute('beerflight-taster');
       button.innerHTML = label;
 
-      var bf = this;
+      var bf = this; // self trick to include reference to Beer Flight in anon on click functions
       button.addEventListener('click', function(e) {
         e.preventDefault();
 
