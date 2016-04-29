@@ -50,6 +50,24 @@ h1.entry-title {
 pre {
   /*width: 30em;*/
   /*margin: 1em auto;*/
+  /*margin-top: 0 !important;*/
+  /*padding-top: 0 !important;*/
+}
+
+p.explains-code {
+  padding-bottom: 0;
+}
+
+pre + h2 {
+  margin-top: 0.5em;
+}
+
+pre + h3 {
+  margin-top: 1em;
+}
+
+pre + p {
+  padding-top: 20px;
 }
 
 

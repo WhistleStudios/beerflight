@@ -31,41 +31,58 @@
                 <!-- AddThis Sharing Buttons above FIXME -->
                 <div class='at-above-post-page addthis_default_style addthis_toolbox at-wordpress-hide' data-title='Beer Flight' data-url='http://beerflight.io/'></div>
 
-<p>Beer Flight is a script that generates an interactive sampler paddle for showing off custom web design variations live on a page. Add some markup to describe design tasters, and Beer Flight crafts a menu for you to taste each one.</p>
+<p>Beer Flight is a script that generates an interactive sampler paddle for showing off custom web design variations live on a page. Add markup to describe design tasters, and Beer Flight crafts a menu for tasting each one.</p>
 <p>As long as you don&#39;t spill anything, you won&#39;t get your hands any wetter than basic HTML and CSS selectors.</p>
-<h2 id="quick-start">Quick Start</h2>
+<h2 id="get-started">Get started</h2>
 <ol>
-<li><p>Include the Beer Flight script in your HTML document:</p>
-<pre><code>&lt;script src=&quot;/path/to/beerflight.js&quot;&gt;&lt;/script&gt;
-</code></pre></li>
-<li><p>Add <code>button</code> elements (just before the script) to describe each taster. Use the <code>beerflight-taster</code> attribute to give each taster a label and other Beer Flight attributes to specify how the taster changes the page.</p>
+<li>Include the Beer Flight script in your HTML document:
+<pre><code class="lang-html">&lt;script src=&quot;/path/to/beerflight.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li>Add <code>button</code> elements (just before the script) to describe each taster. Use the <code>beerflight-taster</code> attribute to label each taster and other Beer Flight attributes to specify how the taster changes the page.
 </li>
 </ol>
-<p>If you want to add a class (<code>orange</code>) to a specific element (<code>#beer-container</code>), the button markup looks like this:</p>
-<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Belgian Ale&quot;&gt;&lt;/button&gt;
-&lt;button beerflight-taster=&quot;With Orange&quot;
-  beerflight-selector=&quot;#beer-container&quot;
-  beerflight-class=&quot;orange&quot;&gt;&lt;/button&gt;
+<p class="explains-code">For a taster to select an element (<code>#container</code>) and apply a class (<code>fancy</code>), its button markup should look like this:</p>
+<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Normal&quot;&gt;&lt;/button&gt;
+&lt;button beerflight-taster=&quot;Fancy&quot;
+  beerflight-selector=&quot;#container&quot;
+  beerflight-class=&quot;fancy&quot;&gt;&lt;/button&gt;
 </code></pre>
 <p>Pour and serve by letting Beer Flight automatically generate your flight paddle and present your brews in style.</p>
-<h2 id="an-example">An example</h2>
-<p>Put your own CSS classes on the paddle. If you&#39;d like to swap classes for <code>.bolder</code> and <code>.italicized</code> in and out, you&#39;ll do something like this:</p>
-<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Lager&quot;&gt;&lt;/button&gt;
-&lt;button beerflight-taster=&quot;Option B (bolder H1s)&quot;
-  beerflight-selector=&quot;h1&quot;
-  beerflight-class=&quot;bolder&quot;&gt;&lt;/button&gt;
-&lt;button beerflight-taster=&quot;Option C (italicized H2s)&quot;
-  beerflight-selector=&quot;h2&quot;
-  beerflight-class=&quot;italicized&quot;&gt;&lt;/button&gt;
+<h2 id="label-your-tasters">Label your tasters</h2>
+<p class="explains-code">Don&#39;t forget to label each taster by giving its button a <code>beerflight-taster</code> attribute.</p>
+<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Well-Labeled Version A&quot;&gt;&lt;/button&gt;
 </code></pre>
-<p>The <code>beerflight-selector</code> attribute specifies which HTML elements are affected by a taster and the <code>beerflight-class</code> attribute indicates a class that should be applied or removed to the selected elements.</p>
-<h2 id="customize-your-taster-buttons">Customize your taster buttons</h2>
-<p>Every Beer Flight button is labeled with a <code>beerflight-taster</code> attribute. The attribute&#39;s value is rendered as the label on the sampler paddle.</p>
-<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Version Alpha&quot; [...] &gt;&lt;/button&gt;
-</code></pre>
-<p>Beer Flight considers the first button to be the default taster and loads that taster&#39;s styles on startup. Use the <code>beerflight-default</code> attribute to explicitly designate any other buttton as the default:</p>
+<h2 id="set-a-default-taster">Set a default taster</h2>
+<p class="explains-code">Beer Flight serves the first taster on startup by default. If you&#39;d rather specify another taster to load initially, give its button the <code>beerflight-default</code> attribute.</p>
 <pre><code class="lang-html">&lt;button [...] beerflight-default&gt;&lt;/button&gt;
 </code></pre>
+<h2 id="use-css-classes-to-show-design-variations">Use CSS classes to show design variations</h2>
+<h3 id="swap-different-styles-in-and-out">Swap different styles in and out</h3>
+<p class="explains-code">In CSS, use a class to trigger a style change.</p>
+<pre><code class="lang-css">/* default red background */
+.container { background: red; }
+/* try with blue background */
+.try-blue .container { background: blue; }
+</code></pre>
+<p class="explains-code">In the button markup, tell Beer Flight which element is affected and which class triggers the change.</p>
+<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Red&quot;&gt;&lt;/button&gt;
+&lt;button beerflight-taster=&quot;Blue&quot;
+  beerflight-selector=&quot;#main&quot;
+  beerflight-class=&quot;try-blue&quot;&gt;&lt;/button&gt;
+</code></pre>
+<h3 id="show-or-hide-notifications-or-modal-elements">Show or hide notifications or modal elements</h3>
+<p class="explains-code">In the CSS, defaults can include elements that aren&#39;t displayed.</p>
+<pre><code class="lang-css">#alert { display: none; }
+.show-notification #alert { display: block; }
+</code></pre>
+<p class="explains-code">In the button markup, a class can be used to trigger the display of hidden elements.</p>
+<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Home&quot;&gt;&lt;/button&gt;
+&lt;button beerflight-taster=&quot;Notification&quot;
+  beerflight-selector=&quot;#main&quot;
+  beerflight-class=&quot;show-notification&quot;&gt;&lt;/button&gt;
+</code></pre>
+<h3 id="maybe-a-third-example">Maybe a third example</h3>
 
               </div><!-- /.entry-content -->
 
@@ -77,9 +94,9 @@
 
     <footer></footer>
 
-    <button beerflight-taster="Pilsener" beerflight-selector="header" beerflight-class="try-lighter"></button>
-    <button beerflight-taster="Saison" beerflight-default></button>
-    <button beerflight-taster="Porter" beerflight-selector="header" beerflight-class="try-darker"></button>
+    <button beerflight-taster="Lighter" beerflight-selector="header" beerflight-class="try-lighter"></button>
+    <button beerflight-taster="Medium" beerflight-default></button>
+    <button beerflight-taster="Darker" beerflight-selector="header" beerflight-class="try-darker"></button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
     <script src="beerflight.0.3.js"></script>
 
