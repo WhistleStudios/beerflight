@@ -2,56 +2,85 @@
 
 ## A drop-in tool for quickly presenting web design prototypes
 
-Beer Flight is a script that generates an interactive sampler paddle for showing off custom web design variations live on a page. Add some markup to describe design tasters, and Beer Flight crafts a menu for you to taste each one.
+Beer Flight is a script that generates an interactive sampler paddle for showing off custom web design variations live on a page. Add markup to describe design tasters, and Beer Flight crafts a menu for tasting each one.
 
 As long as you don't spill anything, you won't get your hands any wetter than basic HTML and CSS selectors.
 
-## Quick Start
+## Get started
 
 1. Include the Beer Flight script in your HTML document:
-  ```
+
+  ```html
   <script src="/path/to/beerflight.js"></script>
   ```
 
-2. Add `button` elements (just before the script) to describe each taster. Use the `beerflight-taster` attribute to give each taster a label and other Beer Flight attributes to specify how the taster changes the page.
+2. Add `button` elements (just before the script) to describe each taster. Use the `beerflight-taster` attribute to label each taster and other Beer Flight attributes to specify how the taster changes the page.
 
-If you want to add a class (`orange`) to a specific element (`#beer-container`), the button markup looks like this:
+For a taster to select an element (`#container`) and apply a class (`fancy`), its button markup should look like this:
 
 ```html
-<button beerflight-taster="Belgian Ale"></button>
-<button beerflight-taster="With Orange"
-  beerflight-selector="#beer-container"
-  beerflight-class="orange"></button>
+<button beerflight-taster="Normal"></button>
+<button beerflight-taster="Fancy"
+  beerflight-selector="#container"
+  beerflight-class="fancy"></button>
 ```
 
 Pour and serve by letting Beer Flight automatically generate your flight paddle and present your brews in style.
 
-## An example
+## Label your tasters
 
-Put your own CSS classes on the paddle. If you'd like to swap classes for `.bolder` and `.italicized` in and out, you'll do something like this:
-
-```html
-<button beerflight-taster="Lager"></button>
-<button beerflight-taster="Option B (bolder H1s)"
-  beerflight-selector="h1"
-  beerflight-class="bolder"></button>
-<button beerflight-taster="Option C (italicized H2s)"
-  beerflight-selector="h2"
-  beerflight-class="italicized"></button>
-```
-
-The `beerflight-selector` attribute specifies which HTML elements are affected by a taster and the `beerflight-class` attribute indicates a class that should be applied or removed to the selected elements.
-
-## Customize your taster buttons
-
-Every Beer Flight button is labeled with a `beerflight-taster` attribute. The attribute's value is rendered as the label on the sampler paddle.
+Don't forget to label each taster by giving its button a `beerflight-taster` attribute.
 
 ```html
-<button beerflight-taster="Version Alpha" [...] ></button>
+<button beerflight-taster="Well-Labeled Version A"></button>
 ```
 
-Beer Flight considers the first button to be the default taster and loads that taster's styles on startup. Use the `beerflight-default` attribute to explicitly designate any other buttton as the default:
+## Set a default taster
+
+Beer Flight serves the first taster on startup by default. If you'd rather specify another taster to load initially, give its button the `beerflight-default` attribute. This attribute is _optional_.
 
 ```html
 <button [...] beerflight-default></button>
 ```
+
+## Use CSS classes to show design variations
+
+### Swap different styles in and out
+
+In CSS, use a class to trigger a style change.
+
+```css
+/* default red background */
+.container { background: red; }
+/* try with blue background */
+.try-blue .container { background: blue; }
+```
+
+In the button markup, tell Beer Flight which element is affected and which class triggers the change.
+
+```html
+<button beerflight-taster="Red"></button>
+<button beerflight-taster="Blue"
+  beerflight-selector="#main"
+  beerflight-class="try-blue"></button>
+```
+
+### Show or hide notifications or modal elements
+
+In the CSS, some elements can be hidden by default and Beer Flight display them on demand.
+
+```css
+#alert { display: none; }
+.show-notification #alert { display: block; }
+```
+
+In the button markup, a class can be used to trigger the display of hidden elements.
+
+```html
+<button beerflight-taster="Home"></button>
+<button beerflight-taster="Notification"
+  beerflight-selector="#main"
+  beerflight-class="show-notification"></button>
+```
+
+### Maybe a third example
