@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Beer Flight - a drop-in tool for quickly presenting web design prototypes</title>
     <link rel="stylesheet" href="http://whistlestudios.com/wp-content/themes/swell/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css" />
     <link rel="stylesheet" href="intro.css" />
   </head>
@@ -19,7 +21,7 @@
             <header class="main entry-header has-background">
               <h1 class="entry-title">Beer Flight</h1>
               <hr class="short" />
-              <span class="meta">A drop-in tool for quickly presenting web design prototypes</span>
+              <span class="meta">A tool for tasting different prototypes</span>
               <span class="overlay"></span>
             </header>
 
@@ -29,54 +31,41 @@
                 <!-- AddThis Sharing Buttons above FIXME -->
                 <div class='at-above-post-page addthis_default_style addthis_toolbox at-wordpress-hide' data-title='Beer Flight' data-url='http://beerflight.io/'></div>
 
-<p>Beer Flight is a script that generates an interactive sampler paddle for showing off custom design variations. Add some markup to describe design tasters, and Beer Flight crafts a menu for demonstrating changes live on the page.</p>
+<p>Beer Flight is a script that generates an interactive sampler paddle for showing off custom web design variations live on a page. Add some markup to describe design tasters, and Beer Flight crafts a menu for you to taste each one.</p>
 <p>As long as you don&#39;t spill anything, you won&#39;t get your hands any wetter than basic HTML and CSS selectors.</p>
 <h2 id="quick-start">Quick Start</h2>
 <ol>
-<li><p>Include the Beer Flight script in your HTML document: 
-<pre><code>&lt;script src=&quot;/path/to/beerflight.js&quot;&gt;&lt;/script&gt;</code></pre></p>
-</li>
-<li><p>Add a Beer Flight <code>button</code> elements (just before the script) to describe each taster. Use the Beer Flight taster attribute to give each taster a label. Use other other Beer Flight attributes to specify how a taster changes the page.</p>
+<li><p>Include the Beer Flight script in your HTML document:</p>
+<pre><code>&lt;script src=&quot;/path/to/beerflight.js&quot;&gt;&lt;/script&gt;
+</code></pre></li>
+<li><p>Add <code>button</code> elements (just before the script) to describe each taster. Use the <code>beerflight-taster</code> attribute to give each taster a label and other Beer Flight attributes to specify how the taster changes the page.</p>
 </li>
 </ol>
-<p>If you want to add a class (<code>orange</code>) to a target element (<code>#beer-container</code>), the button markup looks like this:</p>
+<p>If you want to add a class (<code>orange</code>) to a specific element (<code>#beer-container</code>), the button markup looks like this:</p>
 <pre><code class="lang-html">&lt;button beerflight-taster=&quot;Belgian Ale&quot;&gt;&lt;/button&gt;
 &lt;button beerflight-taster=&quot;With Orange&quot;
-  beerflight-toggle-target=&quot;#beer-container&quot;
-  beerflight-toggle-class=&quot;orange&quot;&gt;
-&lt;/button&gt;
+  beerflight-selector=&quot;#beer-container&quot;
+  beerflight-class=&quot;orange&quot;&gt;&lt;/button&gt;
 </code></pre>
 <p>Pour and serve by letting Beer Flight automatically generate your flight paddle and present your brews in style.</p>
-<h2 id="examples">Examples</h2>
+<h2 id="an-example">An example</h2>
 <p>Put your own CSS classes on the paddle. If you&#39;d like to swap classes for <code>.bolder</code> and <code>.italicized</code> in and out, you&#39;ll do something like this:</p>
-<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Option A (default)&quot;&gt;&lt;/button&gt;
+<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Lager&quot;&gt;&lt;/button&gt;
 &lt;button beerflight-taster=&quot;Option B (bolder H1s)&quot;
-  beerflight-toggle-target=&quot;h1&quot;
-  beerflight-toggle-class=&quot;bolder&quot;&gt;&lt;/button&gt;
+  beerflight-selector=&quot;h1&quot;
+  beerflight-class=&quot;bolder&quot;&gt;&lt;/button&gt;
 &lt;button beerflight-taster=&quot;Option C (italicized H2s)&quot;
-  beerflight-toggle-target=&quot;h2&quot;
-  beerflight-toggle-class=&quot;italicized&quot;&gt;&lt;/button&gt;
+  beerflight-selector=&quot;h2&quot;
+  beerflight-class=&quot;italicized&quot;&gt;&lt;/button&gt;
 </code></pre>
-<p>Show or hide elements as you please. Show off a design with or without a notification or modal window (<code>#hops-info</code>)with something like this:</p>
-<pre><code class="lang-html">&lt;button beerflight-taster-label=&quot;bitter brew&quot;&gt;&lt;/button&gt;
-&lt;button beerflight-taster-label=&quot;Hops Notification&quot;
-  beerflight-toggle-target=&quot;#hops-info&quot;
-  beerflight-toggle-display&gt;&lt;/button&gt;
-</code></pre>
+<p>The <code>beerflight-selector</code> attribute specifies which HTML elements are affected by a taster and the <code>beerflight-class</code> attribute indicates a class that should be applied or removed to the selected elements.</p>
 <h2 id="customize-your-taster-buttons">Customize your taster buttons</h2>
-<p>Every Beer Flight button needs a <code>beerflight-taster</code> attribute. The value is rendered on the label in the sampler paddle. <code>beerflight-taster=&quot;Version Alpha&quot;</code></p>
-<p>The first Beer Flight button designates the page styles to show up by default. Add the <code>beerflight-default</code> attribute to explicitly declare any taster as the initial default. (This attribute doesn&#39;t take a value.)</p>
-<pre><code class="lang-html">&lt;button beerflight-taster=&quot;too big&quot;
-  beerflight-toggle-target=&quot;#bed-container&quot;
-  beerflight-toggle-class=&quot;king-size&quot;&gt;&lt;/button&gt;
-&lt;button beerflight-taster=&quot;just right&quot; beerflight-default&gt;&lt;/button&gt;
-&lt;button beerflight-taster=&quot;too small&quot;
-  beerflight-toggle-target=&quot;#bed-container&quot;
-  beerflight-toggle-class=&quot;twin-size&quot;&gt;&lt;/button&gt;
+<p>Every Beer Flight button is labeled with a <code>beerflight-taster</code> attribute. The attribute&#39;s value is rendered as the label on the sampler paddle.</p>
+<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Version Alpha&quot; [...] &gt;&lt;/button&gt;
 </code></pre>
-<p>Use <code>beerflight-toggle-target</code> to specify which HTML elements should be affected by the taster. Any valid CSS selectors will work here, such as <code>.try-alpha-version</code> (classes), <code>#main-content</code> (IDs), <code>div</code> (HTML elements), and <code>#main-content h2</code> (child elements).</p>
-            <p>Use <code>beerflight-toggle-class</code> to indicate a class to be toggled on or off on the target element. Use <code>beerflight-toggle-display</code> to toggle the display of the target element.</p>
-
+<p>Beer Flight considers the first button to be the default taster and loads that taster&#39;s styles on startup. Use the <code>beerflight-default</code> attribute to explicitly designate any other buttton as the default:</p>
+<pre><code class="lang-html">&lt;button [...] beerflight-default&gt;&lt;/button&gt;
+</code></pre>
 
               </div><!-- /.entry-content -->
 
