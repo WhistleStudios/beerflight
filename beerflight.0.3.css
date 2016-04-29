@@ -31,18 +31,18 @@ button#beerflight-coaster::after {
   position: absolute;
   z-index: -1;
 
-  -webkit-animation: whistle-fader 2s infinite;
-  -moz-animation: whistle-fader 2s infinite;
-  -o-animation: whistle-fader 2s infinite;
-  animiation: whistle-fader 2s infinite;
+  -webkit-animation: whistle-fader 5s infinite;
+  -moz-animation: whistle-fader 5s infinite;
+  -o-animation: whistle-fader 5s infinite;
+  animiation: whistle-fader 5s infinite;
 }
 
 #beerflight-coaster span {
   /*visibility: hidden;*/
-  -webkit-animation: coaster-fader 2s infinite;
-  -moz-animation: coaster-fader 2s infinite;
-  -o-animation: coaster-fader 2s infinite;
-  animiation: coaster-fader 2s infinite;
+  -webkit-animation: coaster-fader 5s infinite;
+  -moz-animation: coaster-fader 5s infinite;
+  -o-animation: coaster-fader 5s infinite;
+  animiation: coaster-fader 5s infinite;
 }
 
 #beerflight-coaster:hover span {
