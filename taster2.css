@@ -1,8 +1,0 @@
-#taster2 {
-  color: green;
-  background-color: white;
-}
-
-#taster2::after {
-  content: ' enabled!';
-}
