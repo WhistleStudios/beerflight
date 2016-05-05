@@ -21,7 +21,7 @@
             <header class="main entry-header has-background">
               <h1 class="entry-title">Beer Flight</h1>
               <hr class="short" />
-              <span class="meta">A tool for tasting different prototypes</span>
+              <span class="meta">Introducing a new way to quickly present web design prototypes</span>
               <span class="overlay"></span>
             </header>
 
@@ -31,24 +31,27 @@
                 <!-- AddThis Sharing Buttons above FIXME -->
                 <div class='at-above-post-page addthis_default_style addthis_toolbox at-wordpress-hide' data-title='Beer Flight' data-url='http://beerflight.io/'></div>
 
-<p>Beer Flight is a script that generates an interactive sampler paddle for showing off custom web design variations live on a page. Add markup to describe design tasters, and Beer Flight crafts a menu for tasting each one.</p>
-<p>As long as you don&#39;t spill anything, you won&#39;t get your hands any wetter than basic HTML and CSS selectors.</p>
-<h2 id="get-started">Get started</h2>
+<p>Beer Flight is a tool to help demonstrate different variations of a web design prototype. It's perfect for UX designers familiar with HTML & CSS to show (not tell) people what an experience would be like.</p>
+<h3 id="get-started">Get started</h3>
 <ol>
-<li>Include the Beer Flight script in your HTML document:
+<li>Add Beer Flight to your HTML prototype:
 <pre><code class="lang-html">&lt;script src=&quot;/path/to/beerflight.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 </li>
-<li>Add <code>button</code> elements (just before the script) to describe each taster. Use the <code>beerflight-taster</code> attribute to label each taster and other Beer Flight attributes to specify how the taster changes the page.
-</li>
-</ol>
-<p class="explains-code">For a taster to select an element (<code>#container</code>) and apply a class (<code>fancy</code>), its button markup should look like this:</p>
-<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Normal&quot;&gt;&lt;/button&gt;
-&lt;button beerflight-taster=&quot;Fancy&quot;
-  beerflight-selector=&quot;#container&quot;
-  beerflight-class=&quot;fancy&quot;&gt;&lt;/button&gt;
+<li>Add your taster buttons, CSS selectors and classes:
+<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Light&quot; beerflight-selector=&quot;#header&quot; beerflight-class=&quot;try-light&quot;&gt;&lt;/button&gt;
+&lt;button beerflight-taster=&quot;Medium&quot; beerflight-selector=&quot;#header&quot; beerflight-class=&quot;try-medium&quot;&gt;&lt;/button&gt;
+...
 </code></pre>
-<p>Pour and serve by letting Beer Flight automatically generate your flight paddle and present your brews in style.</p>
+</li>
+<li>Pour and serve</li>
+</ol>
+
+<h3>Examples</h3>
+<img src="http://placehold.it/250x200"> <img src="http://placehold.it/250x200"> <img src="http://placehold.it/250x200"> 
+
+
+<!--
 <h2 id="label-your-tasters">Label your tasters</h2>
 <p class="explains-code">Don&#39;t forget to label each taster by giving its button a <code>beerflight-taster</code> attribute.</p>
 <pre><code class="lang-html">&lt;button beerflight-taster=&quot;Well-Labeled Version A&quot;&gt;&lt;/button&gt;
@@ -83,7 +86,7 @@
   beerflight-class=&quot;show-notification&quot;&gt;&lt;/button&gt;
 </code></pre>
 <h3 id="maybe-a-third-example">Maybe a third example</h3>
-
+-->
               </div><!-- /.entry-content -->
 
             </div>
@@ -94,9 +97,9 @@
 
     <footer></footer>
 
-    <button beerflight-taster="Lighter" beerflight-selector="header" beerflight-class="try-lighter"></button>
+    <button beerflight-taster="Light" beerflight-selector="header" beerflight-class="try-lighter"></button>
     <button beerflight-taster="Medium" beerflight-default></button>
-    <button beerflight-taster="Darker" beerflight-selector="header" beerflight-class="try-darker"></button>
+    <button beerflight-taster="Dark" beerflight-selector="header" beerflight-class="try-darker"></button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
     <script src="beerflight.0.3.js"></script>
 
