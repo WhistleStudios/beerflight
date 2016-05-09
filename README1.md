@@ -6,13 +6,13 @@ Beer Flight is a tool to help demonstrate variations of a web design prototype. 
 
 ## Get started
 
-Add the Beer Flight script to your HTML prototype.
+1. Add the Beer Flight script to your HTML prototype.
 
 ```html
 <script src="/path/to/beerflight.js"></script>
 ```
 
-Add taster buttons to enable variations. Each button adds or removes a CSS class to elements on the page. The markup for a Beer Flight taster button looks like this:
+2. Add taster buttons to enable variations. Each button adds or removes a CSS class to elements on the page. The markup for a Beer Flight taster button looks like this:
 
 ```html
 <button beerflight-taster="TASTER LABEL"
@@ -20,37 +20,41 @@ Add taster buttons to enable variations. Each button adds or removes a CSS class
   beerflight-class="CSS-CLASS-NAME"></button>
 ```
 
-Pour and serve.
+3. Pour and serve.
 
 ## Examples
 
-### Blue Version, Red Version
+### Versions
+
+CSS for a style variation...
 
 ```css
 /* style.css (Beer Flight-ready CSS) */
-/* background of container is red by default */
 .container { background: red; }
-/* try container with blue background */
 .container.try-blue { background: blue; }
 ```
 
+...can be triggered with markup like this:
+
 ```html
-<!-- index.html (Beer Flight button HTML) -->
 <button beerflight-taster="Red"></button>
 <button beerflight-taster="Blue"
   beerflight-selector=".container"
   beerflight-class="try-blue"></button>
 ```
 
-### Show a Notification
+### Notifications
+
+Elements hidden by default CSS...
 
 ```css
 /* style.css (Beer Flight-ready CSS) */
 /* alert is hidden by default */
 #alert { display: none; }
-/* make alert visible */
 #alert.show-me { display: block; }
 ```
+
+...can be revealed with buttons like these:
 
 ```html
 <!-- index.html (Beer Flight button HTML) -->

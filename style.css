@@ -81,15 +81,27 @@ pre + p {
  /*background: brown;*/
 }
 
-.example {
-  /*position: relative;*/
-  /*padding-top: 400px;*/
-}
-.example iframe {
-  /*position: absolute;
-  top: 0;
-  left: 0;*/
+
+iframe {
   height: 360px;
   width: 600px;
-  border: 1px solid gray;
+  border: 2px solid gray;
+}
+
+li p {
+  padding-bottom: 0;
+}
+
+pre {
+  width: 500px;
+}
+
+
+@media (max-width: 600px) {
+  iframe {
+    width: 100%;
+  }
+  pre {
+    width: 100%;
+  }
 }
