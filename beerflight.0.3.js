@@ -5,7 +5,7 @@ var beerFlight = {
   // console.log debug messages yes or no
   debugMode: true, // FIXME set me to false before release
   // link to stylesheet used for Beer Flight elements
-  stylesheetHref: 'beerflight.0.3.css', // FIXME must use CDN
+  stylesheetHref: 'beerflight.css', // FIXME must use CDN
 
   // HTML element attribute namespace and attribute names
   attributeNamespace: 'beerflight', // not yet used TODO
@@ -114,10 +114,10 @@ var beerFlight = {
 
   // HARD-CODED ASSETS
 
-  svg: {
-    x: '&times;',
-    plus: '+',
-  },
+  // svg: { // switched to using CSS class
+  //   x: '&times;',
+  //   plus: '+',
+  // },
 
   // initializes Beer Flight by reading document for Beer Flight configuration
   // markup (data attributes)
@@ -148,7 +148,9 @@ var beerFlight = {
 
     var beerFlightButton = document.createElement('button');
     beerFlightButton.setAttribute('id', this.elementIds.mainButton);
-    beerFlightButton.innerHTML = '<span>&times;</span>';
+    // beerFlightButton.innerHTML = '<span>' + this.svg.x + '</span>';
+    // beerFlightButton.innerHTML = this.svg.x;
+    beerflightContainer.classList.add('beerflight-is-served');
 
     var bf = this;
     beerFlightButton.addEventListener('click', function(e) {
@@ -157,11 +159,14 @@ var beerFlight = {
       // beerFlightButton.classList.toggle('beerflight-paddle-not-served');
       if (beerflightPaddle.style.display == 'none') {
         beerflightPaddle.style.display = '';
-        beerFlightButton.innerHTML = '<span>' + bf.svg.x + '</span>';
+        // beerFlightButton.innerHTML = '<span>' + bf.svg.x + '</span>';
+        // beerFlightButton.innerHTML = bf.svg.x;
       } else {
         beerflightPaddle.style.display = 'none';
-        beerFlightButton.innerHTML = '<span>' + bf.svg.plus + '</span>';
+        // beerFlightButton.innerHTML = '<span>' + bf.svg.plus + '</span>';
+        //  beerFlightButton.innerHTML = bf.svg.plus;
       }
+      beerflightContainer.classList.toggle('beerflight-is-served')
     });
 
     document.getElementById(this.elementIds.paddleContainer).appendChild(beerFlightButton);

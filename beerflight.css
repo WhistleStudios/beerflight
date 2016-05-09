@@ -1,39 +1,127 @@
-#fixed-beerflight-container {
-  position:fixed;
-  bottom:0;
-  right:0;
-  width:100%;
-  z-index: 9999;
-  background: #eeeeee; /* Old browsers */
-  background: -webkit-linear-gradient(#eeeeee 0%, #cccccc 100%);
-  background: -o-linear-gradient(#eeeeee 0%, #cccccc 100%);
-  background: linear-gradient(#eeeeee 0%, #cccccc 100%);   
-}
-#fixed-beerflight {
-  padding: 5px 0;
-  overflow: auto; 
-}
-#fixed-beerflight .group { 
-  float: left; 
-  padding-left: 15px;
-}
-#fixed-beerflight h1 {
-  color: #000;
-  margin: 0 0 5px;
-  font: bold 14px sans-serif;
-  border-bottom: solid 1px #ccc;
-}
-#fixed-beerflight button,
-#fixed-beerflight button:hover,
-#fixed-beerflight button:focus,
-#fixed-beerflight button:active {
-  margin: 0 2px;
-  padding: 5px;
-  border: solid 1px #000;
-  color: #000;
-  font: normal 12px sans-serif;
-  box-shadow: none;
-  outline: none!;
-  border-radius: 4px;
-  background: #d1d1d1;
-}
+/* hide beerflight stuff by default */
+[data-beerflight-taster], [beerflight-taster],
+[data-beerflight-selector], [beerflight-selector],
+[data-beerflight-class], [beerflight-class] {
+  display: none; }
+
+.selector {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+#beerflight {
+  position: fixed;
+  bottom: 2px;
+  right: 0;
+  display: block;
+  width: 100%;
+  padding-right: 54px; }
+  #beerflight button, #beerflight button:hover, #beerflight button:focus, #beerflight button:active {
+    margin: 0 2px;
+    padding: 12px 16px;
+    color: #fff !important;
+    font: normal 20px/18px sans-serif;
+    box-shadow: none;
+    outline: none;
+    border: 2px solid transparent !important;
+    border-radius: 24px;
+    background: rgba(0, 0, 0, 0.5) !important;
+    z-index: 9999; }
+    #beerflight button.beerflight-active-taster, #beerflight button.beerflight-active-taster:hover, #beerflight button:hover.beerflight-active-taster, #beerflight button:hover.beerflight-active-taster:hover, #beerflight button:focus.beerflight-active-taster, #beerflight button:focus.beerflight-active-taster:hover, #beerflight button:active.beerflight-active-taster, #beerflight button:active.beerflight-active-taster:hover {
+      border: 2px solid rgba(0, 0, 0, 0.5) !important;
+      background: none !important;
+      color: rgba(0, 0, 0, 0.5) !important;
+      cursor: default; }
+    #beerflight button:hover, #beerflight button:hover:hover, #beerflight button:focus:hover, #beerflight button:active:hover {
+      background: rgba(0, 0, 0, 0.45) !important;
+      cursor: pointer; }
+    #beerflight button::-moz-focus-inner, #beerflight button:hover::-moz-focus-inner, #beerflight button:focus::-moz-focus-inner, #beerflight button:active::-moz-focus-inner, #beerflight button:hover::-moz-focus-inner, #beerflight button:hover:hover::-moz-focus-inner, #beerflight button:hover:focus::-moz-focus-inner, #beerflight button:hover:active::-moz-focus-inner, #beerflight button:focus::-moz-focus-inner, #beerflight button:focus:hover::-moz-focus-inner, #beerflight button:focus:focus::-moz-focus-inner, #beerflight button:focus:active::-moz-focus-inner, #beerflight button:active::-moz-focus-inner, #beerflight button:active:hover::-moz-focus-inner, #beerflight button:active:focus::-moz-focus-inner, #beerflight button:active:active::-moz-focus-inner {
+      border: 0;
+      padding: 0; }
+  #beerflight #beerflight-coaster {
+    /* coaster button */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    width: 50px;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve"><style type="text/css">.st0{fill:#FFFFFF;}</style><defs></defs><g id="_x37_46-plus-circle-toolbar-selected_x40_2x.png_1_"><g><path class="st0" d="M22.9,10.9h-9.8V1.1C13.1,0.5,12.6,0,12,0s-1.1,0.5-1.1,1.1v9.8H1.1C0.5,10.9,0,11.4,0,12 c0,0.6,0.5,1.1,1.1,1.1h9.8v9.8c0,0.6,0.5,1.1,1.1,1.1s1.1-0.5,1.1-1.1v-9.8h9.8c0.6,0,1.1-0.5,1.1-1.1 C24,11.4,23.5,10.9,22.9,10.9z"/></g></g></svg>') !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important; }
+  #beerflight.beerflight-is-served #beerflight-coaster {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="17.6px" height="17.6px" viewBox="0 0 17.6 17.6" style="enable-background:new 0 0 17.6 17.6;" xml:space="preserve"><style type="text/css">.st0{fill:#FFFFFF;}</style><defs></defs><g id="_x37_46-plus-circle-toolbar-selected_x40_2x.png_2_"><g><path class="st0" d="M10.3,8.8l6.9-6.9c0.4-0.4,0.4-1.1,0-1.5s-1.1-0.4-1.5,0L8.8,7.3L1.9,0.3c-0.4-0.4-1.1-0.4-1.5,0 s-0.4,1.1,0,1.5l6.9,6.9l-6.9,6.9c-0.4,0.4-0.4,1.1,0,1.5c0.4,0.4,1.1,0.4,1.5,0l6.9-6.9l6.9,6.9c0.4,0.4,1.1,0.4,1.5,0 c0.4-0.4,0.4-1.1,0-1.5L10.3,8.8z"/></g></g></svg>') !important; }
+  #beerflight #beerflight-paddle {
+    /* paddle container */ }
+    #beerflight #beerflight-paddle .group {
+      float: right;
+      -webkit-animation-name: bounceInRight;
+      animation-name: bounceInRight;
+      -webkit-animation-delay: 0.2s;
+      animation-delay: 0.2s;
+      -webkit-animation-duration: 0.2s;
+      animation-duration: 0.2s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both; }
+
+@-webkit-keyframes bounceInRight {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(3000px, 0, 0);
+    transform: translate3d(3000px, 0, 0); }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0); }
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0); }
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0); }
+  to {
+    -webkit-transform: none;
+    transform: none; } }
+@keyframes bounceInRight {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(3000px, 0, 0);
+    transform: translate3d(3000px, 0, 0); }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0); }
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0); }
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0); }
+  to {
+    -webkit-transform: none;
+    transform: none; } }
+@-webkit-keyframes bounceOutRight {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0); }
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0); } }
+@keyframes bounceOutRight {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0); }
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0); } }
+
+/*# sourceMappingURL=beerflight.css.map */
