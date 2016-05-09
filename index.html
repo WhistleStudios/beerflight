@@ -3,6 +3,21 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Beer Flight - a drop-in tool for quickly presenting web design prototypes</title>
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Beer Flight" />
+    <meta property="og:description" content="Use Beer Flight to show off your web prototypes" />
+    <meta property="og:url" content="http://beerflight.io/" />
+    <meta property="og:site_name" content="Whistle Studios" />
+    <meta property="fb:admins" content="1428494733" />
+    <meta property="og:image" content="http://whistlestudios.com/wp-content/uploads/2015/09/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:description" content="We&#039;re a digital product design and development agency specializing in making products people love. Our work is backed by research and refinement."/>
+    <meta name="twitter:title" content="Beer FLight - Product design and development agency"/>
+    <meta name="twitter:site" content="@whistlestudios"/>
+    <meta name="twitter:domain" content="Beer Flight"/>
+    <meta name="twitter:image:src" content="http://whistlestudios.com/wp-content/uploads/2015/09/og-image.jpg"/>
+    <meta name="twitter:creator" content="@whistlestudios"/>
     <link rel="stylesheet" href="http://whistlestudios.com/wp-content/themes/swell/style.css" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
@@ -16,7 +31,7 @@
       <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
 
-          <article beerflight="hey" id="post-169" class="post-169 page type-page status-publish has-post-thumbnail hentry">
+          <article beerflight="hey" class="page type-page status-publish has-post-thumbnail hentry">
 
             <header class="main entry-header has-background">
               <h1 class="entry-title">Beer Flight</h1>
@@ -29,64 +44,55 @@
 
               <div class="entry-content">
                 <!-- AddThis Sharing Buttons above FIXME -->
-                <div class='at-above-post-page addthis_default_style addthis_toolbox at-wordpress-hide' data-title='Beer Flight' data-url='http://beerflight.io/'></div>
+                <!-- <div class='at-above-post-page addthis_default_style addthis_toolbox at-wordpress-hide' data-title='Beer Flight' data-url='http://beerflight.io/'></div> -->
 
-<p>Beer Flight is a tool to help demonstrate different variations of a web design prototype. It's perfect for UX designers familiar with HTML & CSS to show (not tell) people what an experience would be like.</p>
-<h3 id="get-started">Get started</h3>
-<ol>
-<li>Add Beer Flight to your HTML prototype:
+<p>Beer Flight is a tool to help demonstrate variations of a web design prototype. It&#39;s perfect for UX designers familiar with HTML &amp; CSS to show (not tell) people what an experience would be like.</p>
+<h2 id="get-started">Get started</h2>
+<p>Add the Beer Flight script to your HTML prototype.</p>
 <pre><code class="lang-html">&lt;script src=&quot;/path/to/beerflight.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-</li>
-<li>Add your taster buttons, CSS selectors and classes:
-<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Light&quot; beerflight-selector=&quot;#header&quot; beerflight-class=&quot;try-light&quot;&gt;&lt;/button&gt;
-&lt;button beerflight-taster=&quot;Medium&quot; beerflight-selector=&quot;#header&quot; beerflight-class=&quot;try-medium&quot;&gt;&lt;/button&gt;
-...
+<p>Add taster buttons to enable a variation. Each button adds or removes a CSS class to elements on the page. The markup for a Beer Flight taster button looks like this:</p>
+<pre><code class="lang-html">&lt;button beerflight-taster=&quot;TASTER LABEL&quot;
+  beerflight-selector=&quot;CSS-SELECTOR&quot;
+  beerflight-class=&quot;CSS-CLASS-NAME&quot;&gt;&lt;/button&gt;
 </code></pre>
-</li>
-<li>Pour and serve</li>
-</ol>
+<p>Pour and serve.</p>
+<h2 id="examples">Examples</h2>
 
-<h3>Examples</h3>
-<img src="http://placehold.it/250x200"> <img src="http://placehold.it/250x200"> <img src="http://placehold.it/250x200"> 
-
-
-<!--
-<h2 id="label-your-tasters">Label your tasters</h2>
-<p class="explains-code">Don&#39;t forget to label each taster by giving its button a <code>beerflight-taster</code> attribute.</p>
-<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Well-Labeled Version A&quot;&gt;&lt;/button&gt;
-</code></pre>
-<h2 id="set-a-default-taster">Set a default taster</h2>
-<p class="explains-code">Beer Flight serves the first taster on startup by default. If you&#39;d rather specify another taster to load initially, give its button the <code>beerflight-default</code> attribute.</p>
-<pre><code class="lang-html">&lt;button [...] beerflight-default&gt;&lt;/button&gt;
-</code></pre>
-<h2 id="use-css-classes-to-show-design-variations">Use CSS classes to show design variations</h2>
-<h3 id="swap-different-styles-in-and-out">Swap different styles in and out</h3>
-<p class="explains-code">In CSS, use a class to trigger a style change.</p>
-<pre><code class="lang-css">/* default red background */
+<div id="example-one" class="example">
+<h3 id="blue-version-red-version">Blue Version, Red Version</h3>
+<iframe name="example-one" src="demo1.html"></iframe>
+<pre><code class="lang-css">/* style.css (Beer Flight-ready CSS) */
+/* background of container is red by default */
 .container { background: red; }
-/* try with blue background */
-.try-blue .container { background: blue; }
+/* try container with blue background */
+.container.try-blue { background: blue; }
 </code></pre>
-<p class="explains-code">In the button markup, tell Beer Flight which element is affected and which class triggers the change.</p>
-<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Red&quot;&gt;&lt;/button&gt;
+<pre><code class="lang-html">&lt;!-- index.html (Beer Flight button HTML) --&gt;
+&lt;button beerflight-taster=&quot;Red&quot;&gt;&lt;/button&gt;
 &lt;button beerflight-taster=&quot;Blue&quot;
-  beerflight-selector=&quot;#main&quot;
+  beerflight-selector=&quot;.container&quot;
   beerflight-class=&quot;try-blue&quot;&gt;&lt;/button&gt;
 </code></pre>
-<h3 id="show-or-hide-notifications-or-modal-elements">Show or hide notifications or modal elements</h3>
-<p class="explains-code">In the CSS, defaults can include elements that aren&#39;t displayed.</p>
-<pre><code class="lang-css">#alert { display: none; }
-.show-notification #alert { display: block; }
+</div><!-- ./example-one -->
+
+<div id="example-two" class="example">
+<h3 id="show-a-notification">Show a Notification</h3>
+<iframe name="example-two" src="demo2.html"></iframe>
+<pre><code class="lang-css">/* style.css (Beer Flight-ready CSS) */
+/* alert is hidden by default */
+#alert { display: none; }
+/* make alert visible */
+#alert.show-me { display: block; }
 </code></pre>
-<p class="explains-code">In the button markup, a class can be used to trigger the display of hidden elements.</p>
-<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Home&quot;&gt;&lt;/button&gt;
+<pre><code class="lang-html">&lt;!-- index.html (Beer Flight button HTML) --&gt;
+&lt;button beerflight-taster=&quot;Home&quot;&gt;&lt;/button&gt;
 &lt;button beerflight-taster=&quot;Notification&quot;
-  beerflight-selector=&quot;#main&quot;
-  beerflight-class=&quot;show-notification&quot;&gt;&lt;/button&gt;
+  beerflight-selector=&quot;#alert&quot;
+  beerflight-class=&quot;show-me&quot;&gt;&lt;/button&gt;
 </code></pre>
-<h3 id="maybe-a-third-example">Maybe a third example</h3>
--->
+</div><!-- ./example-two -->
+
               </div><!-- /.entry-content -->
 
             </div>

@@ -80,3 +80,16 @@ pre + p {
  background: linear-gradient( -135deg, #d0840a, #9d3000 );
  /*background: brown;*/
 }
+
+.example {
+  /*position: relative;*/
+  /*padding-top: 400px;*/
+}
+.example iframe {
+  /*position: absolute;
+  top: 0;
+  left: 0;*/
+  height: 360px;
+  width: 600px;
+  border: 1px solid gray;
+}
