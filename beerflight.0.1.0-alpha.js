@@ -110,6 +110,14 @@ var beerFlight = {
     beerflightStyleLink.rel = 'stylesheet';
     beerflightStyleLink.href = this.stylesheetHref;
     document.getElementsByTagName('head')[0].appendChild(beerflightStyleLink);
+
+    if (this.debugMode) {
+      // FIXME by removing this
+      var beerflightStyleLinkDebug = document.createElement('link');
+      beerflightStyleLinkDebug.rel = 'stylesheet';
+      beerflightStyleLinkDebug.href = '../' + this.stylesheetHref;
+      document.getElementsByTagName('head')[0].appendChild(beerflightStyleLinkDebug);
+    }
   },
 
   // HARD-CODED ASSETS
