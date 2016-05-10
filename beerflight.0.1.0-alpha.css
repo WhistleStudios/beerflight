@@ -26,10 +26,10 @@
     border: 2px solid transparent !important;
     border-radius: 24px;
     background: rgba(0, 0, 0, 0.5) !important;
-    z-index: 9999; }
+    z-index: 9999 !important; }
     #beerflight button.beerflight-active-taster, #beerflight button.beerflight-active-taster:hover, #beerflight button:hover.beerflight-active-taster, #beerflight button:hover.beerflight-active-taster:hover, #beerflight button:focus.beerflight-active-taster, #beerflight button:focus.beerflight-active-taster:hover, #beerflight button:active.beerflight-active-taster, #beerflight button:active.beerflight-active-taster:hover {
       border: 2px solid rgba(0, 0, 0, 0.5) !important;
-      background: none !important;
+      background: rgba(255, 255, 255, 0.95) !important;
       color: rgba(0, 0, 0, 0.5) !important;
       cursor: default; }
     #beerflight button:hover, #beerflight button:hover:hover, #beerflight button:focus:hover, #beerflight button:active:hover {
@@ -124,4 +124,4 @@
     -webkit-transform: translate3d(2000px, 0, 0);
     transform: translate3d(2000px, 0, 0); } }
 
-/*# sourceMappingURL=beerflight.css.map */
+/*# sourceMappingURL=beerflight.0.1.0-alpha.css.map */
