@@ -67,10 +67,13 @@
 </ol>
 <h2 id="examples">Examples</h2>
 <h3 id="versions">Versions</h3>
-<iframe src="demo1.html"></iframe>
+
+<div class="demo-container">
+  <iframe class="demo" src="demo1.html" height="100%" width="100%"></iframe>
+</div>
+
 <p>CSS for a style variation...</p>
-<pre><code class="lang-css">/* style.css (Beer Flight-ready CSS) */
-.container { background: red; }
+<pre><code class="lang-css">.container { background: red; }
 .container.try-blue { background: blue; }
 </code></pre>
 <p>...can be triggered with markup like this:</p>
@@ -80,10 +83,13 @@
   beerflight-class=&quot;try-blue&quot;&gt;&lt;/button&gt;
 </code></pre>
 <h3 id="notifications">Notifications</h3>
-<iframe src="demo2.html"></iframe>
+
+<div class="demo-container">
+  <iframe class="demo" src="demo2.html" height="100%" width="100%"></iframe>
+</div>
+
 <p>Elements hidden by default CSS...</p>
-<pre><code class="lang-css">/* style.css (Beer Flight-ready CSS) */
-/* alert is hidden by default */
+<pre><code class="lang-css">/* alert is hidden by default */
 #alert { display: none; }
 #alert.show-me { display: block; }
 </code></pre>

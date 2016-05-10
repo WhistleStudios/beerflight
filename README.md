@@ -29,7 +29,6 @@ Beer Flight is a tool to help demonstrate variations of a web design prototype. 
 CSS for a style variation...
 
 ```css
-/* style.css (Beer Flight-ready CSS) */
 .container { background: red; }
 .container.try-blue { background: blue; }
 ```
@@ -37,6 +36,7 @@ CSS for a style variation...
 ...can be triggered with markup like this:
 
 ```html
+<!-- index.html (Beer Flight button HTML) -->
 <button beerflight-taster="Red"></button>
 <button beerflight-taster="Blue"
   beerflight-selector=".container"
@@ -48,8 +48,7 @@ CSS for a style variation...
 Elements hidden by default CSS...
 
 ```css
-/* style.css (Beer Flight-ready CSS) */
-/* alert is hidden by default */
+/* #alert is hidden by default */
 #alert { display: none; }
 #alert.show-me { display: block; }
 ```
