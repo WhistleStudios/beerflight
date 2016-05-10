@@ -1,5 +1,5 @@
-$coaster-height: 50px;
-$coaster-width: 50px;
+$coaster-height: 46px;
+$coaster-width: 46px;
 
 /* hide beerflight stuff by default */
 [data-beerflight-taster], [beerflight-taster],
@@ -116,6 +116,17 @@ $coaster-width: 50px;
 
       -webkit-animation-name: bounceInRight;
       animation-name: bounceInRight;
+      -webkit-animation-delay: 0.2s;
+      animation-delay: 0.2s;
+      -webkit-animation-duration: 0.2s;
+      animation-duration: 0.2s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+
+    &.beerflight-is-going-away .group {
+      -webkit-animation-name: bounceOutRight;
+      animation-name: bounceOutRight;
       -webkit-animation-delay: 0.2s;
       animation-delay: 0.2s;
       -webkit-animation-duration: 0.2s;

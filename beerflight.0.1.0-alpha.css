@@ -62,6 +62,15 @@
       animation-duration: 0.2s;
       -webkit-animation-fill-mode: both;
       animation-fill-mode: both; }
+    #beerflight #beerflight-paddle.beerflight-is-going-away .group {
+      -webkit-animation-name: bounceOutRight;
+      animation-name: bounceOutRight;
+      -webkit-animation-delay: 0.2s;
+      animation-delay: 0.2s;
+      -webkit-animation-duration: 0.2s;
+      animation-duration: 0.2s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both; }
 
 @-webkit-keyframes bounceInRight {
   from, 60%, 75%, 90%, to {
