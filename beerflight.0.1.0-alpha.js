@@ -151,9 +151,23 @@ var beerFlight = {
     beerflightPaddle.appendChild(tasterGroup);
 
     beerflightContainer.appendChild(beerflightPaddle);
-    document.body.appendChild(beerflightContainer); // attach Beer Flight to DOM
 
-    // generate whistle logofader
+    // check to see if user requested paddle to be attached to specific element
+    // <button beerflight-position-absolute></button>
+
+    if (document.querySelector('[data-beerflight-position-absolute],[beerflight-position-absolute]')) {
+      // figure out where parent element of buttons
+      var target = document.querySelector('[data-beerflight-taster],[beerflight-taster]').parentElement;
+
+      // add `beerflight-is-attached-to-element` class
+      beerflightContainer.classList.add('beerflight-is-attached-to-element');
+
+      // append the paddle to that element
+      target.appendChild(beerflightContainer);
+      this.debugLog('Beer Flight paddle attached to ' + target.nodeName);
+    } else { // default make it fixed to the viewport
+      document.body.appendChild(beerflightContainer); // attach Beer Flight to DOM
+    }
 
     var beerFlightButton = document.createElement('button');
     beerFlightButton.setAttribute('id', this.elementIds.mainButton);
