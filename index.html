@@ -48,25 +48,21 @@
 
 <p>Beer Flight is a tool to help demonstrate variations of a web design prototype. It&#39;s perfect for UX designers familiar with HTML &amp; CSS to show (not tell) people what an experience would be like.</p>
 <h2 id="get-started">Get started</h2>
-<ol>
 
-<li>
-<p>Add the Beer Flight script to your HTML prototype.</p>
+<p>1. Add the Beer Flight script to your HTML prototype.</p>
 <pre><code class="lang-html">&lt;script src=&quot;/path/to/beerflight.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-</li>
 
-<li>
-<p>Add taster buttons to enable variations. Each button adds or removes a CSS class to elements on the page. The markup for a Beer Flight taster button looks like this:</p>
+<p>2. Add taster buttons to enable variations. Each button adds or removes a CSS class to elements on the page. The markup for a Beer Flight taster button looks like this:</p>
 <pre><code class="lang-html">&lt;button beerflight-taster=&quot;TASTER LABEL&quot;
   beerflight-selector=&quot;CSS-SELECTOR&quot;
   beerflight-class=&quot;CSS-CLASS-NAME&quot;&gt;&lt;/button&gt;
 </code></pre>
-</li>
-<li><p>Pour and serve.</p></li>
-</ol>
+
+<p>3. Pour and serve.</p>
+
 <h2 id="examples">Examples</h2>
-<h3 id="versions">Versions</h3>
+<!-- <h3 id="versions">Versions</h3> -->
 
 <div class="demo-container">
   <iframe class="demo" src="demo1.html" height="100%" width="100%"></iframe>
@@ -77,12 +73,13 @@
 .container.try-blue { background: blue; }
 </code></pre>
 <p>...can be triggered with markup like this:</p>
-<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Red&quot;&gt;&lt;/button&gt;
+<pre><code class="lang-html">&lt;!-- index.html (Beer Flight button HTML) --&gt;
+&lt;button beerflight-taster=&quot;Red&quot;&gt;&lt;/button&gt;
 &lt;button beerflight-taster=&quot;Blue&quot;
   beerflight-selector=&quot;.container&quot;
   beerflight-class=&quot;try-blue&quot;&gt;&lt;/button&gt;
 </code></pre>
-<h3 id="notifications">Notifications</h3>
+<!-- <h3 id="notifications">Notifications</h3> -->
 
 <div class="demo-container">
   <iframe class="demo" src="demo2.html" height="100%" width="100%"></iframe>

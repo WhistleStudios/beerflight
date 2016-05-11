@@ -24,7 +24,7 @@ Beer Flight is a tool to help demonstrate variations of a web design prototype. 
 
 ## Examples
 
-### Versions
+<div class="demo-container"><iframe class="demo" src="demo1.html" height="100%" width="100%"></iframe></div>
 
 CSS for a style variation...
 
@@ -43,7 +43,7 @@ CSS for a style variation...
   beerflight-class="try-blue"></button>
 ```
 
-### Notifications
+<div class="demo-container"><iframe class="demo" src="demo2.html" height="100%" width="100%"></iframe></div>
 
 Elements hidden by default CSS...
 
