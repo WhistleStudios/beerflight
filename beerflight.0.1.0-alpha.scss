@@ -1,6 +1,12 @@
 $coaster-height: 46px;
 $coaster-width: 46px;
 
+$bounce-duration: 0.2s;
+$bounce-delay: 0.2s;
+
+$transition-duration: 0.2s;
+$transition-delay: 0.2s;
+
 /* hide beerflight stuff by default */
 [data-beerflight-taster], [beerflight-taster],
 [data-beerflight-selector], [beerflight-selector],
@@ -110,11 +116,11 @@ $coaster-width: 46px;
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
 
-    -webkit-transition: transform 300ms;
-    -moz-transition: transform 300ms;
-    -ms-transition: transform 300ms;
-    -o-transition: transform 300ms;
-    transition: transform 300ms;
+    -webkit-transition: $transition-duration transform $transition-delay;
+    -moz-transition: $transition-duration transform $transition-delay;
+    -ms-transition: $transition-duration transform $transition-delay;
+    -o-transition: $transition-duration transform $transition-delay;
+    transition: $transition-duration transform $transition-delay;
   }
 
   &.beerflight-is-served #beerflight-coaster {
@@ -153,10 +159,10 @@ $coaster-width: 46px;
 
       -webkit-animation-name: bounceInRight;
       animation-name: bounceInRight;
-      -webkit-animation-delay: 0.2s;
-      animation-delay: 0.2s;
-      -webkit-animation-duration: 0.2s;
-      animation-duration: 0.2s;
+      -webkit-animation-delay: $bounce-delay;
+      animation-delay: $bounce-delay;
+      -webkit-animation-duration: $bounce-duration;
+      animation-duration: $bounce-duration;
       -webkit-animation-fill-mode: both;
       animation-fill-mode: both;
     }
@@ -168,10 +174,10 @@ $coaster-width: 46px;
     .group { // FIXME not sure why blanketing !importants was required here
       -webkit-animation-name: bounceOutRight !important;
       animation-name: bounceOutRight !important;
-      -webkit-animation-delay: 0.2s !important;
-      animation-delay: 0.2s !important;
-      -webkit-animation-duration: 0.2s !important;
-      animation-duration: 0.2s !important;
+      -webkit-animation-delay: $bounce-delay !important;
+      animation-delay: $bounce-delay !important;
+      -webkit-animation-duration: $bounce-duration !important;
+      animation-duration: $bounce-duration !important;
       -webkit-animation-fill-mode: both !important;
       animation-fill-mode: both !important;
     }
