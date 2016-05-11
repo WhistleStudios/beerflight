@@ -13,6 +13,7 @@
   z-index: 99999;
   padding-right: 50px; }
   #beerflight button, #beerflight button:hover, #beerflight button:focus, #beerflight button:active {
+    float: right;
     margin: 2px 2px 0px;
     padding: 12px 16px;
     color: #fff !important;
@@ -29,7 +30,6 @@
     text-overflow: ellipsis; }
     @media screen and (max-width: 400px) {
       #beerflight button, #beerflight button:hover, #beerflight button:focus, #beerflight button:active {
-        float: right;
         clear: right; } }
     #beerflight button.beerflight-active-taster, #beerflight button.beerflight-active-taster:hover, #beerflight button:hover.beerflight-active-taster, #beerflight button:hover.beerflight-active-taster:hover, #beerflight button:focus.beerflight-active-taster, #beerflight button:focus.beerflight-active-taster:hover, #beerflight button:active.beerflight-active-taster, #beerflight button:active.beerflight-active-taster:hover {
       border: 2px solid rgba(0, 0, 0, 0.5) !important;
