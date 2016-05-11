@@ -1,13 +1,8 @@
-/* hide beerflight stuff by default */
+/* hide Beer Flight HTML by default */
 [data-beerflight-taster], [beerflight-taster],
 [data-beerflight-selector], [beerflight-selector],
 [data-beerflight-class], [beerflight-class] {
   display: none; }
-
-.selector {
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg); }
 
 #beerflight {
   position: fixed;
