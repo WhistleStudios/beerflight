@@ -1,6 +1,9 @@
 $coaster-height: 46px;
 $coaster-width: 46px;
 
+$break-small: 400px;
+$break-large: 1200px;
+
 $bounce-duration: 0.2s;
 $bounce-delay: 0.2s;
 
@@ -32,7 +35,7 @@ $transition-delay: 0.2s;
   padding-right: $coaster-width + 4px;
 
   button, button:hover, button:focus, button:active { // buttons
-    float: right;
+    // float: right;
     // margin: 0 2px;
     margin: 2px 2px 0px; // provide space for horizontally stacked buttons
     padding: 12px 16px;
@@ -44,6 +47,11 @@ $transition-delay: 0.2s;
     border-radius: 24px;
     background: rgba(0,0,0,0.5) !important;
     z-index: 99999 !important;
+
+    @media screen and (max-width: $break-small) {
+      float: right;
+      clear: right;
+    }
 
     // truncate overly long taster button labels
     max-width: 75vw;
