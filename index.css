@@ -72,8 +72,7 @@ li p {
 
 .demo-container {
   position: relative;
-  background: blue;
-  margin: 1em; }
+  background: blue; }
   .demo-container:before {
     display: block;
     content: "";
@@ -89,5 +88,8 @@ li p {
 
 pre + .demo-container {
   margin-top: 4em; }
+
+.demo-container + p {
+  margin-top: 1em; }
 
 /*# sourceMappingURL=index.css.map */
