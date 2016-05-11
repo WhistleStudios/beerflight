@@ -117,6 +117,7 @@ var beerFlight = {
       beerflightStyleLinkDebug.rel = 'stylesheet';
       beerflightStyleLinkDebug.href = '../' + this.stylesheetHref;
       document.getElementsByTagName('head')[0].appendChild(beerflightStyleLinkDebug);
+      console.log('DebugMode tries to load an extra fallback stylesheet (../). Expect one ERR_FILE_NOT_FOUND console message for one of the Beer Flight stylesheets.');
     }
   },
 
