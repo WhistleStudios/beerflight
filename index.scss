@@ -1,29 +1,4 @@
-/*html, body {
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  box-sizing: border-box;
-  width: 100vw;
-  background: orange;
-  color: white;
-  margin: 0;
-  padding: 1.6em;
-  text-align: center;
-  background: linear-gradient( -90deg, #F4A019, #D84200 );
-}
-
-header h1 {
-  font-size: 360%;
-  color: #6D3400;
-}
-
-header h2 {
-  font-size: 120%;
-  font-weight: normal;
-}*/
+html, body { background-color: white !important; }
 
 header {
   background: linear-gradient( -90deg, #F4A019, #D84200 );
@@ -105,14 +80,11 @@ li p {
     left: 0;
     right: 0;
     bottom: 0;
-    background:red;
   }
 }
 
 .demo-container {
   @include aspect-ratio(12, 7);
-  background: blue;
-  // margin: 1em;
 
 }
 
