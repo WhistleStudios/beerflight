@@ -36,7 +36,7 @@ CSS for a style variation...
 ...can be triggered with markup like this:
 
 ```html
-<!-- index.html (Beer Flight button HTML) -->
+<!-- HTML for Beer Flight buttons -->
 <button beerflight-taster="Red"></button>
 <button beerflight-taster="Blue"
   beerflight-selector=".container"
@@ -56,7 +56,7 @@ Elements hidden by default CSS...
 ...can be revealed with buttons like these:
 
 ```html
-<!-- index.html (Beer Flight button HTML) -->
+<!-- HTML for Beer Flight buttons -->
 <button beerflight-taster="Home"></button>
 <button beerflight-taster="Notification"
   beerflight-selector="#alert"
