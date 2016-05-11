@@ -3,7 +3,7 @@ var beerFlight = {
   // BEER FLIGHT CONFIGURATION
 
   // console.log debug messages yes or no
-  debugMode: true, // FIXME set me to false before release
+  debugMode: false, // FIXME set me to false before release
   // link to stylesheet used for Beer Flight elements
   stylesheetHref: 'beerflight.0.1.0-alpha.css', // FIXME must use CDN
 
