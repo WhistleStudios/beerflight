@@ -53,6 +53,12 @@ $coaster-width: 46px;
     background: rgba(0,0,0,0.5) !important;
     z-index: 99999 !important;
 
+    // truncate overly long taster button labels
+    max-width: 75vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     &.beerflight-active-taster,
     &.beerflight-active-taster:hover // no changes on hover for selected button
     {
