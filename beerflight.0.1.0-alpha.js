@@ -180,7 +180,7 @@ var beerFlight = {
           setTimeout(function() {
             beerflightContainer.classList.remove('beerflight-is-going-away');
             beerflightPaddle.style.display = 'none';
-          }, 1000);
+          }, 300);
 
           // beerflightPaddle.style.display = 'none';
           // beerFlightButton.innerHTML = '<span>' + bf.svg.plus + '</span>';
