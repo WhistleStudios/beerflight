@@ -1,7 +1,7 @@
 $coaster-height: 46px;
 $coaster-width: 46px;
 
-$break-small: 400px;
+$break-small: 767px;
 $break-large: 1200px;
 
 $bounce-duration: 0.2s;
@@ -69,7 +69,7 @@ $transition-delay: 0.2s;
     }
 
     &:hover {
-      background: rgba(0,0,0,0.45) !important;
+      background: rgba(0,0,0,0.5) !important;
       cursor: pointer;
     }
 

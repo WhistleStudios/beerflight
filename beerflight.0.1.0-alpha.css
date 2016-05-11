@@ -28,7 +28,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 767px) {
       #beerflight button, #beerflight button:hover, #beerflight button:focus, #beerflight button:active {
         clear: right; } }
     #beerflight button.beerflight-active-taster, #beerflight button.beerflight-active-taster:hover, #beerflight button:hover.beerflight-active-taster, #beerflight button:hover.beerflight-active-taster:hover, #beerflight button:focus.beerflight-active-taster, #beerflight button:focus.beerflight-active-taster:hover, #beerflight button:active.beerflight-active-taster, #beerflight button:active.beerflight-active-taster:hover {
@@ -37,7 +37,7 @@
       color: rgba(0, 0, 0, 0.5) !important;
       cursor: default; }
     #beerflight button:hover, #beerflight button:hover:hover, #beerflight button:focus:hover, #beerflight button:active:hover {
-      background: rgba(0, 0, 0, 0.45) !important;
+      background: rgba(0, 0, 0, 0.5) !important;
       cursor: pointer; }
     #beerflight button::-moz-focus-inner, #beerflight button:hover::-moz-focus-inner, #beerflight button:focus::-moz-focus-inner, #beerflight button:active::-moz-focus-inner, #beerflight button:hover::-moz-focus-inner, #beerflight button:hover:hover::-moz-focus-inner, #beerflight button:hover:focus::-moz-focus-inner, #beerflight button:hover:active::-moz-focus-inner, #beerflight button:focus::-moz-focus-inner, #beerflight button:focus:hover::-moz-focus-inner, #beerflight button:focus:focus::-moz-focus-inner, #beerflight button:focus:active::-moz-focus-inner, #beerflight button:active::-moz-focus-inner, #beerflight button:active:hover::-moz-focus-inner, #beerflight button:active:focus::-moz-focus-inner, #beerflight button:active:active::-moz-focus-inner {
       border: 0;
