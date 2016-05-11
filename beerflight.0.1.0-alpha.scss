@@ -34,6 +34,12 @@ $transition-delay: 0.2s;
 
   padding-right: $coaster-width + 4px;
 
+  // stack buttons on top of coaster on small screens
+  @media screen and (max-width: $break-small) {
+    padding-right: 0;
+    padding-bottom: $coaster-height + 4px;
+  }
+
   button, button:hover, button:focus, button:active { // buttons
     // float: right;
     // margin: 0 2px;
