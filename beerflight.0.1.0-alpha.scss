@@ -147,7 +147,11 @@ $coaster-width: 46px;
       animation-fill-mode: both;
     }
 
-    &.beerflight-is-going-away .group {
+  }
+
+  &.beerflight-is-going-away {
+
+    .group {
       -webkit-animation-name: bounceOutRight;
       animation-name: bounceOutRight;
       -webkit-animation-delay: 0.2s;
@@ -158,7 +162,12 @@ $coaster-width: 46px;
       animation-fill-mode: both;
     }
 
+    #beerflight-coaster {
+      cursor: default; // make button look not clickable when animiation in effect
+    }
+
   }
+
 
 }
 

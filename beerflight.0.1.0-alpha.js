@@ -165,24 +165,30 @@ var beerFlight = {
     beerFlightButton.addEventListener('click', function(e) {
       e.preventDefault();
 
-      beerflightContainer.classList.toggle('beerflight-is-served')
+      // if the button is mid-animation, don't let it be pressed
+      if (!beerflightContainer.classList.contains('beerflight-is-going-away')) {
 
-      // beerFlightButton.classList.toggle('beerflight-paddle-not-served');
-      if (beerflightPaddle.style.display == 'none') {
-        beerflightPaddle.style.display = '';
-        // beerFlightButton.innerHTML = '<span>' + bf.svg.x + '</span>';
-        // beerFlightButton.innerHTML = bf.svg.x;
-      } else {
-        beerflightPaddle.classList.add('beerflight-is-going-away');
-        setTimeout(function() {
-          beerflightPaddle.classList.remove('beerflight-is-going-away');
-          beerflightPaddle.style.display = 'none';
-        }, 1000);
+        beerflightContainer.classList.toggle('beerflight-is-served')
 
-        // beerflightPaddle.style.display = 'none';
-        // beerFlightButton.innerHTML = '<span>' + bf.svg.plus + '</span>';
-        //  beerFlightButton.innerHTML = bf.svg.plus;
+        // beerFlightButton.classList.toggle('beerflight-paddle-not-served');
+        if (beerflightPaddle.style.display == 'none') {
+          beerflightPaddle.style.display = '';
+          // beerFlightButton.innerHTML = '<span>' + bf.svg.x + '</span>';
+          // beerFlightButton.innerHTML = bf.svg.x;
+        } else {
+          beerflightContainer.classList.add('beerflight-is-going-away');
+          setTimeout(function() {
+            beerflightContainer.classList.remove('beerflight-is-going-away');
+            beerflightPaddle.style.display = 'none';
+          }, 1000);
+
+          // beerflightPaddle.style.display = 'none';
+          // beerFlightButton.innerHTML = '<span>' + bf.svg.plus + '</span>';
+          //  beerFlightButton.innerHTML = bf.svg.plus;
+        }
+
       }
+
     });
 
     document.getElementById(this.elementIds.paddleContainer).appendChild(beerFlightButton);
