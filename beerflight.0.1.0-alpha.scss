@@ -110,8 +110,11 @@ $coaster-width: 46px;
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
 
-    transition: 300ms linear all; // FIXME to target this to just the rotation and not the other stuff?
-    // transition: 1ms ease rotate;
+    -webkit-transition: transform 300ms;
+    -moz-transition: transform 300ms;
+    -ms-transition: transform 300ms;
+    -o-transition: transform 300ms;
+    transition: transform 300ms;
   }
 
   &.beerflight-is-served #beerflight-coaster {

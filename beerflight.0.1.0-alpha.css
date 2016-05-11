@@ -59,7 +59,11 @@
     -ms-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
-    transition: 300ms linear all; }
+    -webkit-transition: transform 300ms;
+    -moz-transition: transform 300ms;
+    -ms-transition: transform 300ms;
+    -o-transition: transform 300ms;
+    transition: transform 300ms; }
   #beerflight.beerflight-is-served #beerflight-coaster {
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
