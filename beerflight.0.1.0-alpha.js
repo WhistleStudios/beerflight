@@ -1,26 +1,30 @@
 var beerflight = {
 
-  // CONFIGURATION
-
-  // # Style Note
+  // # STYLE
 
   // All references to Beer Flight in code are styled thusly:
   // `beerflight` (one word, all lowercase)
 
+  // # CONFIGURATION
+
   // Show debugging messages, yes or no
   debugMode: false,
+  // debugMode: true,
 
-  // Link to stylesheet used for Beer Flight elements
+  // ## Stylesheet Location
+
   // FIXME by choosing stylesheet and uncommenting it:
 
-  // stylesheetHref: 'beerflight.0.1.0-alpha.css', // local
+  // - local
+  // stylesheetHref: 'beerflight.0.1.0-alpha.css',
 
-  // RawGit development
+  // - RawGit development
   stylesheetHref: 'https://rawgit.com/WhistleStudios/beerflight/master/beerflight.0.1.0-alpha.css',
 
-  // RawGit CDN production
+  // - RawGit CDN production
   // stylesheetHref: 'https://cdn.rawgit.com/WhistleStudios/beerflight/master/beerflight.0.1.0-alpha.css',
 
+  // ## Analytics Mode
   analytics: {
     enabled: true, // turn me on or off
     ua: 'UA-XXXXX-Y', // FIXME
@@ -28,7 +32,7 @@ var beerflight = {
     fields: {} // not used
   },
 
-  // CUSTOMIZATION
+  // # CUSTOMIZATION
 
   // HTML element attribute namespace and attribute names
   // attributeNamespace: 'beerflight', // not yet used TODO
@@ -61,7 +65,7 @@ var beerflight = {
   // DOM elements the user has added to activate and configure Beer Flight
   tasters: undefined, // set on init with document.querySelectorAll
 
-  // HELPERS
+  // # HELPERS
 
   // get all the Beer Flight button elements from the page
   getButtons: function() {
@@ -125,7 +129,7 @@ var beerflight = {
 
   },
 
-  // INITIALIZATION
+  // # INITIALIZATION
 
   loadStyles: function() {
     var beerflightStyleLink = document.createElement('link');
@@ -165,7 +169,6 @@ var beerflight = {
       }
 
     }
-
 
     // create the Beer Flight paddle
     var beerflightContainer = document.createElement('div');
