@@ -1,14 +1,37 @@
-var beerFlight = {
+var beerflight = {
 
-  // BEER FLIGHT CONFIGURATION
+  // CONFIGURATION
 
-  // console.log debug messages yes or no
-  debugMode: false, // FIXME set me to false before release
-  // link to stylesheet used for Beer Flight elements
-  stylesheetHref: 'beerflight.0.1.0-alpha.css', // FIXME must use CDN
+  // # Style Note
+
+  // All references to Beer Flight in code are styled thusly:
+  // `beerflight` (one word, all lowercase)
+
+  // Show debugging messages, yes or no
+  debugMode: false,
+
+  // Link to stylesheet used for Beer Flight elements
+  // FIXME by choosing stylesheet and uncommenting it:
+
+  // stylesheetHref: 'beerflight.0.1.0-alpha.css', // local
+
+  // RawGit development
+  stylesheetHref: 'https://rawgit.com/WhistleStudios/beerflight/master/beerflight.0.1.0-alpha.css',
+
+  // RawGit CDN production
+  // stylesheetHref: 'https://cdn.rawgit.com/WhistleStudios/beerflight/master/beerflight.0.1.0-alpha.css',
+
+  analytics: {
+    enabled: true, // turn me on or off
+    ua: 'UA-XXXXX-Y', // FIXME
+    tracker: 'beerflightTracker',
+    fields: {} // not used
+  },
+
+  // CUSTOMIZATION
 
   // HTML element attribute namespace and attribute names
-  attributeNamespace: 'beerflight', // not yet used TODO
+  // attributeNamespace: 'beerflight', // not yet used TODO
   // labelAttribute: 'taster',
   // selectorAttribute: 'selector',
   // toggleClassAttribute: 'class',
@@ -19,13 +42,6 @@ var beerFlight = {
   //     <div id="beerflight-tasters"><!-- taster buttons --></div>
   //   </div>
   // </div>
-
-  analytics: {
-    enabled: true, // turn me on or off
-    ua: 'UA-XXXXX-Y',
-    tracker: 'beerflightTracker',
-    fields: {} // not used
-  },
 
   elementIds: { // fka = formerly known (in legacy code) as
     paddleContainer: 'beerflight', // fka #fixed-beerflight-container and #beerflight-paddle
@@ -45,7 +61,7 @@ var beerFlight = {
   // DOM elements the user has added to activate and configure Beer Flight
   tasters: undefined, // set on init with document.querySelectorAll
 
-  // HELPER FUNCTIONS
+  // HELPERS
 
   // get all the Beer Flight button elements from the page
   getButtons: function() {
@@ -62,7 +78,6 @@ var beerFlight = {
     if (this.debugMode)
       console.log(msg);
   },
-
 
   toggleTaster: function(index) { // toggle on or off the given taster by index number
 
@@ -110,7 +125,7 @@ var beerFlight = {
 
   },
 
-  // INITIALIZATION FUNCTIONS
+  // INITIALIZATION
 
   loadStyles: function() {
     var beerflightStyleLink = document.createElement('link');
@@ -128,18 +143,10 @@ var beerFlight = {
     }
   },
 
-  // HARD-CODED ASSETS
-
-  // svg: { // switched to using CSS class
-  //   x: '&times;',
-  //   plus: '+',
-  // },
-
-  // initializes Beer Flight by reading document for Beer Flight configuration
-  // markup (data attributes)
+  // Initializes Beer Flight by reading document for config markup (data attributes)
   init: function() {
 
-    // analytics
+    // Set up analytis
 
     if (self == top && this.analytics.enabled) {
 
@@ -197,14 +204,14 @@ var beerFlight = {
       document.body.appendChild(beerflightContainer); // attach Beer Flight to DOM
     }
 
-    var beerFlightButton = document.createElement('button');
-    beerFlightButton.setAttribute('id', this.elementIds.mainButton);
-    // beerFlightButton.innerHTML = '<span>' + this.svg.x + '</span>';
-    // beerFlightButton.innerHTML = this.svg.x;
+    var beerflightButton = document.createElement('button');
+    beerflightButton.setAttribute('id', this.elementIds.mainButton);
+    // beerflightButton.innerHTML = '<span>' + this.svg.x + '</span>';
+    // beerflightButton.innerHTML = this.svg.x;
     beerflightContainer.classList.add('beerflight-is-served');
 
     var bf = this;
-    beerFlightButton.addEventListener('click', function(e) {
+    beerflightButton.addEventListener('click', function(e) {
       e.preventDefault();
 
       // if the button is mid-animation, don't let it be pressed
@@ -212,11 +219,11 @@ var beerFlight = {
 
         beerflightContainer.classList.toggle('beerflight-is-served')
 
-        // beerFlightButton.classList.toggle('beerflight-paddle-not-served');
+        // beerflightButton.classList.toggle('beerflight-paddle-not-served');
         if (beerflightPaddle.style.display == 'none') {
           beerflightPaddle.style.display = '';
-          // beerFlightButton.innerHTML = '<span>' + bf.svg.x + '</span>';
-          // beerFlightButton.innerHTML = bf.svg.x;
+          // beerflightButton.innerHTML = '<span>' + bf.svg.x + '</span>';
+          // beerflightButton.innerHTML = bf.svg.x;
         } else {
           beerflightContainer.classList.add('beerflight-is-going-away');
           setTimeout(function() {
@@ -225,19 +232,19 @@ var beerFlight = {
           }, 300);
 
           // beerflightPaddle.style.display = 'none';
-          // beerFlightButton.innerHTML = '<span>' + bf.svg.plus + '</span>';
-          //  beerFlightButton.innerHTML = bf.svg.plus;
+          // beerflightButton.innerHTML = '<span>' + bf.svg.plus + '</span>';
+          //  beerflightButton.innerHTML = bf.svg.plus;
         }
 
       }
 
     });
 
-    document.getElementById(this.elementIds.paddleContainer).appendChild(beerFlightButton);
+    document.getElementById(this.elementIds.paddleContainer).appendChild(beerflightButton);
 
     this.loadStyles(); // insert beerflight css
 
-    // set the data-bf-taster label designated script tags to beerFlight object
+    // set the data-bf-taster label designated script tags to beerflight object
     this.tasters = document.querySelectorAll('[data-beerflight-taster],[beerflight-taster]');
 
     // default unless otherwise specified with data-bf-taster-default (see below)
@@ -286,5 +293,5 @@ var beerFlight = {
 
 // Wait until the DOM is fully realized before manipulation
 document.addEventListener('DOMContentLoaded', function() {
-  beerFlight.init();
+  beerflight.init();
 });
