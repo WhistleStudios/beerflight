@@ -1,6 +1,6 @@
 # Beer Flight
 
-## Introducing a new way to quickly present web design prototypes
+## Introducing a new way to quickly present web design prototypes
 
 Beer Flight is a tool to help demonstrate variations of a web design prototype. It's perfect for UX designers familiar with HTML & CSS to show (not tell) people what an experience would be like.
 
