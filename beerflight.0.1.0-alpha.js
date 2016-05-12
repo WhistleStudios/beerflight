@@ -20,6 +20,13 @@ var beerFlight = {
   //   </div>
   // </div>
 
+  analytics: {
+    enabled: true, // turn me on or off
+    ua: 'UA-XXXXX-Y',
+    tracker: 'beerflightTracker',
+    fields: {} // not used
+  },
+
   elementIds: { // fka = formerly known (in legacy code) as
     paddleContainer: 'beerflight', // fka #fixed-beerflight-container and #beerflight-paddle
     paddle: 'beerflight-paddle', // fka #fixed-beerflight
@@ -131,6 +138,27 @@ var beerFlight = {
   // initializes Beer Flight by reading document for Beer Flight configuration
   // markup (data attributes)
   init: function() {
+
+    // analytics
+
+    if (self == top && this.analytics.enabled) {
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', this.analytics.ua, 'auto', this.analytics.tracker);
+      ga(this.analytics.tracker + '.send', 'pageview');
+
+      if (this.debugMode) {
+        ga(function() {
+          console.log('Trackers installed:', ga.getAll());
+        });
+      }
+
+    }
+
 
     // create the Beer Flight paddle
     var beerflightContainer = document.createElement('div');
