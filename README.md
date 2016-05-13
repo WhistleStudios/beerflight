@@ -9,7 +9,7 @@ Beer Flight is a tool to help demonstrate variations of a web design prototype. 
 1. Add the Beer Flight script to your HTML prototype.
 
 ```html
-<script src="/path/to/beerflight.js"></script>
+<script src="https://cdn.rawgit.com/WhistleStudios/beerflight/master/beerflight.0.1.0-alpha.js"></script>
 ```
 
 2. Add taster buttons to enable variations. Each button adds or removes a CSS class to elements on the page. The markup for a Beer Flight taster button looks like this:
