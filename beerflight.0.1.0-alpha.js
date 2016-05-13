@@ -26,7 +26,7 @@ var beerflight = {
 
   // ## Analytics Mode
   analytics: {
-    enabled: true, // turn me on or off
+    enabled: false, // turn me on or off
     ua: 'UA-XXXXX-Y', // FIXME
     tracker: 'beerflightTracker',
     fields: {} // not used
@@ -80,7 +80,7 @@ var beerflight = {
   // console.logs a message only if beerflight.debugMode == true
   debugLog: function(msg) {
     if (this.debugMode)
-      console.log(msg);
+      console.log('BF:', msg);
   },
 
   toggleTaster: function(index) { // toggle on or off the given taster by index number
@@ -182,6 +182,11 @@ var beerflight = {
 
     }
 
+    // Check to see if user explicitly requested debug messages
+    if (document.querySelector('[data-beerflight-debug],[beerflight-debug]')) {
+      this.debugMode = !this.debugMode;
+    }
+
     // create the Beer Flight paddle
     var beerflightContainer = document.createElement('div');
     beerflightContainer.setAttribute('id', this.elementIds.paddleContainer);
@@ -214,7 +219,7 @@ var beerflight = {
 
       // append the paddle to that element
       target.appendChild(beerflightContainer);
-      this.debugLog('Beer Flight paddle attached to ' + target.nodeName);
+      this.debugLog('paddle attached to ' + target.nodeName);
     } else { // default make it fixed to the viewport
       document.body.appendChild(beerflightContainer); // attach Beer Flight to DOM
     }
@@ -265,12 +270,12 @@ var beerflight = {
     // default unless otherwise specified with data-bf-taster-default (see below)
     this.currentTasterIndex = 0;
 
-    this.debugLog('Default taster set to 0. ' + this.tasters.length + 'tasters found.');
+    this.debugLog(this.tasters.length + ' tasters found. Default taster set to #0.');
 
     for (var i = 0; i < this.tasters.length; i++) {
 
       // set default taster as specified by user with data-bf-taster-default
-      if (this.tasters[i].dataset.beerflightDefault === '' || this.tasters[i].getAttribute('beerflight-default')) {
+      if (this.tasters[i].dataset.beerflightDefault === '' || this.tasters[i].getAttribute('beerflight-default') === '') {
         this.currentTasterIndex = i;
         this.debugLog('Default taster set to', i);
       }
