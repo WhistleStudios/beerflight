@@ -24,6 +24,9 @@ var beerflight = {
   // - RawGit CDN production
   // stylesheetHref: 'https://cdn.rawgit.com/WhistleStudios/beerflight/master/beerflight.0.1.0-alpha.css',
 
+  // - local stylesheet (only used if local stylesheet is requested via data attribute)
+  localStylesheetHref: 'beerflight.0.1.0-alpha.css',
+
   // ## Analytics Mode
   analytics: {
     enabled: false, // turn me on or off
@@ -83,6 +86,10 @@ var beerflight = {
       console.log('BF:', msg);
   },
 
+  queryDocForAttribute: function(dataAttribute) {
+    return document.querySelector('[data-' + dataAttribute + '],[' + dataAttribute + ']');
+  },
+
   toggleTaster: function(index) { // toggle on or off the given taster by index number
 
     // get the given taster's toggle target (selector) from the data attribute
@@ -137,11 +144,11 @@ var beerflight = {
     beerflightStyleLink.rel = 'stylesheet';
 
     // check for specified (non-CDN) BF stylesheet (development)
-    var localOption = document.querySelector('[data-beerflight-local-css],[beerflight-local-css]');
+    var localOption = this.queryDocForAttribute('beerflight-local-css');
 
     if (localOption) {
       var localStylesheet = localOption.getAttribute('data-beerflight-local-css') || localOption.getAttribute('beerflight-local-css');
-      beerflightStyleLink.href = localStylesheet || 'beerflight.0.1.0-alpha.css';
+      beerflightStyleLink.href = localStylesheet || this.localStylesheetHref;
     } else {
       beerflightStyleLink.href = this.stylesheetHref;
     }
@@ -183,9 +190,8 @@ var beerflight = {
     }
 
     // Check to see if user explicitly requested debug messages
-    if (document.querySelector('[data-beerflight-debug],[beerflight-debug]')) {
+    if (this.queryDocForAttribute('beerflight-debug'))
       this.debugMode = !this.debugMode;
-    }
 
     // create the Beer Flight paddle
     var beerflightContainer = document.createElement('div');
@@ -210,9 +216,9 @@ var beerflight = {
     // check to see if user requested paddle to be attached to specific element
     // <button beerflight-position-absolute></button>
 
-    if (document.querySelector('[data-beerflight-position-absolute],[beerflight-position-absolute]')) {
+    if (this.queryDocForAttribute('beerflight-position-absolute')) {
       // figure out where parent element of buttons
-      var target = document.querySelector('[data-beerflight-taster],[beerflight-taster]').parentElement;
+      var target = this.queryDocForAttribute('beerflight-taster').parentElement;
 
       // add `beerflight-is-attached-to-element` class
       beerflightContainer.classList.add('beerflight-is-attached-to-element');
