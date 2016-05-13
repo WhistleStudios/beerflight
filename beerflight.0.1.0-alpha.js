@@ -137,7 +137,7 @@ var beerflight = {
     beerflightStyleLink.rel = 'stylesheet';
 
     // check for specified (non-CDN) BF stylesheet (development)
-    var localOption = document.querySelector('data-beerflight-local-css,beerflight-local-css');
+    var localOption = document.querySelector('[data-beerflight-local-css],[beerflight-local-css]');
 
     if (localOption) {
       var localStylesheet = localOption.getAttribute('data-beerflight-local-css') || localOption.getAttribute('beerflight-local-css');
@@ -145,6 +145,7 @@ var beerflight = {
     } else {
       beerflightStyleLink.href = this.stylesheetHref;
     }
+    this.debugLog('Using stylesheet: ' + beerflightStyleLink.href);
 
     document.getElementsByTagName('head')[0].appendChild(beerflightStyleLink);
 
