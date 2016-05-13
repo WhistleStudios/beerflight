@@ -30,7 +30,7 @@ var beerflight = {
   // ## Analytics Mode
   analytics: {
     enabled: false, // turn me on or off
-    ua: 'UA-XXXXX-Y', // FIXME
+    ua: 'UA-77748019-2', // 'UA-XXXXX-Y',
     tracker: 'beerflightTracker',
     fields: {} // not used
   },
