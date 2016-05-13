@@ -277,7 +277,7 @@ var beerflight = {
       // set default taster as specified by user with data-bf-taster-default
       if (this.tasters[i].dataset.beerflightDefault === '' || this.tasters[i].getAttribute('beerflight-default') === '') {
         this.currentTasterIndex = i;
-        this.debugLog('Default taster set to', i);
+        this.debugLog('Default taster set to #' + i);
       }
 
       var button = document.createElement('button');
@@ -299,7 +299,7 @@ var beerflight = {
 
       document.getElementById(this.elementIds.tasterGroup).appendChild(button);
 
-      this.debugLog(label, 'added to paddle.');
+      this.debugLog('Taster "' + label + '" added to paddle.');
 
     }
 
