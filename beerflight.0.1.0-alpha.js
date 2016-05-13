@@ -132,19 +132,30 @@ var beerflight = {
   // # INITIALIZATION
 
   loadStyles: function() {
+
     var beerflightStyleLink = document.createElement('link');
     beerflightStyleLink.rel = 'stylesheet';
-    beerflightStyleLink.href = this.stylesheetHref;
+
+    // check for specified (non-CDN) BF stylesheet (development)
+    var localOption = document.querySelector('data-beerflight-local-css,beerflight-local-css');
+
+    if (localOption) {
+      var localStylesheet = localOption.getAttribute('data-beerflight-local-css') || localOption.getAttribute('beerflight-local-css');
+      beerflightStyleLink.href = localStylesheet || 'beerflight.0.1.0-alpha.css';
+    } else {
+      beerflightStyleLink.href = this.stylesheetHref;
+    }
+
     document.getElementsByTagName('head')[0].appendChild(beerflightStyleLink);
 
-    if (this.debugMode) {
-      // FIXME by removing this
-      var beerflightStyleLinkDebug = document.createElement('link');
-      beerflightStyleLinkDebug.rel = 'stylesheet';
-      beerflightStyleLinkDebug.href = '../' + this.stylesheetHref;
-      document.getElementsByTagName('head')[0].appendChild(beerflightStyleLinkDebug);
-      console.log('DebugMode tries to load an extra fallback stylesheet (../). Expect one ERR_FILE_NOT_FOUND console message for one of the Beer Flight stylesheets.');
-    }
+    // if (this.debugMode) {
+    //   // FIXME by removing this
+    //   var beerflightStyleLinkDebug = document.createElement('link');
+    //   beerflightStyleLinkDebug.rel = 'stylesheet';
+    //   beerflightStyleLinkDebug.href = '../' + this.stylesheetHref;
+    //   document.getElementsByTagName('head')[0].appendChild(beerflightStyleLinkDebug);
+    //   console.log('DebugMode tries to load an extra fallback stylesheet (../). Expect one ERR_FILE_NOT_FOUND console message for one of the Beer Flight stylesheets.');
+    // }
   },
 
   // Initializes Beer Flight by reading document for config markup (data attributes)
