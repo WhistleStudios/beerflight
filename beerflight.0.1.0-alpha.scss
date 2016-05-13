@@ -39,8 +39,8 @@ $transition-delay: 0.2s;
     padding-right: 0;
     padding-bottom: $coaster-height + 4px;
   }
-
-  button, button:hover, button:focus, button:active { // buttons
+  // , button:hover, button:focus, button:active
+  button { // buttons
     // float: right;
     // margin: 0 2px;
     margin: 2px 2px 0px; // provide space for horizontally stacked buttons
@@ -75,7 +75,7 @@ $transition-delay: 0.2s;
     }
 
     &:hover {
-      background: rgba(0,0,0,0.5) !important;
+      background: rgba(0,0,0,0.35) !important;
       cursor: pointer;
     }
 
