@@ -6,7 +6,7 @@
 
     <meta property="og:title" content="Beer Flight" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="http://whistlestudios.com/wp-content/uploads/2015/09/og-image.jpg" />
+    <meta property="og:image" content="http://beerflight.io/beerflight-open-graph.jpg" />
     <meta property="og:url" content="http://beerflight.io/" />
 
     <meta property="og:description" content="Let Beer Flight help you show off your web design prototypes" />
@@ -20,13 +20,25 @@
     <meta name="twitter:creator" content="@whistlestudios">
     <meta name="twitter:title" content="Beer Flight - web design prototype presenter">
     <meta name="twitter:description" content="Let Beer Flight help you show off your web design prototypes.">
-    <meta name="twitter:image" content="http://whistlestudios.com/wp-content/uploads/2015/09/og-image.jpg">
+    <meta name="twitter:image" content="http://beerflight.io/beerflight-open-graph.jpg">
 
     <link rel="stylesheet" href="http://whistlestudios.com/wp-content/themes/swell/style.css" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css" />
     <link rel="stylesheet" href="index.css" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-77748019-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
   </head>
 
   <body class="page page-template-default chrome language-markup">
@@ -38,15 +50,15 @@
           <article class="page type-page status-publish has-post-thumbnail hentry">
 
             <header class="main entry-header has-background">
-              <h1 class="entry-title">Beer Flight</h1>
-              <hr class="short" />
-              <span class="meta">Introducing a new way to quickly present web design prototypes</span>
-              <span class="overlay"></span>
-
-<button data-beerflight-taster="Light" data-beerflight-selector="header" data-beerflight-class="try-lighter" style="display: none; !important"></button>
-<button data-beerflight-taster="Medium" data-beerflight-default data-beerflight-position-absolute style="display: none; !important"></button>
-<button data-beerflight-taster="Dark" data-beerflight-selector="header" data-beerflight-class="try-darker" style="display: none; !important"></button>
-
+              <div class="bf">
+                <h1 class="entry-title"><img src="bf.svg" alt="Beer Flight" /></h1>
+                <hr class="short" />
+                <span class="meta">Introducing a new way to quickly present web design prototypes</span>
+                <span class="overlay"></span>
+                <button data-beerflight-taster="Light" data-beerflight-selector="header" data-beerflight-class="try-lighter" style="display: none; !important"></button>
+                <button data-beerflight-taster="Medium" data-beerflight-default data-beerflight-position-absolute style="display: none; !important"></button>
+                <button data-beerflight-taster="Dark" data-beerflight-selector="header" data-beerflight-class="try-darker" style="display: none; !important"></button>
+              </div>
             </header>
 
             <div class="body-wrap">
