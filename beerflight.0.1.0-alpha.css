@@ -36,9 +36,10 @@
         float: right;
         clear: right; } }
     #beerflight button.beerflight-active-taster, #beerflight button.beerflight-active-taster:hover {
-      border: 2px solid rgba(0, 0, 0, 0.5) !important;
-      background: rgba(255, 255, 255, 0.5) !important;
-      color: rgba(0, 0, 0, 0.5) !important;
+      border: 2px solid white !important;
+      background: rgba(0, 0, 0, 0.5) !important;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.5) !important;
+      color: white !important;
       cursor: default; }
     #beerflight button:hover {
       background: rgba(0, 0, 0, 0.35) !important;
@@ -168,5 +169,3 @@
     -moz-transform: rotate(0deg); }
   to {
     -moz-transform: rotate(360deg); } }
-
-/*# sourceMappingURL=beerflight.0.1.0-alpha.css.map */

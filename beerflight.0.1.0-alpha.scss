@@ -69,9 +69,10 @@ $transition-delay: 0.2s;
     &.beerflight-active-taster,
     &.beerflight-active-taster:hover // no changes on hover for selected button
     {
-      border: 2px solid rgba(0,0,0,0.5) !important;
-      background: rgba(255,255,255,0.5) !important;
-      color: rgba(0,0,0,0.5) !important;
+      border: 2px solid rgba(255,255,255,1) !important;
+      background: rgba(0,0,0,.5) !important;
+      box-shadow: 0 0 2px rgba(0,0,0,0.5) !important;
+      color: rgba(255,255,255,1) !important;
       cursor: default;
     }
 
