@@ -19,7 +19,7 @@
   #beerflight button {
     margin: 2px 2px 0px;
     padding: 12px 16px;
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: white !important;
     font: normal 20px/18px sans-serif;
     box-shadow: none;
     outline: none;
@@ -42,7 +42,7 @@
       color: white !important;
       cursor: default; }
     #beerflight button:hover {
-      background: rgba(0, 0, 0, 0.35) !important;
+      background: rgba(0, 0, 0, 0.4) !important;
       cursor: pointer; }
     #beerflight button::-moz-focus-inner, #beerflight button:hover::-moz-focus-inner, #beerflight button:focus::-moz-focus-inner, #beerflight button:active::-moz-focus-inner {
       border: 0;

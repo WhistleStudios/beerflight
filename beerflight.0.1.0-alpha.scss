@@ -46,7 +46,7 @@ $transition-delay: 0.2s;
     margin: 2px 2px 0px; // provide space for horizontally stacked buttons
     padding: 12px 16px;
     // color: #fff !important;
-    color: rgba(255,255,255,0.5) !important;
+    color: rgba(255,255,255,1) !important;
     font: normal 20px/18px sans-serif;
     box-shadow: none;
     outline: none;
@@ -77,7 +77,7 @@ $transition-delay: 0.2s;
     }
 
     &:hover {
-      background: rgba(0,0,0,0.35) !important;
+      background: rgba(0,0,0,0.4) !important;
       cursor: pointer;
     }
 
