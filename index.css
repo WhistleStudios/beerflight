@@ -9,6 +9,12 @@ html, body {
     margin: auto;
     background: url(bfs.svg) no-repeat center center/contain;
     padding: 120px 0; }
+  @media only screen and (max-width: 767px) {
+    #main header.main img {
+      width: 90%; } }
+  @media only screen and (max-width: 1023px) {
+    #main header.main .meta {
+      font-size: 1em !important; } }
 
 header {
   background: linear-gradient(-90deg, #F4A019, #D84200); }
@@ -62,7 +68,7 @@ li p {
     display: block;
     content: "";
     width: 100%;
-    padding-top: 58.33333%; }
+    padding-top: 58.3333333333%; }
   .demo-container > .demo {
     position: absolute;
     top: 0;
@@ -76,4 +82,26 @@ pre + .demo-container {
 .demo-container + p {
   margin-top: 1em; }
 
-/*# sourceMappingURL=index.css.map */
+footer#footer {
+  background: #171717;
+  padding: 30px 15px; }
+  footer#footer * {
+    color: rgba(255, 255, 255, 0.5); }
+  footer#footer .whistle-logo {
+    display: block; }
+    @media only screen and (max-width: 767px) {
+      footer#footer .whistle-logo {
+        width: 100%; } }
+    footer#footer .whistle-logo svg {
+      display: block;
+      margin: 0 auto 15px;
+      width: 100px; }
+  footer#footer .legal {
+    font-family: 'Open Sans',sans-serif; }
+  @media only screen and (min-width: 768px) {
+    footer#footer .whistle-logo {
+      float: left; }
+    footer#footer .about {
+      margin-left: 120px; }
+    footer#footer .legal {
+      margin-left: 120px; } }

@@ -8,7 +8,18 @@ html, body { background-color: white !important; }
     margin: auto;
     background: url(bfs.svg) no-repeat center center / contain;
     padding: 120px 0;
-  }  
+  } 
+
+  @media only screen and (max-width:767px) {
+      img { 
+          width: 90%; 
+          }
+    }
+  @media only screen and (max-width:1023px) {
+      .meta {
+          font-size: 1em !important
+      }
+    }
 }
 
 header {
@@ -67,7 +78,6 @@ pre + p {
  /*background: brown;*/
 }
 
-
 iframe {
   border: 2px solid gray;
 }
@@ -106,4 +116,34 @@ pre + .demo-container {
 
 .demo-container + p {
   margin-top: 1em;
+}
+
+footer#footer {
+    background: #171717;
+    padding: 30px 15px;
+    * {
+        color: rgba(255, 255, 255, 0.5);
+        //font-size: .95em;
+    }
+    .whistle-logo {
+        display: block;
+        @media only screen and (max-width:767px) {
+            width: 100%;
+        }
+        svg { 
+            display: block;
+            margin: 0 auto 15px;
+            width: 100px;
+            }
+    }
+    .legal {
+        font-family: 'Open Sans',sans-serif;
+    }
+    @media only screen and (min-width:768px) {
+        .whistle-logo { float: left; }
+        .about { 
+            margin-left: 120px; }
+        .legal { 
+            margin-left: 120px; }
+        }
 }
