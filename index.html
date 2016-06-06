@@ -127,7 +127,7 @@
 
               <div class="entry-content">
 
-<p>Beer Flight is a tool to help demonstrate variations of a web design prototype. It&#39;s perfect for UX designers familiar with HTML &amp; CSS to show (not tell) people what an experience would be like.</p>
+<p>Beer Flight is a tool to help demonstrate variations of a web design prototype. It&#39;s perfect for UX designers familiar with HTML &amp; CSS to show (not tell) people what an experience would be like. <a title="The case for Beer Flight" href="http://whistlestudios.com/2016/06/the-case-for-beer-flight/" target="_blank">Learn more.</a></p>
 <h2 id="get-started">Get started</h2>
 
 <p>1. Add the Beer Flight script to your HTML prototype.</p>
@@ -135,9 +135,7 @@
 </code></pre>
 
 <p>2. Add taster buttons to enable variations. Each button adds or removes a CSS class to elements on the page. The markup for a Beer Flight taster button looks like this:</p>
-<pre><code class="lang-html">&lt;button beerflight-taster=&quot;TASTER LABEL&quot;
-  beerflight-selector=&quot;CSS-SELECTOR&quot;
-  beerflight-class=&quot;CSS-CLASS-NAME&quot;&gt;&lt;/button&gt;
+<pre><code class="lang-html">&lt;button beerflight-taster=&quot;Label&quot; beerflight-selector=&quot;#selector&quot; beerflight-class=&quot;class&quot;&gt;&lt;/button&gt;
 </code></pre>
 
 <p>3. Pour and serve.</p>
@@ -155,9 +153,7 @@
 <p>...can be triggered with markup like this:</p>
 <pre><code class="lang-html">&lt;!-- HTML for Beer Flight buttons) --&gt;
 &lt;button beerflight-taster=&quot;Red&quot;&gt;&lt;/button&gt;
-&lt;button beerflight-taster=&quot;Blue&quot;
-  beerflight-selector=&quot;.container&quot;
-  beerflight-class=&quot;try-blue&quot;&gt;&lt;/button&gt;
+&lt;button beerflight-taster=&quot;Blue&quot; beerflight-selector=&quot;.container&quot; beerflight-class=&quot;try-blue&quot;&gt;&lt;/button&gt;
 </code></pre>
 
 <div class="demo-container">
@@ -172,9 +168,7 @@
 <p>...can be revealed with buttons like these:</p>
 <pre><code class="lang-html">&lt;!-- HTML for Beer Flight buttons) --&gt;
 &lt;button beerflight-taster=&quot;Home&quot;&gt;&lt;/button&gt;
-&lt;button beerflight-taster=&quot;Notification&quot;
-  beerflight-selector=&quot;#alert&quot;
-  beerflight-class=&quot;show-me&quot;&gt;&lt;/button&gt;
+&lt;button beerflight-taster=&quot;Notification&quot; beerflight-selector=&quot;#alert&quot; beerflight-class=&quot;show-me&quot;&gt;&lt;/button&gt;
 </code></pre>
 
 
