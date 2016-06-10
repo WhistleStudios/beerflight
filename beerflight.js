@@ -19,18 +19,18 @@ var beerflight = {
   // stylesheetHref: 'beerflight.0.1.0-alpha.css',
 
   // - RawGit development
-  stylesheetHref: 'https://rawgit.com/WhistleStudios/beerflight/master/beerflight.0.1.0-alpha.css',
+  stylesheetHref: 'https://rawgit.com/WhistleStudios/beerflight/master/beerflight.css',
 
   // - RawGit CDN production
-  // stylesheetHref: 'https://cdn.rawgit.com/WhistleStudios/beerflight/master/beerflight.0.1.0-alpha.css',
+  // stylesheetHref: 'https://cdn.rawgit.com/WhistleStudios/beerflight/master/beerflight.css',
 
   // - local stylesheet (only used if local stylesheet is requested via data attribute)
   localStylesheetHref: 'beerflight.0.1.0-alpha.css',
 
   // ## Analytics Mode
   analytics: {
-    enabled: false, // turn me on or off
-    ua: 'UA-77748019-2', // 'UA-XXXXX-Y',
+    enabled: true, // turn me on or off
+    ua: 'UA-77748019-3', // 'UA-XXXXX-Y',
     tracker: 'beerflightTracker',
     fields: {} // not used
   },
@@ -101,9 +101,12 @@ var beerflight = {
 
     this.debugLog('toggleTarget: ' + toggleTarget + 'toggleTargets:' + toggleTargets + 'toggleClass:' + toggleClass);
 
-    // toggle the specified class for each element
+    // toggle the specified classes for each element
     for (var i = 0; i < toggleTargets.length; i++) {
-      toggleTargets[i].classList.toggle(toggleClass);
+      toggleClasses = toggleClass.split(' ');
+      for(var j = 0; j < toggleClasses.length; j++) {
+        toggleTargets[i].classList.toggle(toggleClasses[j]);
+      }
     }
 
     // toggle the display of target elements if requested
