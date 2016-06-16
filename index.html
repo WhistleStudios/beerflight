@@ -39,6 +39,8 @@
       ga('send', 'pageview');
     </script>
 
+    <style>.blue { border: solid 1px #00f !important; } .bold { font-weight: bold !important; }</style>
+
   </head>
 
   <body class="page page-template-default chrome language-markup">
@@ -120,6 +122,7 @@
                 <button data-beerflight-taster="Light" data-beerflight-selector="header" data-beerflight-class="try-lighter" style="display: none; !important"></button>
                 <button data-beerflight-taster="Medium" data-beerflight-default style="display: none; !important"></button>
                 <button data-beerflight-taster="Dark" data-beerflight-selector="header" data-beerflight-class="try-darker" style="display: none; !important"></button>
+                <button data-beerflight-taster="Blue" data-beerflight-selector="p" data-beerflight-class="blue bold" style="display: none !important;"></button>
               </div>
             </header>
 
@@ -131,7 +134,7 @@
 <h2 id="get-started">Get started</h2>
 
 <p>1. Add the Beer Flight script to your HTML prototype.</p>
-<pre><code class="lang-html">&lt;script src=&quot;https://cdn.rawgit.com/WhistleStudios/beerflight/master/beerflight.0.1.0-alpha.js&quot;&gt;&lt;/script&gt;
+<pre><code class="lang-html">&lt;script src=&quot;https://cdn.rawgit.com/WhistleStudios/beerflight/master/beerflight.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 
 <p>2. Add taster buttons to enable variations. Each button adds or removes a CSS class to elements on the page. The markup for a Beer Flight taster button looks like this:</p>
@@ -265,7 +268,7 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
-    <script src="https://rawgit.com/WhistleStudios/beerflight/master/beerflight.0.1.0-alpha.js"></script>
+    <script src="../master/beerflight/beerflight.js"></script>
 
   </body>
 </html>
